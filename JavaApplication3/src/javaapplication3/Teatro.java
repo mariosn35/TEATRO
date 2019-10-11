@@ -9,7 +9,7 @@ package javaapplication3;
  *
  * @author DAW105
  */
-public class JavaApplication3 {
+public class Teatro {
 
     /**
      * @param args the command line arguments

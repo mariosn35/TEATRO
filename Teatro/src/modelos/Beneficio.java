@@ -1,23 +1,26 @@
 package modelos;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  *
  * @author Mario
+ * @version 1.0
  */
 public class Beneficio {
-    int entradasvendidas;
-    int precioentrada;
+    private int entradasvendidas;/**Modela las entradas vendidas. Valor positivo.*/
+    private int precioentrada;/*Modela el precio de cada entrada. Valor positivo.*/
 
-    public Beneficio() {
-        
+    public Beneficio() {     
     }
-
+    
+    public Beneficio(int entradasvendidas,int precioentrada) {
+        this.entradasvendidas = entradasvendidas;
+        this.precioentrada = precioentrada;
+    }
+    
+    public Beneficio (Beneficio b) {
+        this.entradasvendidas = b.getEntradasvendidas();
+        this.precioentrada = b.getPrecioentrada();
+    }
     public int getEntradasvendidas() {
         return entradasvendidas;
     }
@@ -38,5 +41,7 @@ public class Beneficio {
     public String toString() {
         return "Beneficio{" + "entradasvendidas=" + entradasvendidas + ", precioentrada=" + precioentrada + '}';
     }
-                    
+    
+    public String data() {return toString;
+    }
 }

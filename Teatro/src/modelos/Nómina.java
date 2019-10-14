@@ -1,23 +1,27 @@
 package modelos;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  *
  * @author Mario
+ * @version 1.0
  */
 public class Nómina {
-    private String mes;
-    private long identificador;
+    private String mes;/*Modela mes. Valor positivo*/
+    private long identificador;/*Modela id. Valor positivo*/
     
     public Nómina() {
         
     }
-
+    
+    public Nómina(String mes,long identificador) {
+         this.mes = mes;       
+         this.identificador = identificador;
+    }
+    
+    public Nómina (Nómina n) {
+        this.mes = n.getMes();      
+        this.identificador = n.getIdentificador();
+    }
     public String getMes() {
         return mes;
     }
@@ -33,7 +37,7 @@ public class Nómina {
     public void setIdentificador(long identificador) {
         this.identificador = identificador;
     }
-
+    
     @Override
     public String toString() {
         return "N\u00f3mina{" + "mes=" + mes + ", identificador=" + identificador + '}';

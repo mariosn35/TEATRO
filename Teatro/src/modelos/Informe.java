@@ -63,5 +63,8 @@ public class Informe {
     public String toString() {
         return "Informe{" + "identificador=" + identificador + ", mes=" + mes + ", a\u00f1o=" + año + ", balance=" + balance + '}';
     }
-       
+    
+    public String data() {
+        return ""+getIdentificador()+"|"+getMes()+"|"+getAño()+"|"+getBalance();
+    }
 }

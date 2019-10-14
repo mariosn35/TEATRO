@@ -42,4 +42,8 @@ public class Nómina {
     public String toString() {
         return "N\u00f3mina{" + "mes=" + mes + ", identificador=" + identificador + '}';
     }
+    
+    public String data() {
+        return ""+getMes()+"|"+getIdentificador();
+    }
 }

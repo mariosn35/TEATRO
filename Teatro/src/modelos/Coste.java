@@ -33,6 +33,6 @@ public class Coste {
     }
     
     public String data() {
-        return "String"+getReportes();
+        return ""+getReportes();
     }           
 }

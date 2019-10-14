@@ -31,5 +31,8 @@ public class Coste {
     public String toString() {
         return "Coste{" + "reportes=" + reportes + '}';
     }
-           
+    
+    public String data() {
+        return "String"+getReportes();
+    }           
 }

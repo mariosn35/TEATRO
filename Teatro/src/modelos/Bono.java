@@ -32,4 +32,8 @@ public class Bono {
         return "Bono{" + "identificador=" + identificador + '}';
     }
     
+    public String data() {
+        return "String"+getIdentificador();
+    }    
+    
 }

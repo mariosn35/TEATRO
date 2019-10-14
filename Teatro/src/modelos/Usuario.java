@@ -32,4 +32,8 @@ public class Usuario {
         return "Usuario{" + "identificador=" + identificador + '}';
     }
     
+    public String data() {
+        return "String"+getIdentificador();
+    }
+    
 }

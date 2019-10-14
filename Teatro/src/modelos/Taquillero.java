@@ -7,8 +7,7 @@ package modelos;
 
 /**
  *
- * @author Andres
- * version 1.0
+ * @author Andres version 1.0
  */
 public class Taquillero {
 
@@ -20,4 +19,7 @@ public class Taquillero {
         return "Taquilleros{" + '}';
     }
 
+    public String data() {
+        return "";
+    }
 }

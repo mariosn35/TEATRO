@@ -11,7 +11,7 @@ package modelos;
  */
 public class Empleado {
 
-    private long identificador;
+    private long id;
     //Modela el identificador propio de cada empleado
     private String nombre;
     //Modela el nombre del empleado en cuestion
@@ -30,14 +30,14 @@ public class Empleado {
     public Empleado(Empleado a) {
         this.apellidos = a.apellidos;
         this.direccion = a.direccion;
-        this.identificador = a.getIdentificador();
+        this.id = a.getId();
         this.nombre = a.nombre;
         this.nif = a.getNif();
         this.telefono = a.getTelefono();
     }
 
-    public Empleado(long identificador, String nombre, String apellidos, int nif, String direccion, int telefono) {
-        this.identificador = identificador;
+    public Empleado(long id, String nombre, String apellidos, int nif, String direccion, int telefono) {
+        this.id = id;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.nif = nif;
@@ -45,12 +45,12 @@ public class Empleado {
         this.telefono = telefono;
     }
 
-    public long getIdentificador() {
-        return identificador;
+    public long getId() {
+        return id;
     }
 
-    public void setIdentificador(long identificador) {
-        this.identificador = identificador;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -95,11 +95,11 @@ public class Empleado {
 
     @Override
     public String toString() {
-        return "Empleados{" + "identificador=" + identificador + ", nombre=" + nombre + ", apellidos=" + apellidos + ", nif=" + nif + ", direccion=" + direccion + ", telefono=" + telefono + '}';
+        return "Empleados{" + "id=" + id + ", nombre=" + nombre + ", apellidos=" + apellidos + ", nif=" + nif + ", direccion=" + direccion + ", telefono=" + telefono + '}';
     }
 
     public String data() {
-        return "" + getIdentificador() + "|" + getNif() + "|" + getNombre() + "|" + getApellidos() + "|" + getTelefono() + "|" + getDireccion();
+        return "" + getId() + "|" + getNif() + "|" + getNombre() + "|" + getApellidos() + "|" + getTelefono() + "|" + getDireccion();
     }
-    
+
 }

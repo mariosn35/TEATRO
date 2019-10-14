@@ -11,7 +11,7 @@ package modelos;
  */
 public class Franquicia {
 
-    private long identificador;
+    private long id;
     //Modela el numero identificador propio de cada franquicia
     private String fecha_creacion;
     //Modela la fecha en la que fueron creadas las franquicias 
@@ -20,8 +20,8 @@ public class Franquicia {
     private boolean accesible;
     //Modela si tiene o no acceso a minusvalidos
 
-    public Franquicia(long identificador, String fecha_creacion, String ubicacion, boolean accesible) {
-        this.identificador = identificador;
+    public Franquicia(long id, String fecha_creacion, String ubicacion, boolean accesible) {
+        this.id = id;
         this.fecha_creacion = fecha_creacion;
         this.ubicacion = ubicacion;
         this.accesible = accesible;
@@ -32,17 +32,17 @@ public class Franquicia {
 
     public Franquicia(Franquicia a) {
         this.fecha_creacion = a.getFecha_creacion();
-        this.identificador = a.getIdentificador();
+        this.id = a.getId();
         this.ubicacion = a.getUbicacion();
         this.accesible = a.isAccesible();
     }
 
-    public long getIdentificador() {
-        return identificador;
+    public long getId() {
+        return id;
     }
 
-    public void setIdentificador(long identificador) {
-        this.identificador = identificador;
+    public void setIdentificador(long id) {
+        this.id = id;
     }
 
     public String getFecha_creacion() {
@@ -71,10 +71,10 @@ public class Franquicia {
 
     @Override
     public String toString() {
-        return "Franquicias{" + "identificador=" + identificador + ", fecha_creacion=" + fecha_creacion + ", ubicacion=" + ubicacion + ", accesible=" + accesible + '}';
+        return "Franquicias{" + "id=" + id + ", fecha_creacion=" + fecha_creacion + ", ubicacion=" + ubicacion + ", accesible=" + accesible + '}';
     }
 
     public String data() {
-        return "" + getIdentificador() + "|" + isAccesible() + "|" + getFecha_creacion() + "|" + getUbicacion();
+        return "" + getId() + "|" + isAccesible() + "|" + getFecha_creacion() + "|" + getUbicacion();
     }
 }

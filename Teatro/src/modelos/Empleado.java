@@ -98,4 +98,8 @@ public class Empleado {
         return "Empleados{" + "identificador=" + identificador + ", nombre=" + nombre + ", apellidos=" + apellidos + ", nif=" + nif + ", direccion=" + direccion + ", telefono=" + telefono + '}';
     }
 
+    public String data() {
+        return "" + getIdentificador() + "|" + getNif() + "|" + getNombre() + "|" + getApellidos() + "|" + getTelefono() + "|" + getDireccion();
+    }
+    
 }

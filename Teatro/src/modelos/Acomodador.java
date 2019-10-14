@@ -38,4 +38,7 @@ public class Acomodador {
         return "Acomodadores{" + "costes=" + costes + '}';
     }
 
+    public String data() {
+        return "" + getCostes();
+    }
 }

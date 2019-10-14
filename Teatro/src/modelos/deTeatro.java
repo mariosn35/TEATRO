@@ -39,4 +39,7 @@ public class deTeatro {
         return "deTeatro{" + "categoria=" + categoria + '}';
     }
 
+    public String data() {
+        return "" + getCategoria();
+    }
 }

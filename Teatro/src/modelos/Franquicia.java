@@ -74,4 +74,7 @@ public class Franquicia {
         return "Franquicias{" + "identificador=" + identificador + ", fecha_creacion=" + fecha_creacion + ", ubicacion=" + ubicacion + ", accesible=" + accesible + '}';
     }
 
+    public String data() {
+        return "" + getIdentificador() + "|" + isAccesible() + "|" + getFecha_creacion() + "|" + getUbicacion();
+    }
 }

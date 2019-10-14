@@ -9,7 +9,8 @@ package modelos;
 
 /**
  *
- * @author roter @version 1
+ * @author roter 
+ * @version 1.0
  */
 public class Grupos {
     private String semana;/** No puede ser 0,

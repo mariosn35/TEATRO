@@ -8,7 +8,8 @@ package modelos;
 
 /**
  *
- * @author roter @version 1
+ * @author roter 
+ * @version 1.0
  */
 public class DeDireccion {
     private int añoscargo;/**Modela a los directores cuantos años llevan en el cargo

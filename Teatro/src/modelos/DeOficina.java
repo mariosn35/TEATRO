@@ -8,16 +8,21 @@ package modelos;
 
 /**
  *
- * @author roter
+ * @author roter @version 1
  */
 public class DeOficina {
-    private int antiguedad;
+    private int antiguedad;/**Modela a los empleados de oficina 
+     *                        cuantos años llevan trabajando en
+     *                        el teatro y puede tomar valores positivos y no puede ser negativo */
 
     public DeOficina() {
     }
 
     public DeOficina(int antiguedad) {
         this.antiguedad = antiguedad;
+    }
+    public DeOficina(DeOficina o) {
+        this.antiguedad = o.getAntiguedad();
     }
 
     

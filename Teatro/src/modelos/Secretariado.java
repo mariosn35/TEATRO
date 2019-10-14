@@ -8,8 +8,17 @@ package modelos;
 
 /**
  *
- * @author roter
+ * @author roter @version 1
  */
 public class Secretariado {
-    
+
+    public Secretariado() {
+    }
+      public Secretariado(Secretariado s) {
+    }
+
+    @Override
+    public String toString() {
+        return "Secretariado{" + '}';
+    }
 }

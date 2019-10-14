@@ -6,7 +6,7 @@ package modelos;
  * @version 1.0
  */
 public class Beneficio {
-    private int entradasvendidas;/**Modela las entradas vendidas. Valor positivo.*/
+    private int entradasvendidas;/*Modela las entradas vendidas. Valor positivo.*/
     private int precioentrada;/*Modela el precio de cada entrada. Valor positivo.*/
 
     public Beneficio() {     
@@ -42,6 +42,7 @@ public class Beneficio {
         return "Beneficio{" + "entradasvendidas=" + entradasvendidas + ", precioentrada=" + precioentrada + '}';
     }
     
-    public String data() {return toString;
+    public String data() {
+        return "String"+getEntradasvendidas()+"|"+getPrecioentrada();
     }
 }

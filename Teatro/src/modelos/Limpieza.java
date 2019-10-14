@@ -22,4 +22,7 @@ public class Limpieza {
     public String toString() {
         return "Limpieza{" + '}';
     }
+     public String data() {
+    return  "";
+    }
 }

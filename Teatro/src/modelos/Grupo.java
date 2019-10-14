@@ -12,24 +12,21 @@ package modelos;
  * @author roter 
  * @version 1.0
  */
-public class Grupos {
+public class Grupo {
     private String semana;/** No puede ser 0,
                           da nombre al grupo en una 
                           determinada semana semana */
 
-    public Grupos() {
+    public Grupo() {
     }
 
-    public Grupos(String semana) {
+    public Grupo(String semana) {
         this.semana = semana;
     }
-    public Grupos(Grupos g) {
+    public Grupo(Grupo g) {
         this.semana = g.getSemana();
     }
-    @Override
-    public String toString() {
-        return "Grupos{" + "semana=" + semana + '}';
-    }
+   
 
     public String getSemana() {
         return semana;
@@ -37,5 +34,12 @@ public class Grupos {
 
     public void setSemana(String semana) {
         this.semana = semana;
+    }
+      @Override
+    public String toString() {
+        return "Grupos{" + "semana=" + semana + '}';
+    }
+     public String data() {
+    return  ""+getSemana();
     }
 }

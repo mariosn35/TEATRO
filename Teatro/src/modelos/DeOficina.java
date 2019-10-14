@@ -39,4 +39,7 @@ public class DeOficina {
     public String toString() {
         return "DeOficina{" + "antiguedad=" + antiguedad + '}';
     }
+    public String data() {
+    return  ""+getAntiguedad();
+    }
 }

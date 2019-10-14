@@ -44,6 +44,6 @@ public class Nómina {
     }
     
     public String data() {
-        return "String"+getMes()+"|"+getIdentificador();
+        return ""+getMes()+"|"+getIdentificador();
     }
 }

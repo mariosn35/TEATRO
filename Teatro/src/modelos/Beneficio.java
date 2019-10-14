@@ -43,6 +43,6 @@ public class Beneficio {
     }
     
     public String data() {
-        return "String"+getEntradasvendidas()+"|"+getPrecioentrada();
+        return ""+getEntradasvendidas()+"|"+getPrecioentrada();
     }
 }

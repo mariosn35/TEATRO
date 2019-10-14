@@ -33,7 +33,7 @@ public class Usuario {
     }
     
     public String data() {
-        return "String"+getIdentificador();
+        return ""+getIdentificador();
     }
     
 }

@@ -65,6 +65,6 @@ public class Informe {
     }
     
     public String data() {
-        return "String"+getIdentificador()+"|"+getMes()+"|"+getAño()+"|"+getBalance();
+        return ""+getIdentificador()+"|"+getMes()+"|"+getAño()+"|"+getBalance();
     }
 }

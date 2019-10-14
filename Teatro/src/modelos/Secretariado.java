@@ -22,4 +22,7 @@ public class Secretariado {
     public String toString() {
         return "Secretariado{" + '}';
     }
+     public String data() {
+    return  "";
+    }
 }

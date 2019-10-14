@@ -33,7 +33,7 @@ public class Bono {
     }
     
     public String data() {
-        return "String"+getIdentificador();
+        return ""+getIdentificador();
     }    
     
 }

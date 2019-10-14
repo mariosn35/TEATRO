@@ -40,7 +40,8 @@ public class DeDireccion {
     public String toString() {
         return "DeDirrecion{" + "a\u00f1oscargo=" + añoscargo + '}';
     }
-public int data() {
- return  getAñoscargo();
+public String data() {
+ return  ""+getAñoscargo();
+
 }
 }

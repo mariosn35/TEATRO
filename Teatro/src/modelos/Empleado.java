@@ -12,11 +12,17 @@ package modelos;
 public class Empleado {
 
     private long identificador;
+    //Modela el identificador propio de cada empleado
     private String nombre;
+    //Modela el nombre del empleado en cuestion
     private String apellidos;
+    //Modela los dos primeros apellidos del empleado
     private int nif;
+    //Modela el NIF del empleado
     private String direccion;
+    //Modela la direccion de empadronamiento del empleado
     private int telefono;
+    //Modela el telefono de contacto del empleado
 
     public Empleado() {
     }

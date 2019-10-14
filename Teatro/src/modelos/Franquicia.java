@@ -12,9 +12,13 @@ package modelos;
 public class Franquicia {
 
     private long identificador;
+    //Modela el numero identificador propio de cada franquicia
     private String fecha_creacion;
+    //Modela la fecha en la que fueron creadas las franquicias 
     private String ubicacion;
+    //Modela la ubicacion en la que se va a representar
     private boolean accesible;
+    //Modela si tiene o no acceso a minusvalidos
 
     public Franquicia(long identificador, String fecha_creacion, String ubicacion, boolean accesible) {
         this.identificador = identificador;

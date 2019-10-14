@@ -9,18 +9,19 @@ package modelos;
  *
  * @author Andres version 1.0
  */
-public class Acomodadore {
+public class Acomodador {
 
     private long costes;
+    //Modela los costes producidos por cada acomod
 
-    public Acomodadore() {
+    public Acomodador() {
     }
 
-    public Acomodadore(Acomodadore a) {
+    public Acomodador(Acomodador a) {
         this.costes = a.getCostes();
     }
 
-    public Acomodadore(long costes) {
+    public Acomodador(long costes) {
         this.costes = costes;
     }
 

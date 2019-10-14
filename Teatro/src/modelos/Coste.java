@@ -1,22 +1,24 @@
 package modelos;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  *
  * @author Mario
+ * @version 1.0
  */
 public class Coste {
-    String reportes;
+    private String reportes;/*Modela el número de reportes. Valor positivo*/
 
     public Coste() {
-        
     }
-
+    
+    public Coste(String reportes) {
+        this.reportes = reportes;
+    }
+    
+    public Coste (Coste c) {
+        this.reportes = c.getReportes();
+    }
+    
     public String getReportes() {
         return reportes;
     }

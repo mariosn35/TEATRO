@@ -1,25 +1,32 @@
 package modelos;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
  *
  * @author Mario
+ * @version 1.0
  */
 public class Informe {
-    private long identificador;
-    private String mes;
-    private String año;
-    private int balance;
+    private long identificador;/*Modela id. Valor positivo*/
+    private String mes;/*Modela el mes. Valor positivo*/
+    private String año;/*Modela el año. Valor positivo*/
+    private int balance;/*Modela balance. Valor positivo*/
     
     public Informe() {
-        
     }
-
+    
+    public Informe(long identificador,String mes,String año,int balance) {
+        this.identificador = identificador;
+        this.mes = mes;
+        this.año = año;
+        this.balance = balance;
+    }
+    
+    public Informe (Informe i) {
+        this.identificador = i.getIdentificador();
+        this.mes = i.getMes();
+        this.año = i.getAño();
+        this.balance = i.getBalance();
+    }
     public long getIdentificador() {
         return identificador;
     }

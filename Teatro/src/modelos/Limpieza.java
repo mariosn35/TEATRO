@@ -8,8 +8,17 @@ package modelos;
 
 /**
  *
- * @author roter
+ * @author roter @version 1
  */
 public class Limpieza {
-    
+
+    public Limpieza() {
+    }
+     public Limpieza(Limpieza l) {
+    }
+
+    @Override
+    public String toString() {
+        return "Limpieza{" + '}';
+    }
 }

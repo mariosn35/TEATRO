@@ -11,17 +11,17 @@ package modelos;
  * @author roter 
  * @version 1.0
  */
-public class Director {
+public class DeDireccion {
     private int añoscargo;/**Modela a los directores cuantos años llevan en el cargo
      *                        puede ser de positivo y no pueden ser negativos */
 
-    public Director() {
+    public DeDireccion() {
     }
 
-    public Director(int añoscargo) {
+    public DeDireccion(int añoscargo) {
         this.añoscargo = añoscargo;
     }
-     public Director(Director d){
+     public DeDireccion(DeDireccion d){
         
         this.añoscargo = d.getAñoscargo();
      

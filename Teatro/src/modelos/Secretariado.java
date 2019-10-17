@@ -8,19 +8,19 @@ package modelos;
 
 /**
  *
- * @author roter 
+ * @author roter
  * @version 1.0
  */
-public class Limpiador {
+public class Secretariado {
 
-    public Limpiador() {
+    public Secretariado() {
     }
-     public Limpiador(Limpiador l) {
+      public Secretariado(Secretariado s) {
     }
 
     @Override
     public String toString() {
-        return "Limpieza{" + '}';
+        return "Secretariado{" + '}';
     }
      public String data() {
     return  "";

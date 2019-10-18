@@ -13,26 +13,48 @@ package modelos;
  * @version 1.0
  */
 public class Grupo {
-    private String semana;/** No puede ser 0,
-                          da nombre al grupo en una 
-                          determinada semana semana */
-
+    private int anno;//**Indica el año de creacion del grupo. Tiene que ser el año actual 
+    private String nombre;//Da nombre al grupo
+    private int semana;/**  Va del 1 al 52 y al pasar de año se reinicia
+                          indica la semana de creacion del grupo  */
+    
+    
     public Grupo() {
     }
 
-    public Grupo(String semana) {
+    public Grupo(int semana,int anno,String nombre) {
         this.semana = semana;
+        this.anno = anno;
+        this.nombre = nombre;
     }
     public Grupo(Grupo g) {
         this.semana = g.getSemana();
     }
-   
 
-    public String getSemana() {
+    public int getAnno() {
+        return anno;
+    }
+
+    public void setAnno(int anno) {
+        this.anno = anno;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+
+  
+
+    public int getSemana() {
         return semana;
     }
 
-    public void setSemana(String semana) {
+    public void setSemana(int semana) {
         this.semana = semana;
     }
       @Override

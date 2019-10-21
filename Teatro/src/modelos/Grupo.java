@@ -13,22 +13,36 @@ package modelos;
  * @version 1.0
  */
 public class Grupo {
+    protected long id;
     private int anno;//**Indica el año de creacion del grupo. Tiene que ser el año actual 
     private String nombre;//Da nombre al grupo
     private int semana;/**  Va del 1 al 52 y al pasar de año se reinicia
                           indica la semana de creacion del grupo  */
     
-    
+   
     public Grupo() {
     }
 
-    public Grupo(int semana,int anno,String nombre) {
+    public Grupo(long id,int semana,int anno,String nombre) {
+        this.id = id;
         this.semana = semana;
         this.anno = anno;
         this.nombre = nombre;
     }
     public Grupo(Grupo g) {
         this.semana = g.getSemana();
+        this.anno = g.getAnno();
+        this.nombre = g.getNombre();
+        this.id = g.getId();
+        
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public int getAnno() {
@@ -57,11 +71,13 @@ public class Grupo {
     public void setSemana(int semana) {
         this.semana = semana;
     }
-      @Override
+
+    @Override
     public String toString() {
-        return "Grupos{" + "semana=" + semana + '}';
+        return "Grupo{" + "id=" + id + ", anno=" + anno + ", nombre=" + nombre + ", semana=" + semana + '}';
     }
+    
      public String data() {
-    return  ""+getSemana();
+    return  ""+getId()+"/"+getAnno()+"/"+getNombre()+"/"+getSemana();
     }
 }

@@ -11,7 +11,7 @@ package modelos;
  */
 public class Empleado {
 
-    private long id;
+    protected long id;
     //Modela el identificador propio de cada empleado
     private String nombre;
     //Modela el nombre del empleado en cuestion
@@ -28,10 +28,10 @@ public class Empleado {
     }
 
     public Empleado(Empleado a) {
-        this.apellidos = a.apellidos;
-        this.direccion = a.direccion;
+        this.apellidos = a.getApellidos();
+        this.direccion = a.getDireccion();
         this.id = a.getId();
-        this.nombre = a.nombre;
+        this.nombre = a.getNombre();
         this.nif = a.getNif();
         this.telefono = a.getTelefono();
     }

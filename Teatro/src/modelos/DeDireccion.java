@@ -12,19 +12,28 @@ package modelos;
  * @version 1.0
  */
 public class DeDireccion {
+    protected long id ;
     private int añoscargo;/**Modela a los directores cuantos años llevan en el cargo
      *                        puede ser de positivo y no pueden ser negativos */
 
     public DeDireccion() {
     }
 
-    public DeDireccion(int añoscargo) {
+    public DeDireccion(long id,int añoscargo) {
         this.añoscargo = añoscargo;
     }
      public DeDireccion(DeDireccion d){
         
         this.añoscargo = d.getAñoscargo();
-     
+        this.id = d.getId();
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
     
 
@@ -36,12 +45,14 @@ public class DeDireccion {
     public void setAñoscargo(int añoscargo) {
         this.añoscargo = añoscargo;
     }
+
     @Override
     public String toString() {
-        return "DeDirrecion{" + "a\u00f1oscargo=" + añoscargo + '}';
+        return "DeDireccion{" + "id=" + id + ", a\u00f1oscargo=" + añoscargo + '}';
     }
+   
 public String data() {
- return  ""+getAñoscargo();
+ return  ""+getId()+"/"+getAñoscargo();
 
 }
 }

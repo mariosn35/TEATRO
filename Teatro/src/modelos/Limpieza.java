@@ -12,17 +12,33 @@ package modelos;
  * @version 1.0
  */
 public class Limpieza {
-
+    protected long id;
     public Limpieza() {
     }
+
+    public Limpieza(long id) {
+        this.id = id;
+    }
+    
      public Limpieza(Limpieza l) {
+         this.id = l.getId();
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     @Override
     public String toString() {
-        return "Limpieza{" + '}';
+        return "Limpieza{" + "id=" + id + '}';
     }
+
+    
      public String data() {
-    return  "";
+    return  ""+getId();
     }
 }

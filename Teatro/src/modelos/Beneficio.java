@@ -1,48 +1,68 @@
 package modelos;
 
+import java.util.Date;
+
 /**
  *
  * @author Mario
  * @version 1.0
  */
 public class Beneficio {
-    private int entradasvendidas;/*Modela las entradas vendidas. Valor positivo.*/
-    private int precioentrada;/*Modela el precio de cada entrada. Valor positivo.*/
+    private long id;/*Modela las entradas vendidas. Valor positivo.*/
+    private Date fecha;/*Modela el precio de cada entrada. Valor positivo.*/
+    private double importe;
+    private String reporte;
 
     public Beneficio() {     
     }
     
-    public Beneficio(int entradasvendidas,int precioentrada) {
-        this.entradasvendidas = entradasvendidas;
-        this.precioentrada = precioentrada;
+    public Beneficio(long id, Date fecha, double importe, String reporte) {
+        this.id = id;
+        this.fecha = fecha;
+        this.importe = importe;
+        this.reporte = reporte;
     }
     
     public Beneficio (Beneficio b) {
-        this.entradasvendidas = b.getEntradasvendidas();
-        this.precioentrada = b.getPrecioentrada();
-    }
-    public int getEntradasvendidas() {
-        return entradasvendidas;
-    }
-
-    public void setEntradasvendidas(int entradasvendidas) {
-        this.entradasvendidas = entradasvendidas;
+        this.id = b.getId();
+        this.fecha = b.getFecha();
+        this.importe = b.getImporte();
+        this.reporte = b.getReporte();
     }
 
-    public int getPrecioentrada() {
-        return precioentrada;
+    public long getId() {
+        return id;
     }
 
-    public void setPrecioentrada(int precioentrada) {
-        this.precioentrada = precioentrada;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    @Override
-    public String toString() {
-        return "Beneficio{" + "entradasvendidas=" + entradasvendidas + ", precioentrada=" + precioentrada + '}';
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
+    public double getImporte() {
+        return importe;
+    }
+
+    public void setImporte(double importe) {
+        this.importe = importe;
+    }
+
+    public String getReporte() {
+        return reporte;
+    }
+
+    public void setReporte(String reporte) {
+        this.reporte = reporte;
     }
     
     public String data() {
-        return ""+getEntradasvendidas()+"|"+getPrecioentrada();
+        return ""+getId()+"|"+getFecha()+"|"+getImporte()+"|"+getReporte();
     }
 }

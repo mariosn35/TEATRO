@@ -1,38 +1,73 @@
 package modelos;
 
+import java.util.Date;
+
 /**
  *
  * @author Mario
  * @version 1.0
  */
 public class Coste {
-    private String reportes;/*Modela el número de reportes. Valor positivo*/
-
+    private long id;/*Modela el número de reportes. Valor positivo*/
+    private Date fecha;
+    private double importe;
+    private String reporte;
+    
     public Coste() {
     }
     
-    public Coste(String reportes) {
-        this.reportes = reportes;
+    public Coste(long id, Date fecha, double importe, String reporte) {
+        this.id = id;
+        this.fecha = fecha;
+        this.importe = importe;
+        this.reporte = reporte;
     }
     
     public Coste (Coste c) {
-        this.reportes = c.getReportes();
-    }
-    
-    public String getReportes() {
-        return reportes;
+        this.id = c.getId();
+        this.fecha = c.getFecha();
+        this.importe = c.getImporte();
+        this.reporte = c.getReporte();
     }
 
-    public void setReportes(String reportes) {
-        this.reportes = reportes;
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
+    public double getImporte() {
+        return importe;
+    }
+
+    public void setImporte(double importe) {
+        this.importe = importe;
+    }
+
+    public String getReporte() {
+        return reporte;
+    }
+
+    public void setReporte(String reporte) {
+        this.reporte = reporte;
     }
 
     @Override
     public String toString() {
-        return "Coste{" + "reportes=" + reportes + '}';
+        return "Coste{" + "id=" + id + ", fecha=" + fecha + ", importe=" + importe + ", reporte=" + reporte + '}';
     }
     
     public String data() {
-        return ""+getReportes();
+        return ""+getId()+"|"+getFecha()+"|"+getImporte()+"|"+getReporte();
     }           
 }

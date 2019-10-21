@@ -6,44 +6,67 @@ package modelos;
  * @version 1.0
  */
 public class Nomina {
-    private String mes;/*Modela mes. Valor positivo*/
-    private long identificador;/*Modela id. Valor positivo*/
+    private long id;/*Modela id. Valor positivo*/   
+    private int mes;/*Modela mes. Valor positivo*/
+    private int anio;
+    private boolean revisado;
     
     public Nomina() {
         
     }
     
-    public Nomina(String mes,long identificador) {
-         this.mes = mes;       
-         this.identificador = identificador;
+    public Nomina(long id, int mes, int anio, boolean revisado) {
+         this.id = id;       
+         this.mes = mes;
+         this.anio = anio;
+         this.revisado = revisado;
     }
     
     public Nomina (Nomina n) {
-        this.mes = n.getMes();      
-        this.identificador = n.getIdentificador();
+        this.id = n.getId();
+        this.mes = n.getMes();
+        this.anio = n.getAnio();
+        this.revisado = n.getRevisado();
     }
-    public String getMes() {
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public int getMes() {
         return mes;
     }
 
-    public void setMes(String mes) {
+    public void setMes(int mes) {
         this.mes = mes;
     }
 
-    public long getIdentificador() {
-        return identificador;
+    public int getAnio() {
+        return anio;
     }
 
-    public void setIdentificador(long identificador) {
-        this.identificador = identificador;
+    public void setAnio(int anio) {
+        this.anio = anio;
     }
-    
+
+    public boolean getRevisado() {
+        return revisado;
+    }
+
+    public void setRevisado(boolean revisado) {
+        this.revisado = revisado;
+    }
+
     @Override
     public String toString() {
-        return "N\u00f3mina{" + "mes=" + mes + ", identificador=" + identificador + '}';
+        return "Nomina{" + "id=" + id + ", mes=" + mes + ", anio=" + anio + ", revisado=" + revisado + '}';
     }
     
     public String data() {
-        return ""+getMes()+"|"+getIdentificador();
+        return ""+getId()+"|"+getMes()+"|"+getAnio()+"|"+getRevisado();
     }
 }

@@ -6,65 +6,65 @@ package modelos;
  * @version 1.0
  */
 public class Informe {
-    private long identificador;/*Modela id. Valor positivo*/
-    private String mes;/*Modela el mes. Valor positivo*/
-    private String año;/*Modela el año. Valor positivo*/
-    private int balance;/*Modela balance. Valor positivo*/
+    private long id;/*Modela id. Valor positivo*/
+    private int mes;/*Modela el mes. Valor positivo*/
+    private int anio;/*Modela el anio. Valor positivo*/
+    private double balance;/*Modela balance. Valor positivo*/
     
     public Informe() {
     }
     
-    public Informe(long identificador,String mes,String año,int balance) {
-        this.identificador = identificador;
+    public Informe(long id,int mes,int anio,double balance) {
+        this.id = id;
         this.mes = mes;
-        this.año = año;
+        this.anio = anio;
         this.balance = balance;
     }
     
     public Informe (Informe i) {
-        this.identificador = i.getIdentificador();
+        this.id = i.getId();
         this.mes = i.getMes();
-        this.año = i.getAño();
+        this.anio = i.getAnio();
         this.balance = i.getBalance();
     }
-    public long getIdentificador() {
-        return identificador;
+    public long getId() {
+        return id;
     }
 
-    public void setIdentificador(long identificador) {
-        this.identificador = identificador;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public String getMes() {
+    public int getMes() {
         return mes;
     }
 
-    public void setMes(String mes) {
+    public void setMes(int mes) {
         this.mes = mes;
     }
 
-    public String getAño() {
-        return año;
+    public int getAnio() {
+        return anio;
     }
 
-    public void setAño(String año) {
-        this.año = año;
+    public void setAnio(int anio) {
+        this.anio = anio;
     }
 
-    public int getBalance() {
+    public double getBalance() {
         return balance;
     }
 
-    public void setBalance(int balance) {
+    public void setBalance(double balance) {
         this.balance = balance;
     }
 
     @Override
     public String toString() {
-        return "Informe{" + "identificador=" + identificador + ", mes=" + mes + ", a\u00f1o=" + año + ", balance=" + balance + '}';
+        return "Informe{" + "id=" + id + ", mes=" + mes + ", a\u00f1o=" + anio + ", balance=" + balance + '}';
     }
     
     public String data() {
-        return ""+getIdentificador()+"|"+getMes()+"|"+getAño()+"|"+getBalance();
+        return ""+getId()+"|"+getMes()+"|"+getAnio()+"|"+getBalance();
     }
 }

@@ -14,6 +14,7 @@ package modelos;
 public class Secretariado extends EOficina{
     
     public Secretariado() {
+        super();
         
     }
     public Secretariado(long id, String nombre, String apellidos, String nif, String direccion, String telefono,int antiguedad) {

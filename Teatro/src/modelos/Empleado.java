@@ -25,6 +25,7 @@ public class Empleado {
     //Modela el telefono de contacto del empleado
 
     public Empleado() {
+        super();
     }
 
     public Empleado(Empleado a) {

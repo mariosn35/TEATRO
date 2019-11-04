@@ -17,6 +17,7 @@ public class Direccion extends EOficina{
      *                        puede ser de positivo y no pueden ser negativos */
 
     public Direccion() {
+        super();
     }
 public Direccion(long id, String nombre, String apellidos, String nif, String direccion, String telefono,int antiguedad) {
         super (id,nombre,apellidos,nif,direccion,telefono,antiguedad);

@@ -15,6 +15,7 @@ public class ETeatro extends Empleado{
     //Modela la categoria del empleado entre A,B,C o D
 
     public ETeatro() {
+        super();
     }
 
     public ETeatro(ETeatro a) {

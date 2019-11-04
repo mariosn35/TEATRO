@@ -15,6 +15,7 @@ public class Acomodador extends ETeatro{
     //Modela los costes producidos por cada acomod
 
     public Acomodador() {
+        super();
     }
     public Acomodador(long id, String nombre, String apellidos, String nif, String direccion, String telefono,char categoria) {
         super (id,nombre,apellidos,nif,direccion,telefono,categoria);

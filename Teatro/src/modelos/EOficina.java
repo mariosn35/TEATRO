@@ -18,6 +18,7 @@ public class EOficina extends Empleado{
      *                        el teatro y puede tomar valores positivos y no puede ser negativo */
 
     public EOficina() {
+        super();
     }
 
     public EOficina(long id, String nombre, String apellidos, String nif, String direccion, String telefono,int antiguedad) {

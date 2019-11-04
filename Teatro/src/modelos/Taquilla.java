@@ -12,6 +12,7 @@ package modelos;
 public class Taquilla extends ETeatro{
 
     public Taquilla() {
+        super();
     }
     public Taquilla(long id, String nombre, String apellidos, String nif, String direccion, String telefono,char categoria) {
         super (id,nombre,apellidos,nif,direccion,telefono,categoria);

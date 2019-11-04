@@ -14,6 +14,7 @@ package modelos;
 public class Limpieza extends ETeatro{
     
     public Limpieza() {
+        super();
     }
        public Limpieza(long id, String nombre, String apellidos, String nif, String direccion, String telefono,char categoria) {
         super (id,nombre,apellidos,nif,direccion,telefono,categoria);

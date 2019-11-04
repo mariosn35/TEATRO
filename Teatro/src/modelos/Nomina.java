@@ -6,7 +6,7 @@ package modelos;
  * @version 1.0
  */
 public class Nomina {
-    private long id;/*Modela id. Valor positivo*/   
+    protected long id;/*Modela id. Valor positivo*/   
     private int mes;/*Modela mes. Valor positivo*/
     private int anio;
     private boolean revisado;
@@ -15,15 +15,15 @@ public class Nomina {
         
     }
     
-    public Nomina(long id, int mes, int anio, boolean revisado) {
-         this.id = id;       
+    public Nomina( int mes, int anio, boolean revisado) {
+             
          this.mes = mes;
          this.anio = anio;
          this.revisado = revisado;
     }
     
     public Nomina (Nomina n) {
-        this.id = n.getId();
+        
         this.mes = n.getMes();
         this.anio = n.getAnio();
         this.revisado = n.getRevisado();

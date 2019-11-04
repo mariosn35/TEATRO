@@ -17,11 +17,11 @@ public class Empleado {
     //Modela el nombre del empleado en cuestion
     private String apellidos;
     //Modela los dos primeros apellidos del empleado
-    private int nif;
+    private String nif;
     //Modela el NIF del empleado
     private String direccion;
     //Modela la direccion de empadronamiento del empleado
-    private int telefono;
+    private String telefono;
     //Modela el telefono de contacto del empleado
 
     public Empleado() {
@@ -36,7 +36,7 @@ public class Empleado {
         this.telefono = a.getTelefono();
     }
 
-    public Empleado(long id, String nombre, String apellidos, int nif, String direccion, int telefono) {
+    public Empleado(long id, String nombre, String apellidos, String nif, String direccion, String telefono) {
         this.id = id;
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -69,11 +69,11 @@ public class Empleado {
         this.apellidos = apellidos;
     }
 
-    public int getNif() {
+    public String getNif() {
         return nif;
     }
 
-    public void setNif(int nif) {
+    public void setNif(String nif) {
         this.nif = nif;
     }
 
@@ -85,11 +85,11 @@ public class Empleado {
         this.direccion = direccion;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 

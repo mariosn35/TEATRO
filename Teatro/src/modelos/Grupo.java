@@ -23,8 +23,8 @@ public class Grupo {
     public Grupo() {
     }
 
-    public Grupo(long id,int semana,int anno,String nombre) {
-        this.id = id;
+    public Grupo(int semana,int anno,String nombre) {
+        
         this.semana = semana;
         this.anno = anno;
         this.nombre = nombre;
@@ -33,7 +33,7 @@ public class Grupo {
         this.semana = g.getSemana();
         this.anno = g.getAnno();
         this.nombre = g.getNombre();
-        this.id = g.getId();
+        
         
     }
 

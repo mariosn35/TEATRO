@@ -6,7 +6,7 @@ package modelos;
  * @version 1.0
  */
 public class Informe {
-    private long id;/*Modela id. Valor positivo*/
+    protected long id;/*Modela id. Valor positivo*/
     private int mes;/*Modela el mes. Valor positivo*/
     private int anio;/*Modela el anio. Valor positivo*/
     private double balance;/*Modela balance. Valor positivo*/
@@ -14,15 +14,15 @@ public class Informe {
     public Informe() {
     }
     
-    public Informe(long id,int mes,int anio,double balance) {
-        this.id = id;
+    public Informe(int mes,int anio,double balance) {
+        
         this.mes = mes;
         this.anio = anio;
         this.balance = balance;
     }
     
     public Informe (Informe i) {
-        this.id = i.getId();
+        
         this.mes = i.getMes();
         this.anio = i.getAnio();
         this.balance = i.getBalance();

@@ -11,7 +11,7 @@ package modelos;
  */
 public class Franquicia {
 
-    private long id;
+    protected long id;
     //Modela el numero identificador propio de cada franquicia
     private String fecha_creacion;
     //Modela la fecha en la que fueron creadas las franquicias 
@@ -20,8 +20,8 @@ public class Franquicia {
     private boolean accesible;
     //Modela si tiene o no acceso a minusvalidos
 
-    public Franquicia(long id, String fecha_creacion, String ubicacion, boolean accesible) {
-        this.id = id;
+    public Franquicia( String fecha_creacion, String ubicacion, boolean accesible) {
+        
         this.fecha_creacion = fecha_creacion;
         this.ubicacion = ubicacion;
         this.accesible = accesible;
@@ -32,7 +32,7 @@ public class Franquicia {
 
     public Franquicia(Franquicia a) {
         this.fecha_creacion = a.getFecha_creacion();
-        this.id = a.getId();
+        
         this.ubicacion = a.getUbicacion();
         this.accesible = a.isAccesible();
     }

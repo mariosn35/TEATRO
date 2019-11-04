@@ -8,7 +8,7 @@ import java.util.Date;
  * @version 1.0
  */
 public class Coste {
-    private long id;/*Modela el número de reportes. Valor positivo*/
+    protected long id;/*Modela el número de reportes. Valor positivo*/
     private Date fecha;
     private double importe;
     private String reporte;
@@ -16,15 +16,15 @@ public class Coste {
     public Coste() {
     }
     
-    public Coste(long id, Date fecha, double importe, String reporte) {
-        this.id = id;
+    public Coste( Date fecha, double importe, String reporte) {
+        
         this.fecha = fecha;
         this.importe = importe;
         this.reporte = reporte;
     }
     
     public Coste (Coste c) {
-        this.id = c.getId();
+        
         this.fecha = c.getFecha();
         this.importe = c.getImporte();
         this.reporte = c.getReporte();

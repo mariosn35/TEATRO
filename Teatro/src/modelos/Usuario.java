@@ -6,7 +6,7 @@ package modelos;
  * @version 1.0
  */
 public class Usuario {
-    private long identificador;/*Modela id. Valor positivo*/
+    protected long identificador;/*Modela id. Valor positivo*/
     private String nombre;/*Modela nombre. Contiene solo caracteres alfabéticos*/
     private String telefono;/*Modela id. Valor positivo*/
     private String NIF;/*Modela id. Valor positivo*/
@@ -15,8 +15,8 @@ public class Usuario {
     public Usuario() {
     }
     
-    public Usuario(long identificador,String nombre, String telefono, String NIF, String email) {
-       this.identificador = identificador;
+    public Usuario(String nombre, String telefono, String NIF, String email) {
+       
        this.nombre = nombre;
        this.telefono = telefono;
        this.NIF = NIF;
@@ -24,7 +24,7 @@ public class Usuario {
     }
     
     public Usuario (Usuario u) {
-       this.identificador = u.getIdentificador();
+       
        this.nombre = u.getNombre();
        this.telefono = u.getTelefono();
        this.NIF = u.getNIF();

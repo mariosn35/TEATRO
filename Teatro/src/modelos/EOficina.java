@@ -11,31 +11,27 @@ package modelos;
  * @author roter
  * @version 1.0
  */
-public class DeOficina {
-    protected long id;
+public class EOficina extends Empleado{
+   
     private int antiguedad;/**Modela a los empleados de oficina 
      *                        cuantos años llevan trabajando en
      *                        el teatro y puede tomar valores positivos y no puede ser negativo */
 
-    public DeOficina() {
+    public EOficina() {
     }
 
-    public DeOficina(int antiguedad,long id) {
+    public EOficina(int antiguedad) {
         this.antiguedad = antiguedad;
-        this.id = id;
+        
     }
-    public DeOficina(DeOficina o) {
+    public EOficina(EOficina o) {
         this.antiguedad = o.getAntiguedad();
-        this.id = o.getId();
+        
     }
 
-    public long getId() {
-        return id;
-    }
+    
 
-    public void setId(long id) {
-        this.id = id;
-    }
+    
 
     
 
@@ -49,10 +45,12 @@ public class DeOficina {
 
     @Override
     public String toString() {
-        return "DeOficina{" + "id=" + id + ", antiguedad=" + antiguedad + '}';
+        return "EOficina{" + "antiguedad=" + antiguedad + '}';
     }
+
+ 
    
     public String data() {
-    return  ""+getId()+"/"+getAntiguedad();
+    return  ""+getAntiguedad();
     }
 }

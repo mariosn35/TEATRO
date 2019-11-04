@@ -9,36 +9,25 @@ package modelos;
  *
  * @author Andres version 1.0
  */
-public class Acomodador {
+public class Acomodador extends ETeatro{
 
-    private long costes;
+  
     //Modela los costes producidos por cada acomod
 
     public Acomodador() {
     }
 
     public Acomodador(Acomodador a) {
-        this.costes = a.getCostes();
-    }
-
-    public Acomodador(long costes) {
-        this.costes = costes;
-    }
-
-    public long getCostes() {
-        return costes;
-    }
-
-    public void setCostes(long costes) {
-        this.costes = costes;
+       
     }
 
     @Override
     public String toString() {
-        return "Acomodadores{" + "costes=" + costes + '}';
+        return "Acomodador{" + '}';
     }
 
-    public String data() {
-        return "" + getCostes();
+  public String data() {
+    return  "";
     }
+  
 }

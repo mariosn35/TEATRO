@@ -9,9 +9,9 @@ package modelos;
  *
  * @author Andres version 1.0
  */
-public class Taquillero {
+public class Taquilla extends ETeatro{
 
-    public Taquillero() {
+    public Taquilla() {
     }
 
     @Override

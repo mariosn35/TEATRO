@@ -8,7 +8,7 @@ import java.util.Date;
  * @version 1.0
  */
 public class Beneficio {
-    private long id;/*Modela las entradas vendidas. Valor positivo.*/
+    protected long id;/*Modela las entradas vendidas. Valor positivo.*/
     private Date fecha;/*Modela el precio de cada entrada. Valor positivo.*/
     private double importe;
     private String reporte;

@@ -11,34 +11,27 @@ package modelos;
  * @author roter 
  * @version 1.0
  */
-public class Limpieza {
-    protected long id;
-    public Limpieza() {
-    }
-
-    public Limpieza(long id) {
-        this.id = id;
-    }
+public class Limpieza extends ETeatro{
     
-     public Limpieza(Limpieza l) {
-         this.id = l.getId();
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
+    public Limpieza() {
     }
 
     @Override
     public String toString() {
-        return "Limpieza{" + "id=" + id + '}';
+        return "Limpieza{" + '}';
     }
 
+  
+    
+   
+
+
+   
+    
+
+   
     
      public String data() {
-    return  ""+getId();
+    return  "";
     }
 }

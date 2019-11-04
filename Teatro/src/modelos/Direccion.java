@@ -11,30 +11,27 @@ package modelos;
  * @author roter 
  * @version 1.0
  */
-public class DeDireccion {
-    protected long id ;
+public class Direccion extends EOficina{
+   
     private int añoscargo;/**Modela a los directores cuantos años llevan en el cargo
      *                        puede ser de positivo y no pueden ser negativos */
 
-    public DeDireccion() {
+    public Direccion() {
     }
 
-    public DeDireccion(long id,int añoscargo) {
+    public Direccion(int añoscargo) {
         this.añoscargo = añoscargo;
     }
-     public DeDireccion(DeDireccion d){
+     public Direccion(Direccion d){
         
         this.añoscargo = d.getAñoscargo();
-        this.id = d.getId();
+        
     }
 
-    public long getId() {
-        return id;
-    }
+   
 
-    public void setId(long id) {
-        this.id = id;
-    }
+    
+    
     
 
     
@@ -48,11 +45,13 @@ public class DeDireccion {
 
     @Override
     public String toString() {
-        return "DeDireccion{" + "id=" + id + ", a\u00f1oscargo=" + añoscargo + '}';
+        return "Direccion{" + "a\u00f1oscargo=" + añoscargo + '}';
     }
+
+   
    
 public String data() {
- return  ""+getId()+"/"+getAñoscargo();
+ return  ""+getAñoscargo();
 
 }
 }

@@ -9,20 +9,20 @@ package modelos;
  *
  * @author Andres version 1.0
  */
-public class deTeatro {
+public class ETeatro extends Empleado{
 
     private char categoria;
     //Modela la categoria del empleado entre A,B,C o D
 
-    public deTeatro() {
+    public ETeatro() {
     }
 
-    public deTeatro(deTeatro a) {
+    public ETeatro(ETeatro a) {
         this.categoria = a.getCategoria();
 
     }
 
-    public deTeatro(char categoria) {
+    public ETeatro(char categoria) {
         this.categoria = categoria;
     }
 

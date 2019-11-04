@@ -16,19 +16,22 @@ public class Secretariado extends EOficina{
     public Secretariado() {
         
     }
-
+    public Secretariado(long id, String nombre, String apellidos, String nif, String direccion, String telefono,int antiguedad) {
+        super (id,nombre,apellidos,nif,direccion,telefono,antiguedad);
+    }
+   
       public Secretariado(Secretariado s) {
-       
+       super(s);
     }
 
 
     @Override
     public String toString() {
-      return "";
+      return super.toString()+"";
     }
 
    
      public String data() {
-    return  "";
+    return  super.data()+"";
     }
 }

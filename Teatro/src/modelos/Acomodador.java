@@ -16,18 +16,20 @@ public class Acomodador extends ETeatro{
 
     public Acomodador() {
     }
-
+    public Acomodador(long id, String nombre, String apellidos, String nif, String direccion, String telefono,char categoria) {
+        super (id,nombre,apellidos,nif,direccion,telefono,categoria);
+    }
     public Acomodador(Acomodador a) {
-       
+       super(a);
     }
 
     @Override
     public String toString() {
-        return "Acomodador{" + '}';
+        return super.toString()+"Acomodador{" + '}';
     }
 
   public String data() {
-    return  "";
+    return super.data() ;
     }
   
 }

@@ -18,12 +18,12 @@ public class Direccion extends EOficina{
 
     public Direccion() {
     }
-
-    public Direccion(int añoscargo) {
-        this.añoscargo = añoscargo;
+public Direccion(long id, String nombre, String apellidos, String nif, String direccion, String telefono,int antiguedad) {
+        super (id,nombre,apellidos,nif,direccion,telefono,antiguedad);
     }
+   
      public Direccion(Direccion d){
-        
+        super(d);
         this.añoscargo = d.getAñoscargo();
         
     }
@@ -45,13 +45,13 @@ public class Direccion extends EOficina{
 
     @Override
     public String toString() {
-        return "Direccion{" + "a\u00f1oscargo=" + añoscargo + '}';
+        return super.toString()+"Direccion{" + "a\u00f1oscargo=" + añoscargo + '}';
     }
 
    
    
 public String data() {
- return  ""+getAñoscargo();
+ return  super.data()+""+getAñoscargo();
 
 }
 }

@@ -18,11 +18,13 @@ public class ETeatro extends Empleado{
     }
 
     public ETeatro(ETeatro a) {
+        super(a);
         this.categoria = a.getCategoria();
 
     }
 
-    public ETeatro(char categoria) {
+    public ETeatro(long id, String nombre, String apellidos, String nif, String direccion, String telefono,char categoria) {
+        super(id,nombre,apellidos,nif,direccion,telefono);
         this.categoria = categoria;
     }
 
@@ -36,10 +38,10 @@ public class ETeatro extends Empleado{
 
     @Override
     public String toString() {
-        return "deTeatro{" + "categoria=" + categoria + '}';
+        return super.toString()+"deTeatro{" + "categoria=" + categoria + '}';
     }
 
     public String data() {
-        return "" + getCategoria();
+        return super.data()+"" + getCategoria();
     }
 }

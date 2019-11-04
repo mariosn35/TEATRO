@@ -13,13 +13,18 @@ public class Taquilla extends ETeatro{
 
     public Taquilla() {
     }
-
+    public Taquilla(long id, String nombre, String apellidos, String nif, String direccion, String telefono,char categoria) {
+        super (id,nombre,apellidos,nif,direccion,telefono,categoria);
+    }
+   public Taquilla(Taquilla t){
+       super(t);
+   }
     @Override
     public String toString() {
-        return "Taquilleros{" + '}';
+        return super.toString()+"Taquilleros{" + '}';
     }
 
     public String data() {
-        return "";
+        return super.data()+"";
     }
 }

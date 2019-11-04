@@ -20,11 +20,14 @@ public class EOficina extends Empleado{
     public EOficina() {
     }
 
-    public EOficina(int antiguedad) {
-        this.antiguedad = antiguedad;
+    public EOficina(long id, String nombre, String apellidos, String nif, String direccion, String telefono,int antiguedad) {
+                super(id,nombre,apellidos,nif,direccion,telefono);
+                this.antiguedad = antiguedad;
+        
         
     }
     public EOficina(EOficina o) {
+        super(o);
         this.antiguedad = o.getAntiguedad();
         
     }
@@ -45,12 +48,12 @@ public class EOficina extends Empleado{
 
     @Override
     public String toString() {
-        return "EOficina{" + "antiguedad=" + antiguedad + '}';
+        return super.toString()+"EOficina{" + "antiguedad=" + antiguedad + '}';
     }
 
  
    
     public String data() {
-    return  ""+getAntiguedad();
+    return  super.data()+""+getAntiguedad();
     }
 }

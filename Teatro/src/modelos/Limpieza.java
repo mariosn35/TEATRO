@@ -15,10 +15,15 @@ public class Limpieza extends ETeatro{
     
     public Limpieza() {
     }
-
+       public Limpieza(long id, String nombre, String apellidos, String nif, String direccion, String telefono,char categoria) {
+        super (id,nombre,apellidos,nif,direccion,telefono,categoria);
+    }
+   public Limpieza(Limpieza l){
+     super(l);
+   }
     @Override
     public String toString() {
-        return "Limpieza{" + '}';
+        return super.toString()+"Limpieza{" + '}';
     }
 
   
@@ -32,6 +37,6 @@ public class Limpieza extends ETeatro{
    
     
      public String data() {
-    return  "";
+    return  super.data()+"";
     }
 }

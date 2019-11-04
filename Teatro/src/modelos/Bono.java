@@ -3,29 +3,34 @@ package modelos;
 /**
  *
  * @author Mario
- * @version 1.0
+ * @version 1.1
  */
 public class Bono {
-    protected long identificador;/*Modela id. Valor positivo*/
+    protected long id;/*Modela id. Valor positivo*/
     char tipo;
     int mes;
+    
     public Bono() {
     }
 
-    public Bono(char tipo, int mes) {
+    public Bono(long id, char tipo, int mes) {
+        this.id = id;
         this.tipo = tipo;
         this.mes = mes;
     }
-   public Bono(Bono b){
-   this.mes = b.getMes();
-   this.tipo= b.getTipo();
+    
+    public Bono(Bono b){
+       
+        this.id = b.getId();
+        this.mes = b.getMes();
+        this.tipo= b.getTipo();
    }
-    public long getIdentificador() {
-        return identificador;
+    public long getId() {
+        return id;
     }
 
-    public void setIdentificador(long identificador) {
-        this.identificador = identificador;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public char getTipo() {
@@ -46,13 +51,13 @@ public class Bono {
 
     @Override
     public String toString() {
-        return "Bono{" + "identificador=" + identificador + ", tipo=" + tipo + ", mes=" + mes + '}';
+        return "Bono{" + "id=" + id + ", tipo=" + tipo + ", mes=" + mes + '}';
     }
  
     
     
     public String data() {
-        return ""+getIdentificador()+"|"+getMes()+"|"+getTipo();
+        return ""+getId()+"|"+getMes()+"|"+getTipo();
     }    
     
 }

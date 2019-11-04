@@ -9,18 +9,18 @@ package modelos;
  *
  * @author Andres version 1.0
  */
-public class Acomodador extends ETeatro{
+public class Acomodo extends ETeatro{
 
   
     //Modela los costes producidos por cada acomod
 
-    public Acomodador() {
+    public Acomodo() {
         super();
     }
-    public Acomodador(long id, String nombre, String apellidos, String nif, String direccion, String telefono,char categoria) {
+    public Acomodo(long id, String nombre, String apellidos, String nif, String direccion, String telefono,char categoria) {
         super (id,nombre,apellidos,nif,direccion,telefono,categoria);
     }
-    public Acomodador(Acomodador a) {
+    public Acomodo(Acomodo a) {
        super(a);
     }
 

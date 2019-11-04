@@ -5,13 +5,13 @@ import java.util.Date;
 /**
  *
  * @author Mario
- * @version 1.0
+ * @version 1.1
  */
 public class Beneficio {
     protected long id;/*Modela las entradas vendidas. Valor positivo.*/
     private Date fecha;/*Modela el precio de cada entrada. Valor positivo.*/
-    private double importe;
-    private String reporte;
+    private double importe;/*Modela importe en euros. Valor positivo*/
+    private String reporte;/*Modela reportes.*/
 
     public Beneficio() {     
     }

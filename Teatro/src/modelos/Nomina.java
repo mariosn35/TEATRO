@@ -3,20 +3,21 @@ package modelos;
 /**
  *
  * @author Mario
- * @version 1.0
+ * @version 1.1
  */
 public class Nomina {
     protected long id;/*Modela id. Valor positivo*/   
     private int mes;/*Modela mes. Valor positivo*/
-    private int anio;
-    private boolean revisado;
+    private int anio;/*Modela año. Valor positivo*/
+    private boolean revisado;/*Modela si está revisada o no*/
     
     public Nomina() {
         
     }
     
-    public Nomina( int mes, int anio, boolean revisado) {
-             
+    public Nomina(long id, int mes, int anio, boolean revisado) {
+         
+         this.id = id;
          this.mes = mes;
          this.anio = anio;
          this.revisado = revisado;
@@ -24,6 +25,7 @@ public class Nomina {
     
     public Nomina (Nomina n) {
         
+        this.id = n.getId();
         this.mes = n.getMes();
         this.anio = n.getAnio();
         this.revisado = n.getRevisado();

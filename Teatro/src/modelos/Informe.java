@@ -3,7 +3,7 @@ package modelos;
 /**
  *
  * @author Mario
- * @version 1.0
+ * @version 1.1
  */
 public class Informe {
     protected long id;/*Modela id. Valor positivo*/
@@ -14,8 +14,9 @@ public class Informe {
     public Informe() {
     }
     
-    public Informe(int mes,int anio,double balance) {
+    public Informe(long id, int mes, int anio, double balance) {
         
+        this.id = id;
         this.mes = mes;
         this.anio = anio;
         this.balance = balance;
@@ -23,6 +24,7 @@ public class Informe {
     
     public Informe (Informe i) {
         
+        this.id = i.getId();
         this.mes = i.getMes();
         this.anio = i.getAnio();
         this.balance = i.getBalance();

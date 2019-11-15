@@ -19,12 +19,18 @@ public class Franquicia {
     //Modela la ubicacion en la que se va a representar
     private boolean accesible;
     //Modela si tiene o no acceso a minusvalidos
-
-    public Franquicia( String fecha_creacion, String ubicacion, boolean accesible) {
+    private Grupo grupo;
+    private Informe informe;
+    private Direccion director;
+    
+    public Franquicia( String fecha_creacion, String ubicacion, boolean accesible, Grupo grupo,Informe informe,Direccion director) {
         
         this.fecha_creacion = fecha_creacion;
         this.ubicacion = ubicacion;
         this.accesible = accesible;
+        this.grupo = grupo;
+        this.informe= informe;
+        this.director = director;
     }
 
     public Franquicia() {
@@ -36,14 +42,33 @@ public class Franquicia {
         this.ubicacion = a.getUbicacion();
         this.accesible = a.isAccesible();
     }
+    public Grupo getgrupo(){
+    return grupo;
+    }
+    public Informe getinforme(){
+    return informe;
+     }
+     public Direccion getdirector(){
+    return director;
+    }
 
+    public void setGrupo(Grupo grupo) {
+        this.grupo = grupo;
+    }
+
+    public void setInforme(Informe informe) {
+        this.informe = informe;
+    }
+
+    public void setDirector(Direccion director) {
+        this.director = director;
+    }
+     
     public long getId() {
         return id;
     }
 
-    public void setIdentificador(long id) {
-        this.id = id;
-    }
+   
 
     public String getFecha_creacion() {
         return fecha_creacion;
@@ -71,8 +96,10 @@ public class Franquicia {
 
     @Override
     public String toString() {
-        return "Franquicias{" + "id=" + id + ", fecha_creacion=" + fecha_creacion + ", ubicacion=" + ubicacion + ", accesible=" + accesible + '}';
+        return "Franquicia{" + "id=" + id + ", fecha_creacion=" + fecha_creacion + ", ubicacion=" + ubicacion + ", accesible=" + accesible + ", grupo=" + grupo + ", informe=" + informe + ", director=" + director + '}';
     }
+
+   
 
     public String data() {
         return "" + getId() + "|" + isAccesible() + "|" + getFecha_creacion() + "|" + getUbicacion();

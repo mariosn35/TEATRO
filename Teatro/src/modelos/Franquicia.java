@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package modelos;
+import java.sql.Date;
+import java.util.Scanner;
+import java.util.ArrayList;
 
 /**
  *
@@ -13,7 +16,7 @@ public class Franquicia {
 
     protected long id;
     //Modela el numero identificador propio de cada franquicia
-    private String fecha_creacion;
+    private Date fecha_creacion;
     //Modela la fecha en la que fueron creadas las franquicias 
     private String ubicacion;
     //Modela la ubicacion en la que se va a representar
@@ -23,7 +26,7 @@ public class Franquicia {
     private Informe informe;
     private Direccion director;
     
-    public Franquicia( String fecha_creacion, String ubicacion, boolean accesible, Grupo grupo,Informe informe,Direccion director) {
+    public Franquicia( Date fecha_creacion, String ubicacion, boolean accesible, Grupo grupo,Informe informe,Direccion director) {
         
         this.fecha_creacion = fecha_creacion;
         this.ubicacion = ubicacion;
@@ -32,13 +35,58 @@ public class Franquicia {
         this.informe= informe;
         this.director = director;
     }
-
+    public Franquicia nuevafranquicia(){
+        Scanner in;
+        Date a;
+        String b;
+        Boolean c;
+        Grupo d;
+        Informe e;
+        Direccion g;
+    in = new Scanner(System.in);
+    Franquicia f = new Franquicia();
+    System.out.println("Introduzca la fecha de creacion");
+    
+    System.out.println("Introduzca la fecha de creacion");
+    b=in.nextLine();
+    System.out.println("Introduzca la fecha de creacion");
+    c=in.
+    System.out.println("Introduzca la fecha de creacion");
+    h
+    
+    return f;
+    
+    }
+    public Franquicia getFranquiciaById (long id) {
+     Franquicia f = null;
+    /* for(int i=0; i< Lista.size (); i++){
+     f=(Franquicia) Lista[i];
+     
+        if( f.getId()== Id){
+        }
+        
+     } 
+     */
+    return f;
+    }
+    
+    public ArrayList<Franquicia> getAllFranquicias() {
+       ArrayList<Franquicia> Franquicias = new ArrayList();
+       /*for (int i=0; i< Lista.size(); i++)
+           f= Franquicia Lista[i];
+        Franquicias.add(f);
+       
+       */
+        return Franquicias;
+    }
     public Franquicia() {
     }
 
     public Franquicia(Franquicia a) {
         this.fecha_creacion = a.getFecha_creacion();
-        
+        this.director = a.getdirector();
+        this.grupo = a.getgrupo();
+        this.informe = a.getinforme();
         this.ubicacion = a.getUbicacion();
         this.accesible = a.isAccesible();
     }
@@ -70,11 +118,11 @@ public class Franquicia {
 
    
 
-    public String getFecha_creacion() {
+    public  Date getFecha_creacion() {
         return fecha_creacion;
     }
 
-    public void setFecha_creacion(String fecha_creacion) {
+    public void setFecha_creacion(Date fecha_creacion) {
         this.fecha_creacion = fecha_creacion;
     }
 

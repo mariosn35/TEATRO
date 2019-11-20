@@ -5,13 +5,14 @@ package modelos;
  * @author Mario
  * @version 1.1
  */
-public class Informe {
+public class Informe extends Nomina{
     protected long id;/*Modela id. Valor positivo*/
     private int mes;/*Modela el mes. Valor positivo*/
     private int anio;/*Modela el anio. Valor positivo*/
     private double balance;/*Modela balance. Valor positivo*/
     
     public Informe() {
+        
     }
     
     public Informe(long id, int mes, int anio, double balance) {

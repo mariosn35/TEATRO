@@ -5,6 +5,8 @@
  */
 package modelos;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Andres version 1.0
@@ -13,7 +15,7 @@ public class ETeatro extends Empleado{
 
     private char categoria;
     //Modela la categoria del empleado entre A,B,C o D
-    public Grupo grupo;
+    private Grupo grupo;
 
     public ETeatro() {
         super();
@@ -39,12 +41,44 @@ public class ETeatro extends Empleado{
         this.categoria = categoria;
     }
 
+    public Grupo getGrupo() {
+        return grupo;
+    }
+
+    public void setGrupo(Grupo grupo) {
+        this.grupo = grupo;
+    }
+    
+public Nomina getETeatroById (long id) {
+     
+       Nomina n = null;
+    /* for(int i=0; i< Lista.size (); i++){
+     et=(Eteatro) Lista[i];
+     
+        if( f.getId()== Id){
+        }
+        
+     } 
+     */
+    return n;
+    }
+public ArrayList<ETeatro> getAllEsTeatro() {
+       ArrayList<ETeatro> EsTeatro = new ArrayList();
+       /*for (int i=0; i< Lista.size(); i++)
+           f= ETeatro Lista[i];
+        EsTeatro.add(f);
+       
+       */
+        return EsTeatro;
+    }
+    
+
     @Override
     public String toString() {
-        return super.toString()+"deTeatro{" + "categoria=" + categoria + '}';
+        return "ETeatro{" + "categoria=" + categoria + ", grupo=" + grupo + '}';
     }
 
     public String data() {
-        return super.data()+"" + getCategoria();
+        return super.data()+"|" + getCategoria()+"|"+ getGrupo();
     }
 }

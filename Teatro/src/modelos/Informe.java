@@ -4,65 +4,63 @@ import java.util.Scanner;
 
 /**
  *
- * @author Mario 
+ * @author Mario
  * @version 1.1
  */
-public class Informe extends Nomina{
+public class Informe extends Nomina {
+
     protected long id;/*Modela id. Valor positivo*/
     private int mes;/*Modela el mes. Valor positivo*/
     private int anio;/*Modela el anio. Valor positivo*/
     private double balance;/*Modela balance. Valor positivo o valor negativo*/
     private Secretariado secretariado;
-    
+
     public Informe() {
-        
+
     }
-    
+
     public Informe(long id, int mes, int anio, double balance) {
-        
+
         this.id = id;
         this.mes = mes;
         this.anio = anio;
         this.balance = balance;
     }
-    
-    public Informe (Informe i) {
-        
+
+    public Informe(Informe i) {
+
         this.id = i.getId();
         this.mes = i.getMes();
         this.anio = i.getAnio();
         this.balance = i.getBalance();
     }
-      public Informe nuevoinforme() {
-        
+
+    public Informe nuevoinforme() {
+
         Scanner in;
         int a;
         int b;
-        
+
         double c;
-        Secretariado s=new Secretariado();
-        
-    in = new Scanner(System.in);
-    Informe i = null;
-    do {
-    System.out.println("Mes de creacion del grupo");
-    
-    a=in.nextInt();
-    
-    }while (a<1 || a>12);
-    System.out.println("Año de creacion del grupo");
-    b=in.nextInt();
-    
-    System.out.println("Introduce el balance en euros");
-    c=in.nextDouble();
-    System.out.println("Grupo:");
-    
-    
-    
-      
-    
-    return i;
-    
+        Secretariado s = new Secretariado();
+
+        in = new Scanner(System.in);
+        Informe i = null;
+        do {
+            System.out.println("Mes de creacion del grupo");
+
+            a = in.nextInt();
+
+        } while (a < 1 || a > 12);
+        System.out.println("Año de creacion del grupo");
+        b = in.nextInt();
+
+        System.out.println("Introduce el balance en euros");
+        c = in.nextDouble();
+        System.out.println("Grupo:");
+
+        return i;
+
     }
 
     public Secretariado getSecretariado() {
@@ -72,7 +70,7 @@ public class Informe extends Nomina{
     public void setSecretariado(Secretariado secretariado) {
         this.secretariado = secretariado;
     }
-      
+
     public long getId() {
         return id;
     }
@@ -110,9 +108,7 @@ public class Informe extends Nomina{
         return "Informe{" + "id=" + id + ", mes=" + mes + ", anio=" + anio + ", balance=" + balance + ", secretariado=" + secretariado + '}';
     }
 
-   
-    
     public String data() {
-        return ""+getId()+"|"+getMes()+"|"+getAnio()+"|"+getBalance()+"|"+getSecretariado();
+        return "" + getId() + "|" + getMes() + "|" + getAnio() + "|" + getBalance() + "|" + getSecretariado();
     }
 }

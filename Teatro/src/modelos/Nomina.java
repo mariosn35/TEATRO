@@ -99,7 +99,7 @@ public class Nomina {
      
        Nomina n = null;
     /* for(int i=0; i< Lista.size (); i++){
-     f=(Franquicia) Lista[i];
+     n=(Nomina) Lista[i];
      
         if( f.getId()== Id){
         }
@@ -108,6 +108,7 @@ public class Nomina {
      */
     return n;
     }
+    
     public ArrayList<Nomina> getAllNominas() {
        ArrayList<Nomina> Nominas = new ArrayList();
        /*for (int i=0; i< Lista.size(); i++)

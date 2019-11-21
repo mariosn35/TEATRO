@@ -13,6 +13,7 @@ public class ETeatro extends Empleado{
 
     private char categoria;
     //Modela la categoria del empleado entre A,B,C o D
+    private Grupo grupo;
 
     public ETeatro() {
         super();

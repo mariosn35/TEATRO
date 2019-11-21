@@ -23,6 +23,7 @@ public class Empleado {
     //Modela la direccion de empadronamiento del empleado
     private String telefono;
     //Modela el telefono de contacto del empleado
+    
 
     public Empleado() {
         super();

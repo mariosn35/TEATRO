@@ -1,5 +1,6 @@
 package modelos;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -42,25 +43,54 @@ public class Informe extends Nomina {
         int b;
 
         double c;
-        Secretariado s = new Secretariado();
+      
 
-        in = new Scanner(System.in);
-        Informe i = null;
-        do {
-            System.out.println("Mes de creacion del grupo");
-
-            a = in.nextInt();
-
-        } while (a < 1 || a > 12);
-        System.out.println("Año de creacion del grupo");
-        b = in.nextInt();
-
-        System.out.println("Introduce el balance en euros");
-        c = in.nextDouble();
-        System.out.println("Grupo:");
-
-        return i;
-
+        Secretariado s=new Secretariado();
+        
+    in = new Scanner(System.in);
+    Informe i = null;
+    do {
+    System.out.println("Mes de creacion del grupo");
+    
+    a=in.nextInt();
+    
+    }while (a<1 || a>12);
+    System.out.println("Año de creacion del grupo");
+    b=in.nextInt();
+    
+    System.out.println("Introduce el balance en euros");
+    c=in.nextDouble();
+    System.out.println("Secretario:");
+    s.nuevoSecretariado();
+    i.setSecretariado(s);
+    
+    
+      
+    
+    return i;
+    
+    }
+        public Informe getInformeById (long Id) {
+     Informe i = null;
+    /* for(int i=0; i< Lista.size (); i++){
+     s=(Secretariado) Lista[i];
+     
+        if( s.getId()== Id){
+        }
+        
+     } 
+     */
+    return i;
+    }
+    
+    public ArrayList<Informe> getAllInformes() {
+       ArrayList<Informe> Informes = new ArrayList();
+       /*for (int i=0; i< Lista.size(); i++)
+           g= Grupo Lista[i];
+       Secretariado.add(f);
+       
+       */
+        return Informes;
     }
 
     public Secretariado getSecretariado() {

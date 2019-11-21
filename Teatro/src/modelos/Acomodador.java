@@ -65,7 +65,7 @@ public class Acomodador extends ETeatro{
     }
 
   public String data() {
-    return super.data()+"|"+getCoste();
+    return super.data();
     }
   
 }

@@ -94,7 +94,7 @@ public class Nomina {
     public void setRevisado(boolean revisado) {
         this.revisado = revisado;
     }
-
+     
     public Nomina getNominaById (long id) {
      
        Nomina n = null;

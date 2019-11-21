@@ -74,7 +74,8 @@ public class Franquicia {
     e.nuevoinforme();
     f.setInforme(e);
     System.out.println("Director:");
-    
+    g.nuevoDireccion();
+    f.setDirector(g);
     return f;
     
     }

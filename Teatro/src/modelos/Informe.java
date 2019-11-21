@@ -1,5 +1,6 @@
 package modelos;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -55,14 +56,37 @@ public class Informe extends Nomina{
     
     System.out.println("Introduce el balance en euros");
     c=in.nextDouble();
-    System.out.println("Grupo:");
-    
+    System.out.println("Secretario:");
+    s.nuevoSecretariado();
+    i.setSecretariado(s);
     
     
       
     
     return i;
     
+    }
+        public Informe getInformeById (long Id) {
+     Informe i = null;
+    /* for(int i=0; i< Lista.size (); i++){
+     s=(Secretariado) Lista[i];
+     
+        if( s.getId()== Id){
+        }
+        
+     } 
+     */
+    return i;
+    }
+    
+    public ArrayList<Informe> getAllInformes() {
+       ArrayList<Informe> Informes = new ArrayList();
+       /*for (int i=0; i< Lista.size(); i++)
+           g= Grupo Lista[i];
+       Secretariado.add(f);
+       
+       */
+        return Informes;
     }
 
     public Secretariado getSecretariado() {

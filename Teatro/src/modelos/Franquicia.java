@@ -5,8 +5,10 @@
  */
 package modelos;
 import java.sql.Date;
+import java.text.ParseException;
 import java.util.Scanner;
 import java.util.ArrayList;
+
 
 /**
  *
@@ -22,7 +24,7 @@ public class Franquicia {
     //Modela la ubicacion en la que se va a representar
     private boolean accesible;
     //Modela si tiene o no acceso a minusvalidos
-    private Grupo grupo;
+    private Grupo grupo; //
     private Informe informe;
     private Direccion director;
     
@@ -35,7 +37,8 @@ public class Franquicia {
         this.informe= informe;
         this.director = director;
     }
-    public Franquicia nuevafranquicia(){
+    public Franquicia nuevafranquicia() throws ParseException{
+        
         Scanner in;
         Date a;
         String b;
@@ -43,21 +46,34 @@ public class Franquicia {
         Grupo d;
         Informe e;
         Direccion g;
+        char respuesta ;
     in = new Scanner(System.in);
-    Franquicia f = new Franquicia();
+    Franquicia f = null;
     System.out.println("Introduzca la fecha de creacion");
+    Date fe=Cajadeherramientas.readDate(in,"DD-MM-YYYY");
+    f.setFecha_creacion(fe);
     
-    System.out.println("Introduzca la fecha de creacion");
+    System.out.println("Introduzca la ubicacion");
     b=in.nextLine();
-    System.out.println("Introduzca la fecha de creacion");
-    c=in.
-    System.out.println("Introduzca la fecha de creacion");
-    h
+    f.setUbicacion(b);
+    System.out.println("¿Es accesible para minusvalidos?");
+    do {
+    System.out.println("¿Es accesible?");
     
+      respuesta = in.next().charAt(0); 
+    
+    
+    } while (respuesta!='s'&& respuesta!='S' && respuesta!='n'&& respuesta!='N' );
+    if  (respuesta=='s' || respuesta=='S') c=true; 
+    else c=false;
+    f.setAccesible(c);
+    System.out.println("Grupo:");
+    System.out.println("Informe:");
+    System.out.println("Director:");
     return f;
     
     }
-    public Franquicia getFranquiciaById (long id) {
+    public Franquicia getFranquiciaById (long Id) {
      Franquicia f = null;
     /* for(int i=0; i< Lista.size (); i++){
      f=(Franquicia) Lista[i];

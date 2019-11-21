@@ -43,9 +43,9 @@ public class Franquicia {
         Date a;
         String b;
         Boolean c;
-        Grupo d;
-        Informe e;
-        Direccion g;
+        Grupo d = new Grupo();
+        Informe e = new Informe();
+        Direccion g = new Direccion();
         char respuesta ;
     in = new Scanner(System.in);
     Franquicia f = null;
@@ -68,8 +68,13 @@ public class Franquicia {
     else c=false;
     f.setAccesible(c);
     System.out.println("Grupo:");
+    d.nuevogrupo();
+    f.setGrupo(d);
     System.out.println("Informe:");
+    e.nuevoinforme();
+    f.setInforme(e);
     System.out.println("Director:");
+    
     return f;
     
     }
@@ -100,19 +105,19 @@ public class Franquicia {
 
     public Franquicia(Franquicia a) {
         this.fecha_creacion = a.getFecha_creacion();
-        this.director = a.getdirector();
-        this.grupo = a.getgrupo();
-        this.informe = a.getinforme();
+        this.director = a.getDirector();
+        this.grupo = a.getGrupo();
+        this.informe = a.getInforme();
         this.ubicacion = a.getUbicacion();
         this.accesible = a.isAccesible();
     }
-    public Grupo getgrupo(){
+    public Grupo getGrupo(){
     return grupo;
     }
-    public Informe getinforme(){
+    public Informe getInforme(){
     return informe;
      }
-     public Direccion getdirector(){
+     public Direccion getDirector(){
     return director;
     }
 
@@ -166,6 +171,6 @@ public class Franquicia {
    
 
     public String data() {
-        return "" + getId() + "|" + isAccesible() + "|" + getFecha_creacion() + "|" + getUbicacion();
+        return "" + getId() + "|" + isAccesible() + "|" + getFecha_creacion() + "|" + getUbicacion()+"|"+ getGrupo()+"|"+getInforme()+"|"+getDirector();
     }
 }

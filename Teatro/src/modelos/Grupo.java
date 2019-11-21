@@ -1,5 +1,8 @@
 package modelos;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -36,7 +39,54 @@ public class Grupo {
         
         
     }
-
+      public Grupo nuevogrupo() {
+        
+        Scanner in;
+        int a;
+        String b;
+        
+        int c;
+       
+        
+    in = new Scanner(System.in);
+    Grupo g = null;
+    System.out.println("Año de creacion del grupo");
+    a=in.nextInt();
+    System.out.println("Nombre del grupo");
+    b=in.nextLine();
+    do {
+    System.out.println("Semana de creacion del grupo que va de 1 al 52");
+    c=in.nextInt();
+    
+    }while (c<1 || c>52);
+    
+      
+    
+    return g;
+    
+    }
+       public Grupo getGrupoById (long Id) {
+     Grupo g = null;
+    /* for(int i=0; i< Lista.size (); i++){
+     f=(Grupo) Lista[i];
+     
+        if( f.getId()== Id){
+        }
+        
+     } 
+     */
+    return g;
+    }
+    
+    public ArrayList<Grupo> getAllGrupos() {
+       ArrayList<Grupo> Grupos = new ArrayList();
+       /*for (int i=0; i< Lista.size(); i++)
+           g= Grupo Lista[i];
+        Grupos.add(f);
+       
+       */
+        return Grupos;
+    }
     public long getId() {
         return id;
     }

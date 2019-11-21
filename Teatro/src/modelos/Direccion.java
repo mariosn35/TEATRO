@@ -1,5 +1,7 @@
 package modelos;
 
+import java.util.Scanner;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -29,7 +31,23 @@ public Direccion(long id, String nombre, String apellidos, String nif, String di
         
     }
 
+    public Direccion nuevogrupo() {
+        
+        Scanner in;
+        int a;
+ 
+        
+    in = new Scanner(System.in);
+    Direccion d= null;
+    System.out.println("Años al cargo");
+    a=in.nextInt();
    
+    
+      
+    
+    return d;
+    
+    }
 
     
     

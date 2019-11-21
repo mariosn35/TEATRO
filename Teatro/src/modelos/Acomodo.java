@@ -17,8 +17,8 @@ public class Acomodo extends ETeatro{
     public Acomodo() {
         super();
     }
-    public Acomodo(long id, String nombre, String apellidos, String nif, String direccion, String telefono,char categoria) {
-        super (id,nombre,apellidos,nif,direccion,telefono,categoria);
+    public Acomodo(long id, String nombre, String apellidos, String nif, String direccion, String telefono,char categoria,Grupo grupo) {
+        super (id,nombre,apellidos,nif,direccion,telefono,categoria,grupo);
     }
     public Acomodo(Acomodo a) {
        super(a);

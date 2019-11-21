@@ -13,7 +13,7 @@ public class ETeatro extends Empleado{
 
     private char categoria;
     //Modela la categoria del empleado entre A,B,C o D
-    private Grupo grupo;
+    public Grupo grupo;
 
     public ETeatro() {
         super();
@@ -25,9 +25,10 @@ public class ETeatro extends Empleado{
 
     }
 
-    public ETeatro(long id, String nombre, String apellidos, String nif, String direccion, String telefono,char categoria) {
+    public ETeatro(long id, String nombre, String apellidos, String nif, String direccion, String telefono,char categoria, Grupo grupo) {
         super(id,nombre,apellidos,nif,direccion,telefono);
         this.categoria = categoria;
+        this.grupo = grupo;
     }
 
     public char getCategoria() {

@@ -14,9 +14,9 @@ import java.util.ArrayList;
  * @version 1.0
  */
 public class Secretariado extends EOficina{
-      public Secretariado nuevoSecretariado() {
-      Secretariado s = null ;
-       
+      public static Secretariado nuevoSecretariado() {
+      Secretariado s = new Secretariado();
+      s=(Secretariado) EOficina.nuevoEOficina();
     return s;
     
     }

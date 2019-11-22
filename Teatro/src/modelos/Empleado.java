@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package modelos;
-
+import java.util.ArrayList;
+import java.util.Scanner;
 /**
  *
  * @author Andres version 1.0
@@ -46,7 +47,58 @@ public class Empleado {
         this.direccion = direccion;
         this.telefono = telefono;
     }
-
+       public static Empleado nuevoEmpleado() {
+        
+        Scanner in;
+        String a;
+        String b;
+        String c;
+        String d;
+        String f;
+        
+    in = new Scanner(System.in);
+    Empleado e = new Empleado();
+    System.out.println("Introduce tu nombre");
+    a=in.nextLine();
+    e.setNombre(a);
+    System.out.println("Introduce tus apellidos");
+    b=in.nextLine();
+    e.setNombre(b);
+    System.out.println("Introduce tu nif");
+    c=in.nextLine();
+    e.setNombre(c);
+    System.out.println("Introduce tu direccion");
+    d=in.nextLine();
+    e.setNombre(d);
+    System.out.println("Introduce tu telefono");
+    f=in.nextLine();
+    e.setNombre(f);
+    
+    return e;
+    
+       }
+           public Empleado getEmpleadoById (long Id) {
+    Empleado e = null;
+    /* for(int i=0; i< Lista.size (); i++){
+     e=(Empleado) Lista[i];
+     
+        if( e.getId()== Id){
+        }
+        
+     } 
+     */
+    return e;
+    }
+    
+    public ArrayList<Empleado> getAllEmpleados() {
+       ArrayList<Empleado> Empleados = new ArrayList();
+       /*for (int i=0; i< Lista.size(); i++)
+           e= Empleado Lista[i];
+       Empleados.add(f);
+       
+       */
+        return Empleados;
+    }
     public long getId() {
         return id;
     }

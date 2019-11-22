@@ -36,7 +36,7 @@ public class Informe extends Nomina {
         this.balance = i.getBalance();
     }
 
-    public Informe nuevoinforme() {
+    public static Informe nuevoinforme() {
 
         Scanner in;
         int a;

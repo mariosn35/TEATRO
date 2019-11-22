@@ -7,7 +7,7 @@ package modelos;
  */
 /**
  *
- * @author roter
+ * @author roterr
  * @version 1.0
  */
 public class EOficina extends Empleado {

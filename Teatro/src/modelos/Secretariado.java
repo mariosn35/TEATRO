@@ -20,6 +20,7 @@ public class Secretariado extends EOficina{
     return s;
     
     }
+      
         public Secretariado getSecretarioById (long Id) {
      Secretariado s = null;
     /* for(int i=0; i< Lista.size (); i++){
@@ -34,15 +35,15 @@ public class Secretariado extends EOficina{
     }
     
     public ArrayList<Secretariado> getAllSecretariados() {
-       ArrayList<Secretariado> Secretariados = new ArrayList();
-       /*for (int i=0; i< Lista.size(); i++)
+        ArrayList<Secretariado> Secretariados = new ArrayList();
+        /*for (int i=0; i< Lista.size(); i++)
            g= Grupo Lista[i];
        Secretariado.add(f);
        
-       */
+         */
         return Secretariados;
     }
-    
+
     public Secretariado() {
         super();
         

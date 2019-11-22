@@ -38,7 +38,7 @@ public class Limpieza extends ETeatro {
 
     public Limpieza getLimpiezasById(long id) {
 
-        Limpieza n = null;
+        Limpieza l = null;
         /* for(int i=0; i< Lista.size (); i++){
      c=(Limpieza) Lista[i];
      
@@ -47,7 +47,7 @@ public class Limpieza extends ETeatro {
         
      } 
          */
-        return n;
+        return l;
     }
 
     public ArrayList<Limpieza> getAllLimpiezas() {

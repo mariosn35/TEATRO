@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author Andres version 1.0
  */
-public class ETeatro extends Empleado{
+public class ETeatro extends Empleado {
 
     private char categoria;
     //Modela la categoria del empleado entre A,B,C o D
@@ -27,8 +27,8 @@ public class ETeatro extends Empleado{
 
     }
 
-    public ETeatro(long id, String nombre, String apellidos, String nif, String direccion, String telefono,char categoria, Grupo grupo) {
-        super(id,nombre,apellidos,nif,direccion,telefono);
+    public ETeatro(long id, String nombre, String apellidos, String nif, String direccion, String telefono, char categoria, Grupo grupo) {
+        super(id, nombre, apellidos, nif, direccion, telefono);
         this.categoria = categoria;
         this.grupo = grupo;
     }
@@ -48,30 +48,30 @@ public class ETeatro extends Empleado{
     public void setGrupo(Grupo grupo) {
         this.grupo = grupo;
     }
-    
-public Nomina getETeatroById (long id) {
-     
-       Nomina n = null;
-    /* for(int i=0; i< Lista.size (); i++){
+
+    public ETeatro getETeatroById(long id) {
+
+        ETeatro et = null;
+        /* for(int i=0; i< Lista.size (); i++){
      et=(Eteatro) Lista[i];
      
         if( f.getId()== Id){
         }
         
      } 
-     */
-    return n;
+         */
+        return et;
     }
-public ArrayList<ETeatro> getAllEsTeatro() {
-       ArrayList<ETeatro> EsTeatro = new ArrayList();
-       /*for (int i=0; i< Lista.size(); i++)
+
+    public ArrayList<ETeatro> getAllEsTeatro() {
+        ArrayList<ETeatro> EsTeatro = new ArrayList();
+        /*for (int i=0; i< Lista.size(); i++)
            f= ETeatro Lista[i];
         EsTeatro.add(f);
        
-       */
+         */
         return EsTeatro;
     }
-    
 
     @Override
     public String toString() {
@@ -79,6 +79,6 @@ public ArrayList<ETeatro> getAllEsTeatro() {
     }
 
     public String data() {
-        return super.data()+"|" + getCategoria()+"|"+ getGrupo();
+        return super.data() + "|" + getCategoria() + "|" + getGrupo();
     }
 }

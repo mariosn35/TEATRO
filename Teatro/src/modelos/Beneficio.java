@@ -1,5 +1,6 @@
 package modelos;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -8,6 +9,7 @@ import java.util.Date;
  * @version 1.1
  */
 public class Beneficio {
+
     protected long id;/*Modela el identificador propio*/
     private Date fecha;/*Modela la fecha de adquisicion del beneficio*/
     private double importe;/*Modela importe en euros.*/
@@ -15,12 +17,11 @@ public class Beneficio {
     private Informe informe;
     private Bono bono;
     private Taquilla taquilla;
-    
 
-    public Beneficio() {     
+    public Beneficio() {
     }
-    
-    public Beneficio(long id, Date fecha, double importe, String reporte, Informe informe,Bono bono, Taquilla taquilla) {
+
+    public Beneficio(long id, Date fecha, double importe, String reporte, Informe informe, Bono bono, Taquilla taquilla) {
         this.id = id;
         this.fecha = fecha;
         this.importe = importe;
@@ -29,8 +30,8 @@ public class Beneficio {
         this.bono = bono;
         this.taquilla = taquilla;
     }
-    
-    public Beneficio (Beneficio b) {
+
+    public Beneficio(Beneficio b) {
         this.id = b.getId();
         this.fecha = b.getFecha();
         this.importe = b.getImporte();
@@ -95,8 +96,36 @@ public class Beneficio {
     public void setTaquilla(Taquilla taquilla) {
         this.taquilla = taquilla;
     }
-    
+
+    public Beneficio getBeneficioById(long Id) {
+        Beneficio bf = null;
+        /* for(int i=0; i< Lista.size (); i++){
+     s=(Beneficio) Lista[i];
+     
+        if( s.getId()== Id){
+        }
+        
+     } 
+         */
+        return bf;
+    }
+
+    public ArrayList<Beneficio> getAllBeneficios() {
+        ArrayList<Beneficio> Beneficios = new ArrayList();
+        /*for (int i=0; i< Lista.size(); i++)
+           g= Grupo Lista[i];
+       Beneficios.add(f);
+       
+         */
+        return Beneficios;
+    }
+
+    @Override
+    public String toString() {
+        return "Beneficio{" + "id=" + id + ", fecha=" + fecha + ", importe=" + importe + ", reporte=" + reporte + ", informe=" + informe + ", bono=" + bono + ", taquilla=" + taquilla + '}';
+    }
+
     public String data() {
-        return ""+getId()+"|"+getFecha()+"|"+getImporte()+"|"+getReporte();
+        return "" + getId() + "|" + getFecha() + "|" + getImporte() + "|" + getReporte() + "|" + getInforme() + "|" + getBono() + "|" + getTaquilla();
     }
 }

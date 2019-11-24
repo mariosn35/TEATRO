@@ -19,13 +19,14 @@ public class Secretariado extends EOficina{
       Secretariado s = new Secretariado();
       char d;
       Scanner in;
+      do{
       s=(Secretariado) EOficina.nuevoEOficina();
       in = new Scanner(System.in);
       System.out.println("¿Los datos son correctos?"+s);
       
       System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
       d= in.next().charAt(0); 
-           
+      } while  (d!='s'&& d!='S' );       
           
     return s;
     

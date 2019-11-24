@@ -40,16 +40,22 @@ public class EOficina extends Empleado {
 
 
          public static EOficina nuevoEOficina() {
-        
+        char d;
         Scanner in;
         int a ;
         EOficina o = new EOficina();
         in = new Scanner(System.in);
+        do{
         System.out.println("Mete tus años de antiguedad");
         a=in.nextInt();
         o.getAntiguedad();
         o= (EOficina) Empleado.nuevoEmpleado();
-    
+          System.out.println("¿Los datos son correctos?"+o);
+      
+      System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
+      d= in.next().charAt(0);
+      } while  (d!='s'&& d!='S' );           
+
     return o;
     
        }

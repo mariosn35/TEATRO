@@ -15,7 +15,7 @@ public class Prueva {
         public static void main(String[] args) throws ParseException {
             
             Usuario.nuevoUsuario();
-        
+            Taquilla.nuevoTaquilla();
     }
     
     

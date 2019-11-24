@@ -36,12 +36,13 @@ public class ETeatro extends Empleado {
     
 
          public static ETeatro nuevoETeatro() {
-        
+        char d;
         Scanner in;
         char a ;
         ETeatro t = new ETeatro();
         Grupo g= new Grupo();
         in = new Scanner(System.in);
+        do{
         System.out.println("Mete tu categoria");
         a = in.next().charAt(0); 
         t.setCategoria(a);
@@ -49,7 +50,12 @@ public class ETeatro extends Empleado {
         g.nuevogrupo();
         t.setGrupo(g);
         t= (ETeatro) Empleado.nuevoEmpleado();
-    
+      System.out.println("¿Los datos son correctos?"+t);
+      
+      System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
+      d= in.next().charAt(0);
+      } while  (d!='s'&& d!='S' );           
+
     return t;
     
        }

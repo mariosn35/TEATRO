@@ -37,15 +37,21 @@ public class Direccion extends EOficina {
     }
 
     public static Direccion nuevoDireccion() {
-
+        char s;
         Scanner in;
         int a;
         
         in = new Scanner(System.in);
         Direccion d = new Direccion();
+        do{
         d=(Direccion) EOficina.nuevoEOficina();
         System.out.println("Años al cargo");
         a = in.nextInt();
+  System.out.println("¿Los datos son correctos?"+d);
+      
+      System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
+      s= in.next().charAt(0);
+      } while  (s!='s'&& s!='S' );           
 
         return d;
 

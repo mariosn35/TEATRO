@@ -30,11 +30,15 @@ public class Taquilla extends ETeatro {
      Taquilla t = new Taquilla();
      Scanner in;
      in = new Scanner(System.in);
+     do{
       t=(Taquilla) ETeatro.nuevoETeatro();
+     
       System.out.println("¿Los datos son correctos?"+t);
       
       System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
       s= in.next().charAt(0); 
+      
+      } while  (s!='s'&& s!='S' );  
     return t;
     
     }

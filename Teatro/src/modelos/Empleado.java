@@ -48,7 +48,7 @@ public class Empleado {
         this.telefono = telefono;
     }
        public static Empleado nuevoEmpleado() {
-        
+        char s;
         Scanner in;
         String a;
         String b;
@@ -58,6 +58,7 @@ public class Empleado {
         
     in = new Scanner(System.in);
     Empleado e = new Empleado();
+    do{
     System.out.println("Introduce tu nombre");
     a=in.nextLine();
     e.setNombre(a);
@@ -73,7 +74,12 @@ public class Empleado {
     System.out.println("Introduce tu telefono");
     f=in.nextLine();
     e.setNombre(f);
-    
+      System.out.println("¿Los datos son correctos?"+e);
+      
+      System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
+      s= in.next().charAt(0);
+      } while  (s!='s'&& s!='S' );           
+
     return e;
     
        }

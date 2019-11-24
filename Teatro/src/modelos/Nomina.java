@@ -98,7 +98,7 @@ public class Nomina {
         this.revisado = revisado;
     }
      public static Nomina nuevoNomina() throws ParseException {
-    
+    char g;
     Nomina n = new Nomina();
     int a;
     int b;
@@ -109,6 +109,7 @@ public class Nomina {
     Empleado e = new Empleado();
     Coste co = new Coste();
     in = new Scanner(System.in);
+    do{
     System.out.println("Mete el mes de creacion");
     a=in.nextInt();
     n.setMes(a);
@@ -133,7 +134,11 @@ public class Nomina {
     System.out.println("Mete el coste");
     co.nuevoCoste();
     n.setCoste(co);
-    
+    System.out.println("¿Los datos son correctos?"+n);
+      
+      System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
+      g= in.next().charAt(0);
+    } while  (g!='s'&& g!='S' );  
     return n;
     
     }

@@ -37,7 +37,7 @@ public class Informe extends Nomina {
     }
 
     public static Informe nuevoinforme() {
-
+        char d;
         Scanner in;
         int a;
         int b;
@@ -47,7 +47,9 @@ public class Informe extends Nomina {
         Secretariado s = new Secretariado();
 
         in = new Scanner(System.in);
+        
         Informe i = null;
+        do{
         do {
             System.out.println("Mes de creacion del grupo");
 
@@ -62,6 +64,11 @@ public class Informe extends Nomina {
         System.out.println("Secretario:");
         s.nuevoSecretariado();
         i.setSecretariado(s);
+       System.out.println("¿Los datos son correctos?"+i);
+      
+      System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
+      d= in.next().charAt(0);
+      } while  (d!='s'&& d!='S' );           
 
         return i;
 

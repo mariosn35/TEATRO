@@ -6,6 +6,7 @@
 package modelos;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
@@ -36,8 +37,17 @@ public class Acomodador extends ETeatro {
         this.coste = coste;
     }
     public static Acomodador nuevoAcomodador() {
+        char s;
+        Scanner in;
+         in = new Scanner(System.in);
       Acomodador a = new Acomodador();
+      do{
       a=(Acomodador) ETeatro.nuevoETeatro();
+       System.out.println("¿Los datos son correctos?"+a);
+      
+      System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
+      s= in.next().charAt(0);
+      } while  (s!='s'&& s!='S' );    
     return a;
     
     }

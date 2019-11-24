@@ -102,8 +102,8 @@ public class Usuario {
       
       System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
       s= in.next().charAt(0);
-      } while  (s!='s'&& s!='S' );
-           
+      } while  (s!='s'&& s!='S' );           
+
     
     return u;
     

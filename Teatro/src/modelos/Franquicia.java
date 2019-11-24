@@ -27,7 +27,7 @@ public class Franquicia {
     private Grupo grupo; //
     private Informe informe;
     private Direccion director;
-    
+   
     public Franquicia( Date fecha_creacion, String ubicacion, boolean accesible, Grupo grupo,Informe informe,Direccion director) {
         
         this.fecha_creacion = fecha_creacion;
@@ -38,7 +38,7 @@ public class Franquicia {
         this.director = director;
     }
     public static Franquicia nuevafranquicia() throws ParseException{
-        
+        char s;
         Scanner in;
         Date a;
         String b;
@@ -48,7 +48,8 @@ public class Franquicia {
         Direccion g = new Direccion();
         char respuesta ;
     in = new Scanner(System.in);
-    Franquicia f = null;
+    Franquicia f = new Franquicia();
+    do{
     System.out.println("Introduzca la fecha de creacion");
     Date fe=Cajadeherramientas.readDate(in,"DD-MM-YYYY");
     f.setFecha_creacion(fe);
@@ -76,6 +77,12 @@ public class Franquicia {
     System.out.println("Director:");
     g.nuevoDireccion();
     f.setDirector(g);
+      System.out.println("¿Los datos son correctos?"+f);
+      
+      System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
+      s= in.next().charAt(0);
+      } while  (s!='s'&& s!='S' );           
+
     return f;
     
     }

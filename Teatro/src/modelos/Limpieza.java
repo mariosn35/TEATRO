@@ -1,6 +1,7 @@
 package modelos;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -36,9 +37,20 @@ public class Limpieza extends ETeatro {
         this.coste = coste;
     }
     public static Limpieza nuevoLimpiador() {
+        char s;
+        Scanner in;
+         in = new Scanner(System.in);
       Limpieza l = new Limpieza();
+      do{
       l=(Limpieza) ETeatro.nuevoETeatro();
+      
+      System.out.println("¿Los datos son correctos?"+l);
+      
+      System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
+      s= in.next().charAt(0);
+      }while  (s!='s'&& s!='S' ); 
     return l;
+    
     
     }
     public Limpieza getLimpiezasById(long id) {

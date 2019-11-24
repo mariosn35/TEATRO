@@ -40,7 +40,7 @@ public class Grupo {
         
     }
       public static Grupo nuevogrupo() {
-        
+        char s;
         Scanner in;
         int a;
         String b;
@@ -49,7 +49,8 @@ public class Grupo {
        
         
     in = new Scanner(System.in);
-    Grupo g = null;
+    Grupo g = new Grupo();
+    do{
     System.out.println("Año de creacion del grupo");
     a=in.nextInt();
     System.out.println("Nombre del grupo");
@@ -59,7 +60,12 @@ public class Grupo {
     c=in.nextInt();
     
     }while (c<1 || c>52);
-    
+      System.out.println("¿Los datos son correctos?"+g);
+      
+      System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
+      s= in.next().charAt(0);
+      } while  (s!='s'&& s!='S' );           
+
       
     
     return g;

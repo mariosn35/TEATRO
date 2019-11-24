@@ -68,11 +68,13 @@ public class Coste {
         this.reporte = reporte;
     }
      public static Coste nuevoCoste() throws ParseException {
+         char d;
       Coste c = new Coste();
       Scanner in;
       double i;
       String r;
       in = new Scanner(System.in);
+      do{
       System.out.println("Introduzca la fecha de creacion");
     java.sql.Date fe=Cajadeherramientas.readDate(in,"DD-MM-YYYY");
     c.setFecha(fe);
@@ -82,8 +84,13 @@ public class Coste {
     System.out.println("Introduzca el Reporte");
     r=in.nextLine();
     c.setReporte(r);
-    return c;
     
+      System.out.println("¿Los datos son correctos?"+c);
+      
+      System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
+      d= in.next().charAt(0);
+      } while  (d!='s'&& d!='S' );           
+return c;
     }
     public Coste getCosteById(long Id) {
         Coste c = null;

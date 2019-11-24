@@ -67,6 +67,7 @@ public class Bono {
         this.usuario = usuario;
     }
       public static Bono nuevoBono() {
+          char s;
       Bono b = new Bono();
       char a;
       int c;
@@ -74,6 +75,7 @@ public class Bono {
       Usuario u = new Usuario();
       Scanner in;
        in = new Scanner(System.in);
+       do{
       System.out.println("Introduzca el tipo de bono");
        a = in.next().charAt(0);
        b.setTipo(a);
@@ -86,7 +88,11 @@ public class Bono {
         System.out.println("Introduzca el usuario propietario del bono");
        u.nuevoUsuario();
        b.setUsuario(u);
-       
+        System.out.println("¿Los datos son correctos?"+b);
+      
+      System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
+      s= in.next().charAt(0);
+      } while  (s!='s'&& s!='S' );    
       
     return b;
     

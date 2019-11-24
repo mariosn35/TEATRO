@@ -1,6 +1,7 @@
 package modelos;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
@@ -73,7 +74,40 @@ public class Usuario {
     public void setEmail(String email) {
         this.email = email;
     }
-
+       public static Usuario nuevoUsuario() {
+         
+       char s;
+         
+      Usuario u = new Usuario() ;
+      Scanner in;
+      String a;
+      String b;
+      String c;
+      String d;
+      do{
+      in = new Scanner(System.in);
+      System.out.println("Introduzca Nombre");
+      a=in.nextLine();
+      u.setNombre(a);
+      System.out.println("Introduzca su telefono");
+      b=in.nextLine();
+      u.setTelefono(b);
+      System.out.println("Introduzca su nif");
+      c=in.nextLine();
+      u.setNIF(c);
+      System.out.println("Introduzca email");
+      d=in.nextLine();
+      u.setEmail(d);
+      System.out.println("¿Los datos son correctos?"+u);
+      
+      System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
+      s= in.next().charAt(0);
+      } while  (s!='s'&& s!='S' );
+           
+    
+    return u;
+    
+    }
     public Usuario getUsuarioById(long id) {
 
         Usuario u = null;

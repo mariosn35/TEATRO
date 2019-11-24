@@ -6,6 +6,7 @@
 package modelos;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
@@ -25,8 +26,15 @@ public class Taquilla extends ETeatro {
         super(t);
     }
     public static Taquilla nuevoTaquilla() {
+            char s;
      Taquilla t = new Taquilla();
+     Scanner in;
+     in = new Scanner(System.in);
       t=(Taquilla) ETeatro.nuevoETeatro();
+      System.out.println("¿Los datos son correctos?"+t);
+      
+      System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
+      s= in.next().charAt(0); 
     return t;
     
     }

@@ -1,6 +1,8 @@
 package modelos;
 
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
@@ -95,7 +97,46 @@ public class Nomina {
     public void setRevisado(boolean revisado) {
         this.revisado = revisado;
     }
-
+     public static Nomina nuevoNomina() throws ParseException {
+    
+    Nomina n = new Nomina();
+    int a;
+    int b;
+    char c;
+    boolean d;
+    Scanner in;
+    Secretariado s= new Secretariado();
+    Empleado e = new Empleado();
+    Coste co = new Coste();
+    in = new Scanner(System.in);
+    System.out.println("Mete el mes de creacion");
+    a=in.nextInt();
+    n.setMes(a);
+    System.out.println("Mete el año de creacion");
+    b=in.nextInt();
+    n.setMes(b);
+    do{
+    System.out.println("Di si esta revisado s para si n para no");
+    c = in.next().charAt(0); 
+    
+    
+    } while (c!='s'&& c!='S' && c!='n'&& c!='N' );
+    if  (c=='s' || c=='S') d=true; 
+    else d=false;
+    n.setRevisado(d);
+     System.out.println("Mete que secretariado a echo esta nomina");
+    s.nuevoSecretariado();
+    n.setSecretariado(s);
+    System.out.println("Mete a que empleado pertenece esta nomina");
+    e.nuevoEmpleado();
+    n.setEmpleado(e);
+    System.out.println("Mete el coste");
+    co.nuevoCoste();
+    n.setCoste(co);
+    
+    return n;
+    
+    }
     public Nomina getNominaById(long id) {
 
         Nomina n = null;

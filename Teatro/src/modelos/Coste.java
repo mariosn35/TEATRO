@@ -1,7 +1,9 @@
 package modelos;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Scanner;
 
 /**
  *
@@ -65,7 +67,24 @@ public class Coste {
     public void setReporte(String reporte) {
         this.reporte = reporte;
     }
-
+     public static Coste nuevoCoste() throws ParseException {
+      Coste c = new Coste();
+      Scanner in;
+      double i;
+      String r;
+      in = new Scanner(System.in);
+      System.out.println("Introduzca la fecha de creacion");
+    java.sql.Date fe=Cajadeherramientas.readDate(in,"DD-MM-YYYY");
+    c.setFecha(fe);
+    System.out.println("Introduzca el importe en euros");
+    i=in.nextDouble();
+    c.setImporte(i);
+    System.out.println("Introduzca el Reporte");
+    r=in.nextLine();
+    c.setReporte(r);
+    return c;
+    
+    }
     public Coste getCosteById(long Id) {
         Coste c = null;
         /* for(int i=0; i< Lista.size (); i++){

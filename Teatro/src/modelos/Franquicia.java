@@ -56,7 +56,7 @@ public class Franquicia {
     System.out.println("Introduzca la ubicacion");
     b=in.nextLine();
     f.setUbicacion(b);
-    System.out.println("¿Es accesible para minusvalidos?");
+    
     do {
     System.out.println("¿Es accesible?");
     

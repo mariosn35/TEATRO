@@ -1,6 +1,7 @@
 package modelos;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -16,7 +17,16 @@ import java.util.ArrayList;
 public class Secretariado extends EOficina{
       public static Secretariado nuevoSecretariado() {
       Secretariado s = new Secretariado();
+      char d;
+      Scanner in;
       s=(Secretariado) EOficina.nuevoEOficina();
+      in = new Scanner(System.in);
+      System.out.println("¿Los datos son correctos?"+s);
+      
+      System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
+      d= in.next().charAt(0); 
+           
+          
     return s;
     
     }

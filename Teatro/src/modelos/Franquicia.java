@@ -37,7 +37,7 @@ public class Franquicia {
         this.informe= informe;
         this.director = director;
     }
-    public Franquicia nuevafranquicia() throws ParseException{
+    public static Franquicia nuevafranquicia() throws ParseException{
         
         Scanner in;
         Date a;

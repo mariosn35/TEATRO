@@ -35,7 +35,12 @@ public class Limpieza extends ETeatro {
     public void setCoste(Coste coste) {
         this.coste = coste;
     }
-
+    public static Limpieza nuevoLimpiador() {
+      Limpieza l = new Limpieza();
+      l=(Limpieza) ETeatro.nuevoETeatro();
+    return l;
+    
+    }
     public Limpieza getLimpiezasById(long id) {
 
         Limpieza l = null;

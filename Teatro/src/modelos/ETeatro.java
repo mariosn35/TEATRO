@@ -6,6 +6,7 @@
 package modelos;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
@@ -32,7 +33,28 @@ public class ETeatro extends Empleado {
         this.categoria = categoria;
         this.grupo = grupo;
     }
+    
 
+         public static ETeatro nuevoETeatro() {
+        
+        Scanner in;
+        char a ;
+        ETeatro t = new ETeatro();
+        Grupo g= new Grupo();
+        in = new Scanner(System.in);
+        System.out.println("Mete tu categoria");
+        a = in.next().charAt(0); 
+        t.setCategoria(a);
+        System.out.println("Mete tu grupo");
+        g.nuevogrupo();
+        t.setGrupo(g);
+        t= (ETeatro) Empleado.nuevoEmpleado();
+    
+    return t;
+    
+       }
+           
+    
     public char getCategoria() {
         return categoria;
     }

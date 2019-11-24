@@ -36,13 +36,14 @@ public class Direccion extends EOficina {
 
     }
 
-    public Direccion nuevoDireccion() {
+    public static Direccion nuevoDireccion() {
 
         Scanner in;
         int a;
-
+        
         in = new Scanner(System.in);
-        Direccion d = null;
+        Direccion d = new Direccion();
+        d=(Direccion) EOficina.nuevoEOficina();
         System.out.println("Años al cargo");
         a = in.nextInt();
 

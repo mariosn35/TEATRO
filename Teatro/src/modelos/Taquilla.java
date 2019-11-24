@@ -24,7 +24,12 @@ public class Taquilla extends ETeatro {
     public Taquilla(Taquilla t) {
         super(t);
     }
-
+    public static Taquilla nuevoTaquilla() {
+     Taquilla t = new Taquilla();
+      t=(Taquilla) ETeatro.nuevoETeatro();
+    return t;
+    
+    }
     public Taquilla getTaquillaById(long id) {
 
         Taquilla t = null;

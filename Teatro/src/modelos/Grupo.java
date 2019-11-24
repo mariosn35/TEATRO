@@ -39,7 +39,7 @@ public class Grupo {
         
         
     }
-      public Grupo nuevogrupo() {
+      public static Grupo nuevogrupo() {
         
         Scanner in;
         int a;

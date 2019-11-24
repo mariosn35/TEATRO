@@ -35,7 +35,12 @@ public class Acomodador extends ETeatro {
     public void setCoste(Coste coste) {
         this.coste = coste;
     }
-
+    public static Acomodador nuevoAcomodador() {
+      Acomodador a = new Acomodador();
+      a=(Acomodador) ETeatro.nuevoETeatro();
+    return a;
+    
+    }
     public Acomodador getAcomodadoresById(long id) {
 
         Acomodador ac = null;

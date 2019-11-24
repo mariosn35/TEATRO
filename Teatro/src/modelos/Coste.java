@@ -76,7 +76,7 @@ public class Coste {
       in = new Scanner(System.in);
       do{
       System.out.println("Introduzca la fecha de creacion");
-    java.sql.Date fe=Cajadeherramientas.readDate(in,"DD-MM-YYYY");
+    Date fe=Cajadeherramientas.readDate(in,"DD-MM-YYYY");
     c.setFecha(fe);
     System.out.println("Introduzca el importe en euros");
     i=in.nextDouble();

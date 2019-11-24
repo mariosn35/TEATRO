@@ -49,7 +49,7 @@ public class EOficina extends Empleado {
         System.out.println("Mete tus años de antiguedad");
         a=in.nextInt();
         o.getAntiguedad();
-        o= (EOficina) Empleado.nuevoEmpleado();
+        o=(EOficina) Empleado.nuevoEmpleado();
           System.out.println("¿Los datos son correctos?"+o);
       
       System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");

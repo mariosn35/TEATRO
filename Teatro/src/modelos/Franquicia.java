@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package modelos;
-import java.sql.Date;
+import java.util.Date;
 import java.text.ParseException;
 import java.util.Scanner;
 import java.util.ArrayList;

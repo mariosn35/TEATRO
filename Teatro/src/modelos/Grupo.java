@@ -53,8 +53,10 @@ public class Grupo {
     do{
     System.out.println("Año de creacion del grupo");
     a=in.nextInt();
+    g.setAnno(a);
     System.out.println("Nombre del grupo");
     b=in.nextLine();
+    g.setNombre(b);
     do {
     System.out.println("Semana de creacion del grupo que va de 1 al 52");
     c=in.nextInt();

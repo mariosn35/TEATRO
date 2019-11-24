@@ -13,7 +13,7 @@ import java.text.ParseException;
  */
 public class Prueva {
         public static void main(String[] args) throws ParseException {
-            
+            Franquicia.nuevafranquicia();
             Usuario.nuevoUsuario();
             Taquilla.nuevoTaquilla();
     }

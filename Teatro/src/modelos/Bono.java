@@ -86,7 +86,7 @@ public class Bono {
        d= in.nextInt();
        b.setMes(d);
         System.out.println("Introduzca el usuario propietario del bono");
-       u.nuevoUsuario();
+       u=Usuario.nuevoUsuario();
        b.setUsuario(u);
         System.out.println("¿Los datos son correctos?"+b);
       

@@ -5,6 +5,7 @@
  */
 package modelos;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -36,13 +37,17 @@ public class Acomodador extends ETeatro {
     public void setCoste(Coste coste) {
         this.coste = coste;
     }
-    public static Acomodador nuevoAcomodador() {
+    public static Acomodador nuevoAcomodador() throws ParseException {
         char s;
         Scanner in;
          in = new Scanner(System.in);
+         Coste c = new Coste();
       Acomodador a = new Acomodador();
       do{
       a=(Acomodador) ETeatro.nuevoETeatro();
+      System.out.println("Introduce el coste producido ");
+      c=Coste.nuevoCoste();
+      a.setCoste(c);
        System.out.println("¿Los datos son correctos?"+a);
       
       System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");

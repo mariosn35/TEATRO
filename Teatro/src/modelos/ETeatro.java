@@ -47,7 +47,7 @@ public class ETeatro extends Empleado {
         a = in.next().charAt(0); 
         t.setCategoria(a);
         System.out.println("Mete tu grupo");
-        g.nuevogrupo();
+        g=Grupo.nuevogrupo();
         t.setGrupo(g);
         t= (ETeatro) Empleado.nuevoEmpleado();
       System.out.println("¿Los datos son correctos?"+t);

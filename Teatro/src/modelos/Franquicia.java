@@ -69,13 +69,13 @@ public class Franquicia {
     else c=false;
     f.setAccesible(c);
     System.out.println("Grupo:");
-    d.nuevogrupo();
+    d=Grupo.nuevogrupo();
     f.setGrupo(d);
     System.out.println("Informe:");
-    e.nuevoinforme();
+    e=Informe.nuevoinforme();
     f.setInforme(e);
     System.out.println("Director:");
-    g.nuevoDireccion();
+    g=Direccion.nuevoDireccion();
     f.setDirector(g);
       System.out.println("¿Los datos son correctos?"+f);
       

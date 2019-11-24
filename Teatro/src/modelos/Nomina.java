@@ -126,13 +126,13 @@ public class Nomina {
     else d=false;
     n.setRevisado(d);
      System.out.println("Mete que secretariado a echo esta nomina");
-    s.nuevoSecretariado();
+    s=Secretariado.nuevoSecretariado();
     n.setSecretariado(s);
     System.out.println("Mete a que empleado pertenece esta nomina");
-    e.nuevoEmpleado();
+    e=Empleado.nuevoEmpleado();
     n.setEmpleado(e);
     System.out.println("Mete el coste");
-    co.nuevoCoste();
+    co=Coste.nuevoCoste();
     n.setCoste(co);
     System.out.println("¿Los datos son correctos?"+n);
       

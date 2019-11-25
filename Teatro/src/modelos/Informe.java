@@ -44,7 +44,7 @@ public class Informe extends Nomina {
 
         double c;
 
-        Secretariado s = new Secretariado();
+        Secretariado s ;
 
         in = new Scanner(System.in);
         

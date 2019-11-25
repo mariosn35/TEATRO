@@ -51,12 +51,12 @@ public class Informe extends Nomina {
         Informe i = null;
         do{
         do {
-            System.out.println("Mes de creacion del grupo");
+            System.out.println("Mes de creacion del Informe");
 
             a = in.nextInt();
 
         } while (a < 1 || a > 12);
-        System.out.println("Año de creacion del grupo");
+        System.out.println("Año de creacion del Informe");
         b = in.nextInt();
 
         System.out.println("Introduce el balance en euros");

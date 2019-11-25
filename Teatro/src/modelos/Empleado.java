@@ -64,16 +64,16 @@ public class Empleado {
     e.setNombre(a);
     System.out.println("Introduce tus apellidos");
     b=in.nextLine();
-    e.setNombre(b);
+    e.setApellidos(b);
     System.out.println("Introduce tu nif");
     c=in.nextLine();
-    e.setNombre(c);
+    e.setNif(c);
     System.out.println("Introduce tu direccion");
     d=in.nextLine();
     e.setNombre(d);
     System.out.println("Introduce tu telefono");
     f=in.nextLine();
-    e.setNombre(f);
+    e.setTelefono(f);
       System.out.println("¿Los datos son correctos?"+e);
       
       System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
@@ -155,7 +155,7 @@ public class Empleado {
 
     @Override
     public String toString() {
-        return "Empleados{" + "id=" + id + ", nombre=" + nombre + ", apellidos=" + apellidos + ", nif=" + nif + ", direccion=" + direccion + ", telefono=" + telefono + '}';
+        return "Empleado{" + "id=" + id + ", nombre=" + nombre + ", apellidos=" + apellidos + ", nif=" + nif + ", direccion=" + direccion + ", telefono=" + telefono + '}';
     }
 
     public String data() {

@@ -39,6 +39,7 @@ public class Franquicia {
     }
     public static Franquicia nuevafranquicia() throws ParseException{
         char s;
+        char z;
         Scanner in;
         Date a;
         String b;
@@ -68,9 +69,14 @@ public class Franquicia {
     if  (respuesta=='s' || respuesta=='S') c=true; 
     else c=false;
     f.setAccesible(c);
-    System.out.println("Grupo:");
-    d=Grupo.nuevogrupo();
-    f.setGrupo(d);
+    System.out.println ("Quiere asignar un grupo a esta franquicia");
+    z= in.next().charAt(0);
+    if (z=='s'|| z=='S' ) {       
+     d=Grupo.nuevogrupo();
+    f.setGrupo(d);}
+    else System.out.println ("No has asiganado un grupo a esta franquicia");
+    
+    
     System.out.println("Informe:");
     e=Informe.nuevoinforme();
     f.setInforme(e);

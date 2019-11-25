@@ -31,7 +31,16 @@ public class EOficina extends Empleado {
         this.antiguedad = antiguedad;
 
     }
-
+     public EOficina(Empleado e) {
+        super(e);
+    }
+     
+      public EOficina(Empleado e, int anios) {
+        super(e);
+        this.antiguedad = anios;
+    }
+     
+     
     public EOficina(EOficina o) {
         super(o);
         this.antiguedad = o.getAntiguedad();
@@ -39,19 +48,20 @@ public class EOficina extends Empleado {
     }
 
 
-         public static EOficina nuevoEOficina() {
+    public static EOficina nuevoEOficina() {
         char d;
         Scanner in;
         int a ;
-        EOficina o = new EOficina();
+        EOficina o;
         in = new Scanner(System.in);
+        
         do{
-        System.out.println("Mete tus años de antiguedad");
+        o= new EOficina(Empleado.nuevoEmpleado());
+          System.out.println("¿Los datos son correctos?"+(EOficina)o);
+            System.out.println("Mete tus años de antiguedad");
         a=in.nextInt();
-        o.getAntiguedad();
-        o=(EOficina) Empleado.nuevoEmpleado();
-          System.out.println("¿Los datos son correctos?"+o);
-      
+        o.setAntiguedad(a);
+        
       System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
       d= in.next().charAt(0);
       } while  (d!='s'&& d!='S' );           

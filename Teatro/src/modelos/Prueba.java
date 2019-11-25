@@ -11,11 +11,11 @@ import java.text.ParseException;
  *
  * @author roter
  */
-public class Prueva {
+public class Prueba {
         public static void main(String[] args) throws ParseException {
-            Franquicia.nuevafranquicia();
+           Franquicia.nuevafranquicia();
             Usuario.nuevoUsuario();
-            Taquilla.nuevoTaquilla();
+       
     }
     
     

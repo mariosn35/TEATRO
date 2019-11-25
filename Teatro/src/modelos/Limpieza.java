@@ -45,9 +45,16 @@ public class Limpieza extends ETeatro {
       Limpieza l = new Limpieza();
       do{
       l=(Limpieza) ETeatro.nuevoETeatro();
-      System.out.println("Introduce el informe al que pertenece ");
-      c=Coste.nuevoCoste();
+       System.out.println("quieres asignar un coste a esta este empleado de limpieza");
+            char z = 0;
+         if (z == 's' || z == 'S') {
+           c=Coste.nuevoCoste();
       l.setCoste(c);
+            } else {
+                System.out.println("No has asiganado un coste a esta este empleado de limpieza");
+            }
+      
+     
       System.out.println("¿Los datos son correctos?"+l);
       
       System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");

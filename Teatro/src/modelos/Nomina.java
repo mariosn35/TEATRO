@@ -125,15 +125,31 @@ public class Nomina {
     if  (c=='s' || c=='S') d=true; 
     else d=false;
     n.setRevisado(d);
-     System.out.println("Mete que secretariado a echo esta nomina");
-    s=Secretariado.nuevoSecretariado();
+       System.out.println("quieres asignar un secretariado a esta nomina");
+            char z = 0;
+         if (z == 's' || z == 'S') {
+             s=Secretariado.nuevoSecretariado();
     n.setSecretariado(s);
-    System.out.println("Mete a que empleado pertenece esta nomina");
-    e=Empleado.nuevoEmpleado();
+            } else {
+                System.out.println("No has asiganado un secretariado a esta nomina");
+            }
+      
+       System.out.println("quieres asignar un empleado a esta nomina");
+            
+         if (z == 's' || z == 'S') {
+             e=Empleado.nuevoEmpleado();
     n.setEmpleado(e);
-    System.out.println("Mete el coste");
-    co=Coste.nuevoCoste();
+            } else {
+                System.out.println("No has asiganado un empleado a esta nomina");
+            }
+         System.out.println("quieres asignar un coste a esta nomina");
+         if (z == 's' || z == 'S') {
+           co=Coste.nuevoCoste();
     n.setCoste(co);
+            } else {
+                System.out.println("No has asiganado un coste a esta nomina");
+            }
+
     System.out.println("¿Los datos son correctos?"+n);
       
       System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");

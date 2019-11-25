@@ -46,9 +46,15 @@ public class ETeatro extends Empleado {
         System.out.println("Mete tu categoria");
         a = in.next().charAt(0); 
         t.setCategoria(a);
-        System.out.println("Mete tu grupo");
-        g=Grupo.nuevogrupo();
+        System.out.println("quieres asignar un grupo a esta este empleado de teatro");
+            char z = 0;
+         if (z == 's' || z == 'S') {
+                g=Grupo.nuevogrupo();
         t.setGrupo(g);
+            } else {
+                System.out.println("No has asiganado un grupo a esta este empleado de teatro");
+            }
+     
         t= (ETeatro) Empleado.nuevoEmpleado();
       System.out.println("¿Los datos son correctos?"+t);
       

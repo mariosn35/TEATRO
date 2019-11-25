@@ -38,6 +38,7 @@ public class Acomodador extends ETeatro {
         this.coste = coste;
     }
     public static Acomodador nuevoAcomodador() throws ParseException {
+        char z = 0;
         char s;
         Scanner in;
          in = new Scanner(System.in);
@@ -45,9 +46,13 @@ public class Acomodador extends ETeatro {
       Acomodador a = new Acomodador();
       do{
       a=(Acomodador) ETeatro.nuevoETeatro();
-      System.out.println("Introduce el coste producido ");
+      System.out.println("Quiere introducir el coste producido ");
+     if (z == 's' || z == 'S') {
       c=Coste.nuevoCoste();
-      a.setCoste(c);
+      a.setCoste(c);}
+     else {
+                System.out.println("No has asiganado un coste a esta este acomodador");
+            }
        System.out.println("¿Los datos son correctos?"+a);
       
       System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");

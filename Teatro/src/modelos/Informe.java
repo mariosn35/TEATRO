@@ -61,9 +61,16 @@ public class Informe extends Nomina {
 
         System.out.println("Introduce el balance en euros");
         c = in.nextDouble();
-        System.out.println("Secretario:");
-        s=Secretariado.nuevoSecretariado();
+         System.out.println("quieres asignar un secretario a esta este informe");
+            char z = 0;
+         if (z == 's' || z == 'S') {
+                s=Secretariado.nuevoSecretariado();
         i.setSecretariado(s);
+            } else {
+                System.out.println("No has asiganado un secretario a esta este informe");
+            }
+      
+       
        System.out.println("¿Los datos son correctos?"+i);
       
       System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");

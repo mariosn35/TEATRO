@@ -42,43 +42,59 @@ public class Beneficio {
         this.bono = b.getBono();
         this.taquilla = b.getTaquilla();
     }
-public static Beneficio nuevoBeneficio() throws ParseException {
+
+    public static Beneficio nuevoBeneficio() throws ParseException {
         char s;
+        char z = 0;
         Scanner in;
-        
+
         Double d;
         String c;
-         in = new Scanner(System.in);
-      Beneficio b = new Beneficio();
-      Informe i = new Informe();
-      Taquilla t= new Taquilla();
-      Bono bo = new Bono();
-      do{
-      System.out.println("Introduzca la fecha de creacion");
-    Date fe=Cajadeherramientas.readDate(in,"DD-MM-YYYY");
-    b.setFecha(fe);
-      System.out.println("Introduzca el importe en euros ");
-      d=in.nextDouble();
-      b.setImporte(d);
-      System.out.println("Introduzca el Reporte ");
-      c=in.nextLine();
-      b.setReporte(c);
-      System.out.println("Introduce el informe al que pertenece ");
-      i=Informe.nuevoinforme();
-      b.setInforme(i);
-      System.out.println("Introduce el Taquillero al que pertenece ");
-      t=Taquilla.nuevoTaquilla();
-      b.setTaquilla(t);
-      System.out.println("Introduce el bono al que pertenece ");
-      bo=Bono.nuevoBono();
-      b.setBono(bo);
-       System.out.println("¿Los datos son correctos?"+b);
-      
-      System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
-      s= in.next().charAt(0);
-      } while  (s!='s'&& s!='S' );    
-    return b;
-}
+        in = new Scanner(System.in);
+        Beneficio b = new Beneficio();
+        Informe i = new Informe();
+        Taquilla t = new Taquilla();
+        Bono bo = new Bono();
+        do {
+            System.out.println("Introduzca la fecha de creacion");
+            Date fe = Cajadeherramientas.readDate(in, "DD-MM-YYYY");
+            b.setFecha(fe);
+            System.out.println("Introduzca el importe en euros ");
+            d = in.nextDouble();
+            b.setImporte(d);
+            System.out.println("Introduzca el Reporte ");
+            c = in.nextLine();
+            b.setReporte(c);
+            System.out.println("Quiere introducir el informe  ");
+            if (z == 's' || z == 'S') {
+                i = Informe.nuevoinforme();
+                b.setInforme(i);
+            } else {
+                System.out.println("No has asiganado un informe a esta este beneficio");
+            }
+            System.out.println("Quiere introducir el taquillero ");
+            if (z == 's' || z == 'S') {
+                t = Taquilla.nuevoTaquilla();
+                b.setTaquilla(t);
+            } else {
+                System.out.println("No has asiganado un taquillero a esta este beneficio");
+            }
+             System.out.println("Quiere introducir el bono ");
+            if (z == 's' || z == 'S') {
+                bo = Bono.nuevoBono();
+            b.setBono(bo);
+            } else {
+                System.out.println("No has asiganado un bono a esta este beneficio");
+            }
+
+            System.out.println("¿Los datos son correctos?" + b);
+
+            System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
+            s = in.next().charAt(0);
+        } while (s != 's' && s != 'S');
+        return b;
+    }
+
     public long getId() {
         return id;
     }

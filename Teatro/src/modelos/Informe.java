@@ -8,7 +8,7 @@ import java.util.Scanner;
  * @author Mario
  * @version 1.1
  */
-public class Informe extends Nomina {
+public class Informe  {
 
     protected long id;/*Modela id. Valor positivo*/
     private int mes;/*Modela el mes. Valor positivo*/
@@ -44,12 +44,12 @@ public class Informe extends Nomina {
         int b;
 
         double c;
-
+        Informe i = new Informe();
         Secretariado s ;
 
         in = new Scanner(System.in);
         char z;
-        Informe i = new Informe();
+        
         do {
             do {
                 System.out.println("Mes de creacion del Informe");
@@ -108,14 +108,17 @@ public class Informe extends Nomina {
         return Informes;
     }
 
+    
     public Secretariado getSecretariado() {
         return secretariado;
     }
 
+    
     public void setSecretariado(Secretariado secretariado) {
         this.secretariado = secretariado;
     }
 
+    
     public long getId() {
         return id;
     }
@@ -153,6 +156,7 @@ public class Informe extends Nomina {
         return "Informe{" + "id=" + id + ", mes=" + mes + ", anio=" + anio + ", balance=" + balance + ", secretariado=" + secretariado + '}';
     }
 
+  
     public String data() {
         return "" + getId() + "|" + getMes() + "|" + getAnio() + "|" + getBalance() + "|" + getSecretariado();
     }

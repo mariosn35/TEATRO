@@ -7,6 +7,7 @@ package modelos;
 
 import java.util.Date;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -18,7 +19,7 @@ public class Franquicia {
 
     protected long id;
     //Modela el numero identificador propio de cada franquicia
-    private Date fecha_creacion;
+    private java.sql.Date fecha_creacion;
     //Modela la fecha en la que fueron creadas las franquicias 
     private String ubicacion;
     //Modela la ubicacion en la que se va a representar
@@ -28,7 +29,7 @@ public class Franquicia {
     private Informe informe;
     private Direccion director;
 
-    public Franquicia(Date fecha_creacion, String ubicacion, boolean accesible, Grupo grupo, Informe informe, Direccion director) {
+    public Franquicia(java.sql.Date fecha_creacion, String ubicacion, boolean accesible, Grupo grupo, Informe informe, Direccion director) {
 
         this.fecha_creacion = fecha_creacion;
         this.ubicacion = ubicacion;
@@ -53,10 +54,31 @@ public class Franquicia {
         in = new Scanner(System.in);
         Franquicia f = new Franquicia();
         do {
-            System.out.println("Introduzca la fecha de creacion");
-            Date fe = Cajadeherramientas.readDate(in, "DD-MM-YYYY");
+          //  System.out.println("Introduzca la fecha de creacion");
+          //  Date fe = Cajadeherramientas.readDate(in, "DD-MM-YYYY");
+          //  f.setFecha_creacion(fe);
+           //  java.util.Date utilDate = new java.util.Date(); //fecha actual
+            // long lnMilisegundos = utilDate.getTime();
+            // java.sql.Date fe = new java.sql.Date(lnMilisegundos);
+            // f.setFecha_creacion(fe);
+                 System.out.println("Introduzca la fecha con formato dd-mm-yyyy");
+        
+        String fecha = in.nextLine();
+        SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+        String date = fecha;
+        Date testDate = df.parse(date);
+         long lnMilisegundos = testDate.getTime();
+            
+        java.sql.Date fe = new java.sql.Date(lnMilisegundos);;
+        System.out.println("Ahora hemos creado un objeto date con la fecha indicada, "+fe);
+ 
+        if (!df.format(testDate).equals(date)){
+            System.out.println("invalid date!!");
+        } else {
+            System.out.println("valid date");
             f.setFecha_creacion(fe);
-
+        }
+       
             System.out.println("Introduzca la ubicacion");
             b = in.nextLine();
             f.setUbicacion(b);
@@ -172,11 +194,11 @@ public class Franquicia {
         return id;
     }
 
-    public Date getFecha_creacion() {
+    public java.sql.Date getFecha_creacion() {
         return fecha_creacion;
     }
 
-    public void setFecha_creacion(Date fecha_creacion) {
+    public void setFecha_creacion(java.sql.Date fecha_creacion) {
         this.fecha_creacion = fecha_creacion;
     }
 

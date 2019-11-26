@@ -14,8 +14,8 @@ import java.text.ParseException;
 public class Prueba {
         public static void main(String[] args) throws ParseException {
            Franquicia.nuevafranquicia();
-            Usuario.nuevoUsuario();
-       
+           Usuario.nuevoUsuario();
+           
     }
     
     

@@ -42,7 +42,7 @@ public class Secretariado extends EOficina{
       do{
       s= new Secretariado(EOficina.nuevoEOficina());
       
-      System.out.println("¿Los datos son correctos?"+(Secretariado)s);
+      
       
       System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
       d= in.next().charAt(0); 

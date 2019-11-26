@@ -29,6 +29,14 @@ public class Limpieza extends ETeatro {
 
     public Limpieza(Limpieza l) {
         super(l);
+        this.coste= l.getCoste();
+    }
+    public Limpieza(ETeatro e) {
+        super(e);
+    }
+    public Limpieza(ETeatro e, Coste c) {
+        super(e);
+        this.coste = c;
     }
 
     public Coste getCoste() {
@@ -44,9 +52,9 @@ public class Limpieza extends ETeatro {
         Scanner in;
          in = new Scanner(System.in);
          Coste c= new Coste();
-      Limpieza l = new Limpieza();
+      Limpieza l;
       do{
-      l=(Limpieza) ETeatro.nuevoETeatro();
+    l = new Limpieza(ETeatro.nuevoETeatro());
        System.out.println("quieres asignar un coste a esta este empleado de limpieza");
             z = in.next().charAt(0);
          if (z == 's' || z == 'S') {

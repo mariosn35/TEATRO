@@ -21,7 +21,13 @@ public class Acomodador extends ETeatro {
     public Acomodador() {
         super();
     }
-
+     public Acomodador(ETeatro e) {
+        super(e);
+    }
+      public Acomodador(ETeatro e,Coste c) {
+        super(e);
+        this.coste= c;
+    }
     public Acomodador(long id, String nombre, String apellidos, String nif, String direccion, String telefono, char categoria, Grupo grupo, Coste coste) {
         super(id, nombre, apellidos, nif, direccion, telefono, categoria, grupo);
     }
@@ -43,9 +49,9 @@ public class Acomodador extends ETeatro {
         Scanner in;
          in = new Scanner(System.in);
          Coste c = new Coste();
-      Acomodador a = new Acomodador();
+      Acomodador a ;
       do{
-      a=(Acomodador) ETeatro.nuevoETeatro();
+      a = new Acomodador(ETeatro.nuevoETeatro());
       System.out.println("Quiere introducir el coste producido ");
       z = in.next().charAt(0);
      if (z == 's' || z == 'S') {

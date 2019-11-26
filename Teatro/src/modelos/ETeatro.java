@@ -21,7 +21,16 @@ public class ETeatro extends Empleado {
     public ETeatro() {
         super();
     }
-
+     public ETeatro(Empleado e) {
+        super(e);
+    }
+       public ETeatro(Empleado e,char c,Grupo g) {
+        super(e);
+        this.categoria=c;
+        this.grupo = g;
+                
+                
+    }
     public ETeatro(ETeatro a) {
         super(a);
         this.categoria = a.getCategoria();
@@ -40,10 +49,11 @@ public class ETeatro extends Empleado {
         char d;
         Scanner in;
         char a ;
-        ETeatro t = new ETeatro();
-        Grupo g= new Grupo();
+        ETeatro t ;
+        Grupo g;
         in = new Scanner(System.in);
         do{
+             t = new ETeatro(Empleado.nuevoEmpleado());
         System.out.println("Mete tu categoria");
         a = in.next().charAt(0); 
         t.setCategoria(a);
@@ -56,7 +66,7 @@ public class ETeatro extends Empleado {
                 System.out.println("No has asiganado un grupo a esta este empleado de teatro");
             }
      
-        t= (ETeatro) Empleado.nuevoEmpleado();
+        
       System.out.println("¿Los datos son correctos?"+t);
       
       System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");

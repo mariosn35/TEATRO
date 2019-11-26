@@ -25,13 +25,17 @@ public class Taquilla extends ETeatro {
     public Taquilla(Taquilla t) {
         super(t);
     }
+        public Taquilla(ETeatro e) {
+        super(e);
+    }
+
     public static Taquilla nuevoTaquilla() {
             char s;
-     Taquilla t = new Taquilla();
+     Taquilla t;
      Scanner in;
      in = new Scanner(System.in);
      do{
-      t=(Taquilla) ETeatro.nuevoETeatro();
+      t = new Taquilla(ETeatro.nuevoETeatro());
      
       System.out.println("¿Los datos son correctos?"+t);
       

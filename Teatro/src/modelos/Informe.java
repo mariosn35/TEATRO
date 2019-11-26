@@ -49,7 +49,7 @@ public class Informe extends Nomina {
 
         in = new Scanner(System.in);
         char z;
-        Informe i = null;
+        Informe i = new Informe();
         do {
             do {
                 System.out.println("Mes de creacion del Informe");

@@ -25,6 +25,14 @@ public class Direccion extends EOficina {
     public Direccion() {
         super();
     }
+     public Direccion(Empleado e) {
+        super(e);
+        
+    }
+     public Direccion(Empleado e,int añoscargo) {
+        super(e);
+        this.añoscargo =  añoscargo;
+    }
 
     public Direccion(long id, String nombre, String apellidos, String nif, String direccion, String telefono, int antiguedad) {
         super(id, nombre, apellidos, nif, direccion, telefono, antiguedad);
@@ -42,9 +50,9 @@ public class Direccion extends EOficina {
         int a;
         
         in = new Scanner(System.in);
-        Direccion d = new Direccion();
+        Direccion d;
         do{
-        d=(Direccion) EOficina.nuevoEOficina();
+        d = new Direccion(EOficina.nuevoEOficina());
         System.out.println("Años al cargo");
         a = in.nextInt();
   System.out.println("¿Los datos son correctos?"+d);

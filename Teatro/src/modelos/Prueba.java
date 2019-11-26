@@ -15,7 +15,19 @@ public class Prueba {
         public static void main(String[] args) throws ParseException {
            Franquicia.nuevafranquicia();
            Usuario.nuevoUsuario();
-           
+           Acomodador.nuevoAcomodador();
+           Beneficio.nuevoBeneficio();
+           Bono.nuevoBono();
+           Coste.nuevoCoste();
+           Direccion.nuevoDireccion();
+           EOficina.nuevoEOficina();
+           ETeatro.nuevoETeatro();
+           Empleado.nuevoEmpleado();
+           Grupo.nuevogrupo();
+           Informe.nuevoinforme();
+           Nomina.nuevoNomina();
+           Secretariado.nuevoSecretariado();
+           Taquilla.nuevoTaquilla();
     }
     
     

@@ -3,6 +3,7 @@ package modelos;
 import java.util.ArrayList;
 import java.util.Date;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
 /**
@@ -56,9 +57,27 @@ public class Beneficio {
         Taquilla t = new Taquilla();
         Bono bo = new Bono();
         do {
-            System.out.println("Introduzca la fecha de creacion");
-            Date fe = Cajadeherramientas.readDate(in, "DD-MM-YYYY");
+            //System.out.println("Introduzca la fecha de creacion");
+            //Date fe = Cajadeherramientas.readDate(in, "DD-MM-YYYY");
+            //b.setFecha(fe);
+                     System.out.println("Introduzca la fecha con formato dd-mm-yyyy");
+        
+        String fecha = in.nextLine();
+        SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+        String date = fecha;
+        Date testDate = df.parse(date);
+         long lnMilisegundos = testDate.getTime();
+            
+        java.sql.Date fe = new java.sql.Date(lnMilisegundos);;
+        System.out.println("Ahora hemos creado un objeto date con la fecha indicada, "+fe);
+ 
+        if (!df.format(testDate).equals(date)){
+            System.out.println("invalid date!!");
+        } else {
+            System.out.println("valid date");
             b.setFecha(fe);
+        }
+       
             System.out.println("Introduzca el importe en euros ");
             d = in.nextDouble();
             b.setImporte(d);

@@ -35,12 +35,13 @@ public class Secretariado extends EOficina{
     }
       
  public static Secretariado nuevoSecretariado() {
-      Secretariado s = new Secretariado();
+      Secretariado s;
       char d;
       Scanner in;
+      in = new Scanner(System.in);
       do{
       s= new Secretariado(EOficina.nuevoEOficina());
-      in = new Scanner(System.in);
+      
       System.out.println("¿Los datos son correctos?"+(Secretariado)s);
       
       System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");

@@ -47,6 +47,7 @@ public class Acomodador extends ETeatro {
       do{
       a=(Acomodador) ETeatro.nuevoETeatro();
       System.out.println("Quiere introducir el coste producido ");
+      z = in.next().charAt(0);
      if (z == 's' || z == 'S') {
       c=Coste.nuevoCoste();
       a.setCoste(c);}

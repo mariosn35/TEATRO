@@ -66,6 +66,7 @@ public class Beneficio {
             c = in.nextLine();
             b.setReporte(c);
             System.out.println("Quiere introducir el informe  ");
+            z = in.next().charAt(0);
             if (z == 's' || z == 'S') {
                 i = Informe.nuevoinforme();
                 b.setInforme(i);
@@ -73,6 +74,7 @@ public class Beneficio {
                 System.out.println("No has asiganado un informe a esta este beneficio");
             }
             System.out.println("Quiere introducir el taquillero ");
+            z = in.next().charAt(0);
             if (z == 's' || z == 'S') {
                 t = Taquilla.nuevoTaquilla();
                 b.setTaquilla(t);
@@ -80,6 +82,7 @@ public class Beneficio {
                 System.out.println("No has asiganado un taquillero a esta este beneficio");
             }
              System.out.println("Quiere introducir el bono ");
+             z = in.next().charAt(0);
             if (z == 's' || z == 'S') {
                 bo = Bono.nuevoBono();
             b.setBono(bo);

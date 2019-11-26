@@ -35,6 +35,14 @@ public class Bono {
         this.usuario = b.getUsuario();
     }
 
+    public int getAño() {
+        return año;
+    }
+
+    public void setAño(int año) {
+        this.año = año;
+    }
+
     public long getId() {
         return id;
     }
@@ -68,6 +76,7 @@ public class Bono {
     }
       public static Bono nuevoBono() {
           char s;
+          char z;
       Bono b = new Bono();
       char a;
       int c;
@@ -84,10 +93,16 @@ public class Bono {
        b.setMes(c);
         System.out.println("Introduzca el año en que es valido el bono");
        d= in.nextInt();
-       b.setMes(d);
-        System.out.println("Introduzca el usuario propietario del bono");
+       b.setAño(d);
+        System.out.println("Quiere asignar el usuario propietario del bono");
+         z = in.next().charAt(0);
+         if (z == 's' || z=='S') {
+
+
        u=Usuario.nuevoUsuario();
        b.setUsuario(u);
+            } else {System.out.println("No a asignado un usuario a este bono");}
+      
         System.out.println("¿Los datos son correctos?"+b);
       
       System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");

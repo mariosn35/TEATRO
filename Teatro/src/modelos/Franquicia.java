@@ -41,6 +41,7 @@ public class Franquicia {
     public static Franquicia nuevafranquicia() throws ParseException {
         char s;
         char z;
+        char x;
         Scanner in;
         Date a;
         String b;
@@ -83,7 +84,7 @@ public class Franquicia {
 
             System.out.println("Quiere asignar un Informe a esta franquicia");
             z = in.next().charAt(0);
-            if (z == 's' || z == 'S') {
+            if (z == 's' || z=='S') {
 
                 e = Informe.nuevoinforme();
                 f.setInforme(e);
@@ -91,6 +92,7 @@ public class Franquicia {
                 System.out.println("No has asiganado un informe a esta franquicia");
             }
             System.out.println("Quiere asignar un director a esta franquicia");
+             z = in.next().charAt(0);
             if (z == 's' || z == 'S') {
                 g = Direccion.nuevoDireccion();
             f.setDirector(g);}

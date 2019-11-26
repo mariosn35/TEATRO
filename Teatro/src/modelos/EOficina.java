@@ -50,16 +50,16 @@ public class EOficina extends Empleado {
         char d;
         Scanner in;
         int a;
-        EOficina o;
+        EOficina o ;
         in = new Scanner(System.in);
 
         do {
             o = new EOficina(Empleado.nuevoEmpleado());
-            System.out.println("¿Los datos son correctos?" + (EOficina) o);
+            
             System.out.println("Mete tus años de antiguedad");
             a = in.nextInt();
             o.setAntiguedad(a);
-
+            System.out.println("¿Los datos son correctos?" + (EOficina) o);
             System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
             d = in.next().charAt(0);
         } while (d != 's' && d != 'S');

@@ -104,6 +104,7 @@ public class Nomina {
     int b;
     char c;
     boolean d;
+    char z;
     Scanner in;
     Secretariado s= new Secretariado();
     Empleado e = new Empleado();
@@ -126,7 +127,7 @@ public class Nomina {
     else d=false;
     n.setRevisado(d);
        System.out.println("quieres asignar un secretariado a esta nomina");
-            char z = 0;
+             z = in.next().charAt(0);
          if (z == 's' || z == 'S') {
              s=Secretariado.nuevoSecretariado();
     n.setSecretariado(s);
@@ -135,7 +136,7 @@ public class Nomina {
             }
       
        System.out.println("quieres asignar un empleado a esta nomina");
-            
+             z = in.next().charAt(0);
          if (z == 's' || z == 'S') {
              e=Empleado.nuevoEmpleado();
     n.setEmpleado(e);
@@ -143,6 +144,7 @@ public class Nomina {
                 System.out.println("No has asiganado un empleado a esta nomina");
             }
          System.out.println("quieres asignar un coste a esta nomina");
+          z = in.next().charAt(0);
          if (z == 's' || z == 'S') {
            co=Coste.nuevoCoste();
     n.setCoste(co);

@@ -36,6 +36,7 @@ public class Informe extends Nomina {
         this.balance = i.getBalance();
     }
 
+    
     public static Informe nuevoinforme() {
         char d;
         Scanner in;
@@ -47,39 +48,42 @@ public class Informe extends Nomina {
         Secretariado s ;
 
         in = new Scanner(System.in);
-        
+        char z;
         Informe i = null;
-        do{
         do {
-            System.out.println("Mes de creacion del Informe");
+            do {
+                System.out.println("Mes de creacion del Informe");
 
-            a = in.nextInt();
+                a = in.nextInt();
 
-        } while (a < 1 || a > 12);
-        System.out.println("Año de creacion del Informe");
-        b = in.nextInt();
+            } while (a < 1 || a > 12);
+            System.out.println("Año de creacion del Informe");
+            b = in.nextInt();
 
-        System.out.println("Introduce el balance en euros");
-        c = in.nextDouble();
-         System.out.println("quieres asignar un secretario a esta este informe");
-            char z = 0;
-         if (z == 's' || z == 'S') {
-                s=Secretariado.nuevoSecretariado();
-        i.setSecretariado(s);
-            } else {
-                System.out.println("No has asiganado un secretario a esta este informe");
-            }
+            System.out.println("Introduce el balance en euros");
+            c = in.nextDouble();
+            System.out.println("quieres asignar un secretario a esta este informe");
+            z = in.next().charAt(0);
+            if (z == 's' || z == 'S') {
+            s = Secretariado.nuevoSecretariado();
+            i.setSecretariado(s);}
+            else {
+                System.out.println("No has asiganado un secretario a esta este informe");}
+            
       
        
        System.out.println("¿Los datos son correctos?"+i);
       
       System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
       d= in.next().charAt(0);
-      } while  (d!='s'&& d!='S' );           
+      }
+            while (d != 's' && d != 'S');
 
-        return i;
+            return i;
 
-    }
+        }
+
+    
 
     public Informe getInformeById(long Id) {
         Informe i = null;

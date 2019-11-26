@@ -17,6 +17,7 @@ import java.util.Scanner;
 public class Limpieza extends ETeatro {
 
     private Coste coste;
+    
 
     public Limpieza() {
         super();
@@ -39,6 +40,7 @@ public class Limpieza extends ETeatro {
     }
     public static Limpieza nuevoLimpiador() throws ParseException {
         char s;
+      char z;
         Scanner in;
          in = new Scanner(System.in);
          Coste c= new Coste();
@@ -46,7 +48,7 @@ public class Limpieza extends ETeatro {
       do{
       l=(Limpieza) ETeatro.nuevoETeatro();
        System.out.println("quieres asignar un coste a esta este empleado de limpieza");
-            char z = 0;
+            z = in.next().charAt(0);
          if (z == 's' || z == 'S') {
            c=Coste.nuevoCoste();
       l.setCoste(c);

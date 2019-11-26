@@ -70,7 +70,7 @@ public class Empleado {
     e.setNif(c);
     System.out.println("Introduce tu direccion");
     d=in.nextLine();
-    e.setNombre(d);
+    e.setDireccion(d);
     System.out.println("Introduce tu telefono");
     f=in.nextLine();
     e.setTelefono(f);

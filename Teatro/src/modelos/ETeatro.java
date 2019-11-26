@@ -36,6 +36,7 @@ public class ETeatro extends Empleado {
     
 
          public static ETeatro nuevoETeatro() {
+             char z;
         char d;
         Scanner in;
         char a ;
@@ -47,7 +48,7 @@ public class ETeatro extends Empleado {
         a = in.next().charAt(0); 
         t.setCategoria(a);
         System.out.println("quieres asignar un grupo a esta este empleado de teatro");
-            char z = 0;
+           z = in.next().charAt(0);
          if (z == 's' || z == 'S') {
                 g=Grupo.nuevogrupo();
         t.setGrupo(g);

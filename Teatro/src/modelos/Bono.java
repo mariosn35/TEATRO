@@ -85,7 +85,7 @@ public class Bono {
       Scanner in;
        in = new Scanner(System.in);
        do{
-      System.out.println("Introduzca el tipo de bono");
+      System.out.println("Introduzca el tipo de bono puede ser c o p");
        a = in.next().charAt(0);
        b.setTipo(a);
        System.out.println("Introduzca el mes en que es valido el bono");

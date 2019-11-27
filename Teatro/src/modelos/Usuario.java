@@ -131,7 +131,22 @@ public class Usuario {
          */
         return Usuario;
     }
-
+    public static Bono comprarbono(Bono b){
+        char z; 
+        Scanner in = new Scanner(System.in);
+         System.out.println("Registrate");
+         Usuario u =Usuario.nuevoUsuario();
+            b.setUsuario(u);
+           System.out.println("Quiere comprar un bono");
+        z = in.next().charAt(0);
+        if (z == 's' || z == 'S') {
+            
+       b.setUsuario(u);
+          
+            }else{}
+    
+    return b;
+    }
     @Override
     public String toString() {
         return "Usuario{" + "identificador=" + identificador + ", nombre=" + nombre + ", telefono=" + telefono + ", NIF=" + NIF + ", email=" + email + '}';

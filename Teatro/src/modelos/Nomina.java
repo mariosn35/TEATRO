@@ -106,9 +106,9 @@ public class Nomina {
     boolean d;
     char z;
     Scanner in;
-    Secretariado s= new Secretariado();
-    Empleado e = new Empleado();
-    Coste co = new Coste();
+    Secretariado s;
+    Empleado e;
+    Coste co;
     in = new Scanner(System.in);
     do{
     System.out.println("Mete el mes de creacion");
@@ -116,7 +116,7 @@ public class Nomina {
     n.setMes(a);
     System.out.println("Mete el año de creacion");
     b=in.nextInt();
-    n.setMes(b);
+    n.setAnio(b);
     do{
     System.out.println("Di si esta revisado s para si n para no");
     c = in.next().charAt(0); 

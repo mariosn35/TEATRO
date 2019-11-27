@@ -1,5 +1,6 @@
 package modelos;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -72,6 +73,17 @@ public class Secretariado extends EOficina{
        
          */
         return Secretariados;
+    }
+    public static Nomina calcularnomina() throws ParseException{
+        System.out.println("Secretario esclavo quieres crear una nomina");
+     Nomina n=Nomina.nuevoNomina();
+    
+    return n;
+    }
+    public static boolean  revisado(boolean re){
+    
+    
+    return re;
     }
 
     @Override

@@ -13,22 +13,27 @@ import java.text.ParseException;
  */
 public class Prueba {
         public static void main(String[] args) throws ParseException {
-           Franquicia.nuevafranquicia();
-           Usuario.nuevoUsuario();
-           Acomodador.nuevoAcomodador();
-           Beneficio.nuevoBeneficio();
-           Bono.nuevoBono();
-           Coste.nuevoCoste();
-           Direccion.nuevoDireccion();
-           EOficina.nuevoEOficina();
-           ETeatro.nuevoETeatro();
-           Empleado.nuevoEmpleado();
-           Grupo.nuevogrupo();
-           Informe.nuevoinforme();
-           Nomina.nuevoNomina();
-           Secretariado.nuevoSecretariado();
-           Taquilla.nuevoTaquilla();
-    }
+         //  Franquicia.nuevafranquicia();
+         //Usuario.nuevoUsuario();
+          //  Acomodador.nuevoAcomodador();
+           // Beneficio.nuevoBeneficio();
+//           Bono.nuevoBono();
+//           Coste.nuevoCoste();
+//           Direccion.nuevoDireccion();
+//           EOficina.nuevoEOficina();
+//           ETeatro.nuevoETeatro();
+//           Empleado.nuevoEmpleado();
+//           Grupo.nuevogrupo();
+//           Informe.nuevoinforme();
+//           Nomina.nuevoNomina();
+//           Secretariado.nuevoSecretariado();
+//           Taquilla.nuevoTaquilla();
+           //  Nomina n=Secretariado.calcularnomina();
+             //System.out.println("Tu nomina"+n);
+             Bono b=Bono.nuevoBono();
+             Usuario.comprarbono(b);
+             System.out.println("Tu bono"+b);
+        }
     
     
 }

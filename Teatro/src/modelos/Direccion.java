@@ -16,7 +16,7 @@ import java.util.Scanner;
 public class Direccion extends EOficina {
 
     private int añoscargo;
-
+    
     /**
      * Modela a los directores cuantos años llevan en el cargo puede ser de
      * positivo y no pueden ser negativos
@@ -95,6 +95,7 @@ public class Direccion extends EOficina {
     public void setAñoscargo(int añoscargo) {
         this.añoscargo = añoscargo;
     }
+    
 
     @Override
     public String toString() {

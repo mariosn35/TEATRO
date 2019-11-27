@@ -47,9 +47,9 @@ public class Franquicia {
         Date a;
         String b;
         Boolean c;
-        Grupo d = new Grupo();
-        Informe e = new Informe();
-        Direccion g = new Direccion();
+        Grupo d ;
+        Informe e ;
+        Direccion g ;
         char respuesta;
         in = new Scanner(System.in);
         Franquicia f = new Franquicia();

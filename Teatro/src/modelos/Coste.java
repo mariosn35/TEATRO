@@ -17,7 +17,7 @@ public class Coste {
     private Date fecha;/*Modela fecha. Valor positivo*/
     private double importe;/*Modela importe en euros. Valor positivo*/
     private String reporte;/*Modela reporte*/
-
+    
     public Coste() {
     }
 

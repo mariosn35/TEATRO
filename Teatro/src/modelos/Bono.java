@@ -100,9 +100,9 @@ public class Bono {
 
 
        u=Usuario.nuevoUsuario();
-       b.setUsuario(u);
-            } else {System.out.println("No a asignado un usuario a este bono");}
       
+            } else {System.out.println("No a asignado un usuario a este bono");}
+       b.setUsuario(u);
         System.out.println("¿Los datos son correctos?"+b);
       
       System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");

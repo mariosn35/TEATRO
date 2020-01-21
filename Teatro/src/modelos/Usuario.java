@@ -15,16 +15,17 @@ public class Usuario {
     private String telefono;/*Modela id. Valor positivo*/
     private String NIF;/*Modela id. Valor positivo*/
     private String email;/*Modela id. Valor positivo. Contiene números, letras y caracteres especiales.*/
-
+    private boolean registrado;
     public Usuario() {
     }
 
-    public Usuario(String nombre, String telefono, String NIF, String email) {
+    public Usuario(String nombre, String telefono, String NIF, String email,boolean registrado) {
 
         this.nombre = nombre;
         this.telefono = telefono;
         this.NIF = NIF;
         this.email = email;
+        this.registrado = registrado;
     }
 
     public Usuario(Usuario u) {
@@ -33,6 +34,7 @@ public class Usuario {
         this.telefono = u.getTelefono();
         this.NIF = u.getNIF();
         this.email = u.getEmail();
+        this.registrado = u.isRegistrado();
     }
 
     public long getIdentificador() {
@@ -74,6 +76,15 @@ public class Usuario {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public boolean isRegistrado() {
+        return registrado;
+    }
+
+    public void setRegistrado(boolean registrado) {
+        this.registrado = registrado;
+    }
+    
        public static Usuario nuevoUsuario() {
          
        char s;
@@ -131,21 +142,20 @@ public class Usuario {
          */
         return Usuario;
     }
-    public static Bono comprarbono(Bono b){
-        char z; 
-        Scanner in = new Scanner(System.in);
-         System.out.println("Registrate");
-         Usuario u =Usuario.nuevoUsuario();
-            b.setUsuario(u);
-           System.out.println("Quiere comprar un bono");
-        z = in.next().charAt(0);
-        if (z == 's' || z == 'S') {
-            
-       b.setUsuario(u);
-          
-            }else{}
+    public void registrarusuario(Usuario a){
     
-    return b;
+            a.setRegistrado(true);
+            
+    
+    }
+    public void comprarbono(Bono b){
+            Bono aus=Bono.nuevoBono();
+            b.setUsuario(this);
+      
+          
+           
+    
+   
     }
     @Override
     public String toString() {

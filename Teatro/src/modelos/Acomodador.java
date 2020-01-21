@@ -17,7 +17,7 @@ public class Acomodador extends ETeatro {
 
     //Modela los costes producidos por cada acomodador
     private Coste coste;
-
+ 
     public Acomodador() {
         super();
     }

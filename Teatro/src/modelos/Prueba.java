@@ -31,7 +31,13 @@ public class Prueba {
            //  Nomina n=Secretariado.calcularnomina();
              //System.out.println("Tu nomina"+n);
              Bono b=Bono.nuevoBono();
-             Usuario.comprarbono(b);
+            Usuario a = new Usuario();
+           
+            a= Usuario.nuevoUsuario();
+                  
+                   a.registrarusuario(a);
+            System.out.println("Usuario registrado:"+a.isRegistrado());
+             a.comprarbono(b); 
              System.out.println("Tu bono"+b);
         }
     

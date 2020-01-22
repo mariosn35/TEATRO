@@ -18,7 +18,7 @@ public class Prueba {
           //  Acomodador.nuevoAcomodador();
            // Beneficio.nuevoBeneficio();
 //           Bono.nuevoBono();
-//           Coste.nuevoCoste();
+       //   Coste.nuevoCoste();
 //           Direccion.nuevoDireccion();
 //           EOficina.nuevoEOficina();
 //           ETeatro.nuevoETeatro();

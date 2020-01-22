@@ -16,7 +16,7 @@ import java.util.Scanner;
 public class Acomodador extends ETeatro {
 
     //Modela los costes producidos por cada acomodador
-    private Coste coste;
+    
  
     public Acomodador() {
         super();
@@ -24,11 +24,8 @@ public class Acomodador extends ETeatro {
      public Acomodador(ETeatro e) {
         super(e);
     }
-      public Acomodador(ETeatro e,Coste c) {
-        super(e);
-        this.coste= c;
-    }
-    public Acomodador(long id, String nombre, String apellidos, String nif, String direccion, String telefono, char categoria, Grupo grupo, Coste coste) {
+     
+    public Acomodador(long id, String nombre, String apellidos, String nif, String direccion, String telefono, char categoria, Grupo grupo) {
         super(id, nombre, apellidos, nif, direccion, telefono, categoria, grupo);
     }
 
@@ -36,30 +33,19 @@ public class Acomodador extends ETeatro {
         super(a);
     }
 
-    public Coste getCoste() {
-        return coste;
-    }
+   
 
-    public void setCoste(Coste coste) {
-        this.coste = coste;
-    }
+   
     public static Acomodador nuevoAcomodador() throws ParseException {
         char z = 0;
         char s;
         Scanner in;
          in = new Scanner(System.in);
-         Coste c = new Coste();
+        
       Acomodador a ;
       do{
       a = new Acomodador(ETeatro.nuevoETeatro());
-      System.out.println("Quiere introducir el coste producido ");
-      z = in.next().charAt(0);
-     if (z == 's' || z == 'S') {
-      c=Coste.nuevoCoste();
-      a.setCoste(c);}
-     else {
-                System.out.println("No has asiganado un coste a esta este acomodador");
-            }
+      
        System.out.println("¿Los datos son correctos?"+a);
       
       System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
@@ -94,8 +80,11 @@ public class Acomodador extends ETeatro {
 
     @Override
     public String toString() {
-        return "Acomodador{" + "coste=" + coste + '}';
+        return "Acomodador{" + '}';
     }
+    
+  
+    
 
     public String data() {
         return super.data();

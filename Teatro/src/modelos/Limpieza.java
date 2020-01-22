@@ -16,7 +16,7 @@ import java.util.Scanner;
  */
 public class Limpieza extends ETeatro {
 
-    private Coste coste;
+    
     
 
     public Limpieza() {
@@ -29,41 +29,25 @@ public class Limpieza extends ETeatro {
 
     public Limpieza(Limpieza l) {
         super(l);
-        this.coste= l.getCoste();
     }
     public Limpieza(ETeatro e) {
         super(e);
     }
-    public Limpieza(ETeatro e, Coste c) {
-        super(e);
-        this.coste = c;
-    }
+ 
 
-    public Coste getCoste() {
-        return coste;
-    }
+   
 
-    public void setCoste(Coste coste) {
-        this.coste = coste;
-    }
+
     public static Limpieza nuevoLimpiador() throws ParseException {
         char s;
       char z;
         Scanner in;
          in = new Scanner(System.in);
-         Coste c= new Coste();
+         
       Limpieza l;
       do{
     l = new Limpieza(ETeatro.nuevoETeatro());
-       System.out.println("quieres asignar un coste a esta este empleado de limpieza");
-            z = in.next().charAt(0);
-         if (z == 's' || z == 'S') {
-           c=Coste.nuevoCoste();
-      l.setCoste(c);
-            } else {
-                System.out.println("No has asiganado un coste a esta este empleado de limpieza");
-            }
-      
+    
      
       System.out.println("¿Los datos son correctos?"+l);
       
@@ -100,10 +84,12 @@ public class Limpieza extends ETeatro {
 
     @Override
     public String toString() {
-        return "Limpieza{" + "coste=" + coste + '}';
+        return "Limpieza{" + '}';
     }
 
+    
+
     public String data() {
-        return super.data() + "|" + getCoste();
+        return super.data();
     }
 }

@@ -149,10 +149,18 @@ public class Usuario {
     
     }
     public void comprarbono(Bono b){
+        char z;
+        int a;
+        Scanner in = new Scanner(System.in);
+        if (this.isRegistrado()==true){
+             
+        System.out.println("¿Quiere comprar un bono?");
+        
             Bono aus=Bono.nuevoBono();
+            
             b.setUsuario(this);
       
-          
+        }
            
     
    

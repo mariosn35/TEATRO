@@ -48,7 +48,7 @@ public class Empleado {
         this.telefono = telefono;
     }
        public static Empleado nuevoEmpleado() {
-        char s;
+        char s='s';
         Scanner in;
         String a;
         String b;

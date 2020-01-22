@@ -16,15 +16,14 @@ import java.util.Scanner;
 public class Acomodador extends ETeatro {
 
     //Modela los costes producidos por cada acomodador
-    
- 
     public Acomodador() {
         super();
     }
-     public Acomodador(ETeatro e) {
+
+    public Acomodador(ETeatro e) {
         super(e);
     }
-     
+
     public Acomodador(long id, String nombre, String apellidos, String nif, String direccion, String telefono, char categoria, Grupo grupo) {
         super(id, nombre, apellidos, nif, direccion, telefono, categoria, grupo);
     }
@@ -33,27 +32,25 @@ public class Acomodador extends ETeatro {
         super(a);
     }
 
-   
-
-   
-    public static Acomodador nuevoAcomodador() throws ParseException {
-        char z = 0;
-        char s;
+    public static Acomodador nuevoAcomodador() {
+        char z ='s';
+        char s='s';
         Scanner in;
-         in = new Scanner(System.in);
-        
-      Acomodador a ;
-      do{
-      a = new Acomodador(ETeatro.nuevoETeatro());
-      
-       System.out.println("¿Los datos son correctos?"+a);
-      
-      System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
-      s= in.next().charAt(0);
-      } while  (s!='s'&& s!='S' );    
-    return a;
-    
+        in = new Scanner(System.in);
+
+        Acomodador a;
+        do {
+            a = new Acomodador(ETeatro.nuevoETeatro());
+
+            System.out.println("¿Los datos son correctos?" + a);
+
+            System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
+            s = in.next().charAt(0);
+        } while (s != 's' && s != 'S');
+        return a;
+
     }
+
     public Acomodador getAcomodadoresById(long id) {
 
         Acomodador ac = null;
@@ -78,13 +75,30 @@ public class Acomodador extends ETeatro {
         return Acomodadores;
     }
 
+    public ArrayList<Coste> añadirCosteReparacion() {
+
+        char s='k';
+
+        Scanner in = new Scanner(System.in);
+       
+        ArrayList<Coste> costesReparacion = new ArrayList<Coste>();
+        do {
+            Coste c = new Coste();
+            c = Coste.nuevoCoste();
+            costesReparacion.add(c);
+
+            System.out.println("quiere añadir mas coste pulse m");
+            s = in.next().charAt(0);
+
+        } while (s == 'm' && s == 'M');
+
+        return costesReparacion;
+    }
+
     @Override
     public String toString() {
-        return "Acomodador{" + '}';
+        return super.toString()+"Acomodador{" +'}';
     }
-    
-  
-    
 
     public String data() {
         return super.data();

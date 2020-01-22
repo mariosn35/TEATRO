@@ -21,16 +21,18 @@ public class ETeatro extends Empleado {
     public ETeatro() {
         super();
     }
-     public ETeatro(Empleado e) {
+
+    public ETeatro(Empleado e) {
         super(e);
     }
-       public ETeatro(Empleado e,char c,Grupo g) {
+
+    public ETeatro(Empleado e, char c, Grupo g) {
         super(e);
-        this.categoria=c;
+        this.categoria = c;
         this.grupo = g;
-                
-                
+
     }
+
     public ETeatro(ETeatro a) {
         super(a);
         this.categoria = a.getCategoria();
@@ -42,42 +44,39 @@ public class ETeatro extends Empleado {
         this.categoria = categoria;
         this.grupo = grupo;
     }
-    
 
-         public static ETeatro nuevoETeatro() {
-             char z;
-        char d;
+    public static ETeatro nuevoETeatro() {
+        char z='f';
+        char d='d';
         Scanner in;
-        char a ;
-        ETeatro t ;
+        char a='s';
+        ETeatro t;
         Grupo g;
         in = new Scanner(System.in);
-        do{
-             t = new ETeatro(Empleado.nuevoEmpleado());
-        System.out.println("Mete tu categoria");
-        a = in.next().charAt(0); 
-        t.setCategoria(a);
-        System.out.println("quieres asignar un grupo a esta este empleado de teatro");
-           z = in.next().charAt(0);
-         if (z == 's' || z == 'S') {
-                g=Grupo.nuevogrupo();
-        t.setGrupo(g);
+        do {
+            t = new ETeatro(Empleado.nuevoEmpleado());
+            System.out.println("Mete tu categoria");
+            a = in.next().charAt(0);
+            t.setCategoria(a);
+            System.out.println("quieres asignar un grupo a esta este empleado de teatro");
+            z = in.next().charAt(0);
+            if (z == 's' || z == 'S') {
+                g = Grupo.nuevogrupo();
+                t.setGrupo(g);
             } else {
                 System.out.println("No has asiganado un grupo a esta este empleado de teatro");
             }
-     
-        
-      System.out.println("¿Los datos son correctos?"+t);
-      
-      System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
-      d= in.next().charAt(0);
-      } while  (d!='s'&& d!='S' );           
 
-    return t;
-    
-       }
-           
-    
+            System.out.println("¿Los datos son correctos?" + t);
+
+            System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
+            d = in.next().charAt(0);
+        } while (d != 's' && d != 'S');
+
+        return t;
+
+    }
+
     public char getCategoria() {
         return categoria;
     }

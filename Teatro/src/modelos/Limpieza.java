@@ -38,7 +38,7 @@ public class Limpieza extends ETeatro {
    
 
 
-    public static Limpieza nuevoLimpiador() throws ParseException {
+    public static Limpieza nuevoLimpiador() {
         char s;
       char z;
         Scanner in;
@@ -84,7 +84,7 @@ public class Limpieza extends ETeatro {
 
     @Override
     public String toString() {
-        return "Limpieza{" + '}';
+        return super.toString()+"Limpieza{" + '}';
     }
 
     

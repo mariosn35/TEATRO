@@ -6,6 +6,7 @@
 package modelos;
 
 import java.text.ParseException;
+import java.util.ArrayList;
 
 /**
  *
@@ -30,7 +31,7 @@ public class Prueba {
 //           Taquilla.nuevoTaquilla();
            //  Nomina n=Secretariado.calcularnomina();
              //System.out.println("Tu nomina"+n);
-             Bono b=Bono.nuevoBono();
+            /* Bono b=Bono.nuevoBono();
             Usuario a = new Usuario();
            
             a= Usuario.nuevoUsuario();
@@ -39,6 +40,10 @@ public class Prueba {
             System.out.println("Usuario registrado:"+a.isRegistrado());
              a.comprarbono(b); 
              System.out.println("Tu bono"+b);
+*/
+            Acomodador a=new Acomodador();
+            a = Acomodador.nuevoAcomodador();
+            ArrayList<Coste> costesReparacion = a.añadirCosteReparacion();
         }
     
     

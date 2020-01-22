@@ -5,6 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -90,9 +92,9 @@ public class Coste {
         this.limpiador = limpiador;
     }
     
-     public static Coste nuevoCoste() throws ParseException {
-         char d;
-         char z;
+     public static Coste nuevoCoste()   {
+         char d='h';
+         char z='l';
       Coste c = new Coste();
       Scanner in;
       double i;
@@ -101,49 +103,53 @@ public class Coste {
       Acomodador a = new Acomodador();
       Limpieza l = new Limpieza();
       do{
-      //System.out.println("Introduzca la fecha de creacion");
-    //Date fe=Cajadeherramientas.readDate(in,"DD-MM-YYYY");
-    //c.setFecha(fe);
-     System.out.println("Ha sido reportado por un empleado de limpieza s");
-         z = in.next().charAt(0);
-         if (z == 's' || z=='S') {
-
-
-       l=Limpieza.nuevoLimpiador();
-       c.setLimpiador(l);
-            } else {System.out.println("Es un acomodador intruzca los datos");
-         a=Acomodador.nuevoAcomodador();
-       c.setAcomodador(a);}
-             
-         System.out.println("Introduzca la fecha con formato dd-mm-yyyy");
-        
-        String fecha = in.nextLine();
-        SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-        String date = fecha;
-        Date testDate = df.parse(date);
-         long lnMilisegundos = testDate.getTime();
-            
-        java.sql.Date fe = new java.sql.Date(lnMilisegundos);;
-        System.out.println("Ahora hemos creado un objeto date con la fecha indicada, "+fe);
- 
-        if (!df.format(testDate).equals(date)){
-            System.out.println("invalid date!!");
-        } else {
-            System.out.println("valid date");
-            c.setFecha(fe);
-        }
-       
-    System.out.println("Introduzca el importe en euros");
-    i=in.nextDouble();
-    c.setImporte(i);
-    System.out.println("Introduzca el Reporte");
-    r=in.nextLine();
-    c.setReporte(r);
-    
-      System.out.println("¿Los datos son correctos?"+c);
-      
-      System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
-      d= in.next().charAt(0);
+             try {
+                 //System.out.println("Introduzca la fecha de creacion");
+                 //Date fe=Cajadeherramientas.readDate(in,"DD-MM-YYYY");
+                 //c.setFecha(fe);
+                 System.out.println("Ha sido reportado por un empleado de limpieza s");
+                 z = in.next().charAt(0);
+                 if (z == 's' || z=='S') {
+                     
+                     
+                     l=Limpieza.nuevoLimpiador();
+                     c.setLimpiador(l);
+                 } else {System.out.println("Es un acomodador intruzca los datos");
+                 a=Acomodador.nuevoAcomodador();
+                 c.setAcomodador(a);}
+                 
+                 System.out.println("Introduzca la fecha con formato dd-mm-yyyy");
+                 
+                 String fecha = in.nextLine();
+                 SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+                 String date = fecha;
+                 Date testDate = df.parse(date);
+                 long lnMilisegundos = testDate.getTime();
+                 
+                 java.sql.Date fe = new java.sql.Date(lnMilisegundos);;
+                 System.out.println("Ahora hemos creado un objeto date con la fecha indicada, "+fe);
+                 
+                 if (!df.format(testDate).equals(date)){
+                     System.out.println("invalid date!!");
+                 } else {
+                     System.out.println("valid date");
+                     c.setFecha(fe);
+                 }
+                 
+                 System.out.println("Introduzca el importe en euros");
+                 i=in.nextDouble();
+                 c.setImporte(i);
+                 System.out.println("Introduzca el Reporte");
+                 r=in.nextLine();
+                 c.setReporte(r);
+                 
+                 System.out.println("¿Los datos son correctos?"+c);
+                 
+                 System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
+                 d= in.next().charAt(0);
+             } catch (ParseException ex) {
+                 Logger.getLogger(Coste.class.getName()).log(Level.SEVERE, null, ex);
+             }
       } while  (d!='s'&& d!='S' );           
 return c;
     }

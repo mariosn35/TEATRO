@@ -23,8 +23,8 @@ public class Limpieza extends ETeatro {
         super();
     }
 
-    public Limpieza(long id, String nombre, String apellidos, String nif, String direccion, String telefono, char categoria, Grupo grupo, Coste coste) {
-        super(id, nombre, apellidos, nif, direccion, telefono, categoria, grupo);
+    public Limpieza(long id, String nombre, String apellidos, String nif, String direccion, String telefono, int horastrabajadas, double salarioporhora, double salariomensual, char categoria, Grupo grupo, Coste coste) {
+        super(id, nombre, apellidos, nif, direccion, telefono, horastrabajadas, salarioporhora, salariomensual, categoria, grupo);
     }
 
     public Limpieza(Limpieza l) {

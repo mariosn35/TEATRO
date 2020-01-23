@@ -24,6 +24,9 @@ public class Empleado {
     //Modela la direccion de empadronamiento del empleado
     private String telefono;
     //Modela el telefono de contacto del empleado
+    private int horastrabajadas;
+    private double salarioporhora;
+    private double salariomensual;
     
 
     public Empleado() {
@@ -37,43 +40,62 @@ public class Empleado {
         this.nombre = a.getNombre();
         this.nif = a.getNif();
         this.telefono = a.getTelefono();
+        this.horastrabajadas = a.getHorastrabajadas();
+        this.salarioporhora = a.getSalarioporhora();
+        this.salariomensual = a.getSalariomensual();
     }
 
-    public Empleado(long id, String nombre, String apellidos, String nif, String direccion, String telefono) {
+    public Empleado(long id, String nombre, String apellidos, String nif, String direccion, String telefono, int horastrabajadas, double salarioporhora, double salariomensual) {
         this.id = id;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.nif = nif;
         this.direccion = direccion;
         this.telefono = telefono;
+        this.horastrabajadas = horastrabajadas;
+        this.salarioporhora = salarioporhora;
+        this.salariomensual = salariomensual;
+
     }
        public static Empleado nuevoEmpleado() {
         char s='s';
         Scanner in;
-        String a;
-        String b;
-        String c;
-        String d;
-        String f;
+        String nombre;
+        String apellidos;
+        String nif;
+        String direccion;
+        String telefono;
+        int horastrabajadas;
+        double salarioporhora;
+        double salariomensual;
         
     in = new Scanner(System.in);
     Empleado e = new Empleado();
     do{
     System.out.println("Introduce tu nombre");
-    a=in.nextLine();
-    e.setNombre(a);
+    nombre=in.nextLine();
+    e.setNombre(nombre);
     System.out.println("Introduce tus apellidos");
-    b=in.nextLine();
-    e.setApellidos(b);
+    apellidos=in.nextLine();
+    e.setApellidos(apellidos);
     System.out.println("Introduce tu nif");
-    c=in.nextLine();
-    e.setNif(c);
+    nif=in.nextLine();
+    e.setNif(nif);
     System.out.println("Introduce tu direccion");
-    d=in.nextLine();
-    e.setDireccion(d);
+    direccion=in.nextLine();
+    e.setDireccion(direccion);
     System.out.println("Introduce tu telefono");
-    f=in.nextLine();
-    e.setTelefono(f);
+    telefono=in.nextLine();
+    e.setTelefono(telefono);
+        System.out.println("Introduce las horas trabajadas");
+    horastrabajadas=in.nextInt();
+    e.setHorastrabajadas(horastrabajadas);
+        System.out.println("Introduce el salario por hora");
+    salarioporhora=in.nextDouble();
+    e.setSalarioporhora(salarioporhora);
+        System.out.println("Introduce el salario mínimo mensual");
+    salariomensual=in.nextDouble();
+    e.setSalariomensual(salariomensual);
       System.out.println("¿Los datos son correctos?"+e);
       
       System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
@@ -153,13 +175,38 @@ public class Empleado {
         this.telefono = telefono;
     }
 
-    @Override
-    public String toString() {
-        return "Empleado{" + "id=" + id + ", nombre=" + nombre + ", apellidos=" + apellidos + ", nif=" + nif + ", direccion=" + direccion + ", telefono=" + telefono + '}';
+    public int getHorastrabajadas() {
+        return horastrabajadas;
     }
 
+    public void setHorastrabajadas(int horastrabajadas) {
+        this.horastrabajadas = horastrabajadas;
+    }
+
+    public double getSalarioporhora() {
+        return salarioporhora;
+    }
+
+    public void setSalarioporhora(double salarioporhora) {
+        this.salarioporhora = salarioporhora;
+    }
+
+    public double getSalariomensual() {
+        return salariomensual;
+    }
+
+    public void setSalariomensual(double salariomensual) {
+        this.salariomensual = salariomensual;
+    }
+
+    
+    @Override
+    public String toString() {
+        return "Empleado{" + "id=" + id + ", nombre=" + nombre + ", apellidos=" + apellidos + ", nif=" + nif + ", direccion=" + direccion + ", telefono=" + telefono + ", horastrabajadas=" + horastrabajadas + ", salarioporhora=" + salarioporhora + ", salariomensual=" + salariomensual + '}';
+    }
+    
     public String data() {
-        return "" + getId() + "|" + getNif() + "|" + getNombre() + "|" + getApellidos() + "|" + getTelefono() + "|" + getDireccion();
+        return "" + getId() + "|" + getNif() + "|" + getNombre() + "|" + getApellidos() + "|" + getTelefono() + "|" + getDireccion() + "|" + getHorastrabajadas() + "|" + getSalarioporhora() + "|" + getSalariomensual();
     }
 
 }

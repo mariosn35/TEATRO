@@ -25,8 +25,8 @@ public class EOficina extends Empleado {
         super();
     }
 
-    public EOficina(long id, String nombre, String apellidos, String nif, String direccion, String telefono, int antiguedad) {
-        super(id, nombre, apellidos, nif, direccion, telefono);
+    public EOficina(long id, String nombre, String apellidos, String nif, String direccion, String telefono, int antiguedad, int horastrabajadas, double salarioporhora, double salariomensual) {
+        super(id, nombre, apellidos, nif, direccion, telefono, horastrabajadas, salarioporhora, salariomensual);
         this.antiguedad = antiguedad;
 
     }

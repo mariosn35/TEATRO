@@ -107,17 +107,6 @@ public class Coste {
                  //System.out.println("Introduzca la fecha de creacion");
                  //Date fe=Cajadeherramientas.readDate(in,"DD-MM-YYYY");
                  //c.setFecha(fe);
-                 System.out.println("Ha sido reportado por un empleado de limpieza s");
-                 z = in.next().charAt(0);
-                 if (z == 's' || z=='S') {
-                     
-                     
-                     l=Limpieza.nuevoLimpiador();
-                     c.setLimpiador(l);
-                 } else {System.out.println("Es un acomodador intruzca los datos");
-                 a=Acomodador.nuevoAcomodador();
-                 c.setAcomodador(a);}
-                 
                  System.out.println("Introduzca la fecha con formato dd-mm-yyyy");
                  
                  String fecha = in.nextLine();
@@ -135,6 +124,18 @@ public class Coste {
                      System.out.println("valid date");
                      c.setFecha(fe);
                  }
+                 
+                 System.out.println("Ha sido reportado por un empleado de limpieza s");
+                 z = in.next().charAt(0);
+                 if (z == 's' || z=='S') {
+                     
+                     
+                     l=Limpieza.nuevoLimpiador();
+                     c.setLimpiador(l);
+                 } else {System.out.println("Es un acomodador intruzca los datos");
+                 a=Acomodador.nuevoAcomodador();
+                 c.setAcomodador(a);}
+                 
                  
                  System.out.println("Introduzca el importe en euros");
                  i=in.nextDouble();

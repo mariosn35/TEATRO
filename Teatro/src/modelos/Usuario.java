@@ -16,10 +16,11 @@ public class Usuario {
     private String NIF;/*Modela id. Valor positivo*/
     private String email;/*Modela id. Valor positivo. Contiene números, letras y caracteres especiales.*/
     private boolean registrado;
+
     public Usuario() {
     }
 
-    public Usuario(String nombre, String telefono, String NIF, String email,boolean registrado) {
+    public Usuario(String nombre, String telefono, String NIF, String email, boolean registrado) {
 
         this.nombre = nombre;
         this.telefono = telefono;
@@ -84,41 +85,41 @@ public class Usuario {
     public void setRegistrado(boolean registrado) {
         this.registrado = registrado;
     }
-    
-       public static Usuario nuevoUsuario() {
-         
-       char s;
-         
-      Usuario u = new Usuario() ;
-      Scanner in;
-      String a;
-      String b;
-      String c;
-      String d;
-      do{
-      in = new Scanner(System.in);
-      System.out.println("Introduzca Nombre");
-      a=in.nextLine();
-      u.setNombre(a);
-      System.out.println("Introduzca su telefono");
-      b=in.nextLine();
-      u.setTelefono(b);
-      System.out.println("Introduzca su nif");
-      c=in.nextLine();
-      u.setNIF(c);
-      System.out.println("Introduzca email");
-      d=in.nextLine();
-      u.setEmail(d);
-      System.out.println("¿Los datos son correctos?"+u);
-      
-      System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
-      s= in.next().charAt(0);
-      } while  (s!='s'&& s!='S' );           
 
-    
-    return u;
-    
+    public static Usuario nuevoUsuario() {
+
+        char s;
+
+        Usuario u = new Usuario();
+        Scanner in;
+        String a;
+        String b;
+        String c;
+        String d;
+        do {
+            in = new Scanner(System.in);
+            System.out.println("Introduzca Nombre");
+            a = in.nextLine();
+            u.setNombre(a);
+            System.out.println("Introduzca su telefono");
+            b = in.nextLine();
+            u.setTelefono(b);
+            System.out.println("Introduzca su nif");
+            c = in.nextLine();
+            u.setNIF(c);
+            System.out.println("Introduzca email");
+            d = in.nextLine();
+            u.setEmail(d);
+            System.out.println("¿Los datos son correctos?" + u);
+
+            System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
+            s = in.next().charAt(0);
+        } while (s != 's' && s != 'S');
+
+        return u;
+
     }
+
     public Usuario getUsuarioById(long id) {
 
         Usuario u = null;
@@ -142,29 +143,35 @@ public class Usuario {
          */
         return Usuario;
     }
-    public void registrarusuario(Usuario a){
-    
-            a.setRegistrado(true);
-            
-    
+
+    public void registrarusuario(Usuario a) {
+
+        a.setRegistrado(true);
+
     }
-    public void comprarbono(Bono b){
+
+    public void comprarbono(Bono b) {
         char z;
         int a;
         Scanner in = new Scanner(System.in);
-        if (this.isRegistrado()==true){
-             
-        System.out.println("¿Quiere comprar un bono?");
-        
-            Bono aus=Bono.nuevoBono();
-            
-            b.setUsuario(this);
-      
+        if (this.isRegistrado() == true) {
+
+            System.out.println("Pulse 1 para comprar bono");
+            System.out.println("Pulse 2 para salir ");
+            a = in.nextInt();
+            switch (a) {
+                case 1:
+                    b = Bono.nuevoBono();
+                    b.setUsuario(this);
+                case 2:
+                    break;
+
+            }
+
         }
-           
-    
-   
+
     }
+
     @Override
     public String toString() {
         return "Usuario{" + "identificador=" + identificador + ", nombre=" + nombre + ", telefono=" + telefono + ", NIF=" + NIF + ", email=" + email + '}';

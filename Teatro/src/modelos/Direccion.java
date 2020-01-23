@@ -34,8 +34,8 @@ public class Direccion extends EOficina {
         this.añoscargo =  añoscargo;
     }
 
-    public Direccion(long id, String nombre, String apellidos, String nif, String direccion, String telefono, int antiguedad) {
-        super(id, nombre, apellidos, nif, direccion, telefono, antiguedad);
+    public Direccion(long id, String nombre, String apellidos, String nif, String direccion, String telefono,  int antiguedad, int horastrabajadas, double salarioporhora, double salariomensual) {
+        super(id, nombre, apellidos, nif, direccion, telefono,  antiguedad, horastrabajadas, salarioporhora, salariomensual);
     }
 
     public Direccion(Direccion d) {

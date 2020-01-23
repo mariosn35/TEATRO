@@ -39,8 +39,8 @@ public class ETeatro extends Empleado {
 
     }
 
-    public ETeatro(long id, String nombre, String apellidos, String nif, String direccion, String telefono, char categoria, Grupo grupo) {
-        super(id, nombre, apellidos, nif, direccion, telefono);
+    public ETeatro(long id, String nombre, String apellidos, String nif, String direccion, String telefono, int horastrabajadas, double salarioporhora, double salariomensual, char categoria, Grupo grupo) {
+        super(id, nombre, apellidos, nif, direccion, telefono, horastrabajadas, salarioporhora, salariomensual);
         this.categoria = categoria;
         this.grupo = grupo;
     }

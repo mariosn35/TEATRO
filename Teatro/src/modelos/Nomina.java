@@ -97,7 +97,7 @@ public class Nomina {
     public void setRevisado(boolean revisado) {
         this.revisado = revisado;
     }
-     public static Nomina nuevoNomina() throws ParseException {
+     public static Nomina nuevoNomina() {
     char g;
     Nomina n = new Nomina();
     int a;

@@ -103,7 +103,7 @@ public class Coste {
       Acomodador a = new Acomodador();
       Limpieza l = new Limpieza();
       do{
-             try {
+             
                  //System.out.println("Introduzca la fecha de creacion");
                  //Date fe=Cajadeherramientas.readDate(in,"DD-MM-YYYY");
                  //c.setFecha(fe);
@@ -118,7 +118,7 @@ public class Coste {
                  a=Acomodador.nuevoAcomodador();
                  c.setAcomodador(a);}
                  
-                 System.out.println("Introduzca la fecha con formato dd-mm-yyyy");
+               /*  System.out.println("Introduzca la fecha con formato dd-mm-yyyy");
                  
                  String fecha = in.nextLine();
                  SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
@@ -135,7 +135,7 @@ public class Coste {
                      System.out.println("valid date");
                      c.setFecha(fe);
                  }
-                 
+                 */
                  System.out.println("Introduzca el importe en euros");
                  i=in.nextDouble();
                  c.setImporte(i);
@@ -147,9 +147,7 @@ public class Coste {
                  
                  System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
                  d= in.next().charAt(0);
-             } catch (ParseException ex) {
-                 Logger.getLogger(Coste.class.getName()).log(Level.SEVERE, null, ex);
-             }
+         
       } while  (d!='s'&& d!='S' );           
 return c;
     }

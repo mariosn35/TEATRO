@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
-
 /**
  *
  * @author Mario
@@ -20,17 +19,18 @@ public class Coste {
     private String reporte;/*Modela reporte*/
     private Acomodador acomodador;
     private Limpieza limpiador;
+
     public Coste() {
     }
 
-    public Coste(long id, Date fecha, double importe, String reporte,Acomodador acomodador,Limpieza limpiador) {
+    public Coste(long id, Date fecha, double importe, String reporte, Acomodador acomodador, Limpieza limpiador) {
 
         this.id = id;
         this.fecha = fecha;
         this.importe = importe;
         this.reporte = reporte;
-        this.acomodador=acomodador;
-        this.limpiador=limpiador;
+        this.acomodador = acomodador;
+        this.limpiador = limpiador;
     }
 
     public Coste(Coste c) {
@@ -39,8 +39,8 @@ public class Coste {
         this.fecha = c.getFecha();
         this.importe = c.getImporte();
         this.reporte = c.getReporte();
-        this.acomodador=c.getAcomodador();
-        this.limpiador=c.getLimpiador();
+        this.acomodador = c.getAcomodador();
+        this.limpiador = c.getLimpiador();
     }
 
     public long getId() {
@@ -90,34 +90,35 @@ public class Coste {
     public void setLimpiador(Limpieza limpiador) {
         this.limpiador = limpiador;
     }
-    
-     public static Coste nuevoCoste() throws ParseException   {
-         char d='h';
-         char z='l';
-      Coste coste = new Coste();
-      Scanner in;
-      double importe;
-      String reporte;
-      in = new Scanner(System.in);
-      Acomodador acomodador = new Acomodador();
-      Limpieza limpieza = new Limpieza();
-      do{
-             
-                 //System.out.println("Introduzca la fecha de creacion");
-                 //Date fe=Cajadeherramientas.readDate(in,"DD-MM-YYYY");
-                 //c.setFecha(fe);
-                 System.out.println("Ha sido reportado por un empleado de limpieza s");
-                 z = in.next().charAt(0);
-                 if (z == 's' || z=='S') {
-                     
-                     
-                     limpieza=Limpieza.nuevoLimpiador();
-                     coste.setLimpiador(limpieza);
-                 } else {System.out.println("Es un acomodador intruzca los datos");
-                 acomodador=Acomodador.nuevoAcomodador();
-                 coste.setAcomodador(acomodador);}
-                 
-               /*  System.out.println("Introduzca la fecha con formato dd-mm-yyyy");
+
+    public static Coste nuevoCoste() throws ParseException {
+        char d = 'h';
+        char z = 'l';
+        Coste coste = new Coste();
+        Scanner in;
+        double importe;
+        String reporte;
+        in = new Scanner(System.in);
+        Acomodador acomodador = new Acomodador();
+        Limpieza limpieza = new Limpieza();
+        do {
+
+            //System.out.println("Introduzca la fecha de creacion");
+            //Date fe=Cajadeherramientas.readDate(in,"DD-MM-YYYY");
+            //c.setFecha(fe);
+            System.out.println("Ha sido reportado por un empleado de limpieza s");
+            z = in.next().charAt(0);
+            if (z == 's' || z == 'S') {
+
+                limpieza = Limpieza.nuevoLimpiador();
+                coste.setLimpiador(limpieza);
+            } else {
+                System.out.println("Es un acomodador intruzca los datos");
+                acomodador = Acomodador.nuevoAcomodador();
+                coste.setAcomodador(acomodador);
+            }
+
+            /*  System.out.println("Introduzca la fecha con formato dd-mm-yyyy");
                  
                  String fecha = in.nextLine();
                  SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
@@ -134,24 +135,23 @@ public class Coste {
                      System.out.println("valid date");
                      coste.setFecha(fe);
                  }
-                 */
-               
-                 
-                 System.out.println("Introduzca el importe en euros");
-                 importe=in.nextDouble();
-                 coste.setImporte(importe);
-                 System.out.println("Introduzca el Reporte");
-                 reporte=in.nextLine();
-                 coste.setReporte(reporte);
-                 
-                 System.out.println("¿Los datos son correctos?"+coste);
-                 
-                 System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
-                 d= in.next().charAt(0);
-         
-      } while  (d!='s'&& d!='S' );           
-return coste;
+             */
+            System.out.println("Introduzca el importe en euros");
+            importe = in.nextDouble();
+            coste.setImporte(importe);
+            System.out.println("Introduzca el Reporte");
+            reporte = in.nextLine();
+            coste.setReporte(reporte);
+
+            System.out.println("¿Los datos son correctos?" + coste);
+
+            System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
+            d = in.next().charAt(0);
+
+        } while (d != 's' && d != 'S');
+        return coste;
     }
+
     public Coste getCosteById(long Id) {
         Coste c = null;
         /* for(int importe=0; importe< Lista.size (); importe++){
@@ -180,10 +180,7 @@ return coste;
         return "Coste{" + "id=" + id + ", fecha=" + fecha + ", importe=" + importe + ", reporte=" + reporte + ", acomodador=" + acomodador + ", limpiador=" + limpiador + '}';
     }
 
-
-    
-
     public String data() {
-        return "" + getId() + "|" + getFecha() + "|" + getImporte() + "|" + getReporte()+"|"+getAcomodador()+"|"+getLimpiador();
+        return "" + getId() + "|" + getFecha() + "|" + getImporte() + "|" + getReporte() + "|" + getAcomodador() + "|" + getLimpiador();
     }
 }

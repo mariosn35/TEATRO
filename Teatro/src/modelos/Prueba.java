@@ -44,6 +44,7 @@ public class Prueba {
             Acomodador a=new Acomodador();
             a = Acomodador.nuevoAcomodador();
             ArrayList<Coste> costesReparacion = a.añadirCosteReparacion();
+            
         }
     
     

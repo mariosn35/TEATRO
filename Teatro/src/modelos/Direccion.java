@@ -18,8 +18,8 @@ public class Direccion extends EOficina {
     private int añoscargo;
     
     /**
-     * Modela a los directores cuantos años llevan en el cargo puede ser de
-     * positivo y no pueden ser negativos
+     * Modela annio los directores cuantos años llevan en el cargo puede ser de
+ positivo y no pueden ser negativos
      */
 
     public Direccion() {
@@ -45,32 +45,32 @@ public class Direccion extends EOficina {
     }
 
     public static Direccion nuevoDireccion() {
-        char s;
+        char s='s';
         Scanner in;
-        int a;
+        int annio;
         
         in = new Scanner(System.in);
-        Direccion d;
+        Direccion direccion=new Direccion();
         do{
-        d = new Direccion(EOficina.nuevoEOficina());
+        direccion = new Direccion(EOficina.nuevoEOficina());
         System.out.println("Años al cargo");
-        a = in.nextInt();
-  System.out.println("¿Los datos son correctos?"+d);
+        annio = in.nextInt();
+  System.out.println("¿Los datos son correctos?"+direccion);
       
       System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
       s= in.next().charAt(0);
       } while  (s!='s'&& s!='S' );           
 
-        return d;
+        return direccion;
 
     }
 
     public Direccion getDireccionById(long Id) {
         Direccion d = null;
         /* for(int i=0; i< Lista.size (); i++){
-     d=(Direccion) Lista[i];
+     direccion=(Direccion) Lista[i];
      
-        if( d.getId()== Id){
+        if( direccion.getId()== Id){
         }
         
      } 
@@ -81,7 +81,7 @@ public class Direccion extends EOficina {
     public ArrayList<Direccion> getAllDirecciones() {
         ArrayList<Direccion> Direcciones = new ArrayList();
         /*for (int i=0; i< Lista.size(); i++)
-           d= Direcciones Lista[i];
+           direccion= Direcciones Lista[i];
         Direcciones.add(f);
        
          */

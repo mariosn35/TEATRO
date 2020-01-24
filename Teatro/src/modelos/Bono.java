@@ -75,41 +75,41 @@ public class Bono {
         this.usuario = usuario;
     }
       public static Bono nuevoBono() {
-          char s;
-          char z;
-      Bono b = new Bono();
-      char a;
-      int c;
-      int d;
-      Usuario u = new Usuario();
+          char s='s';
+          char z='z';
+      Bono bono = new Bono();
+      char categoria;
+      int mes;
+      int annio;
+      Usuario usuario = new Usuario();
       Scanner in;
        in = new Scanner(System.in);
        do{
       System.out.println("Introduzca el tipo de bono puede ser c o p");
-       a = in.next().charAt(0);
-       b.setTipo(a);
+       categoria = in.next().charAt(0);
+       bono.setTipo(categoria);
        System.out.println("Introduzca el mes en que es valido el bono");
-       c= in.nextInt();
-       b.setMes(c);
+       mes= in.nextInt();
+       bono.setMes(mes);
         System.out.println("Introduzca el año en que es valido el bono");
-       d= in.nextInt();
-       b.setAño(d);
+       annio= in.nextInt();
+       bono.setAño(annio);
         System.out.println("Quiere asignar el usuario propietario del bono");
          z = in.next().charAt(0);
          if (z == 's' || z=='S') {
 
 
-       u=Usuario.nuevoUsuario();
+       usuario=Usuario.nuevoUsuario();
       
             } else {System.out.println("No a asignado un usuario a este bono");}
-       b.setUsuario(u);
-        System.out.println("¿Los datos son correctos?"+b);
+       bono.setUsuario(usuario);
+        System.out.println("¿Los datos son correctos?"+bono);
       
       System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
       s= in.next().charAt(0);
       } while  (s!='s'&& s!='S' );    
       
-    return b;
+    return bono;
     
     }
     public Bono getBonoById(long Id) {

@@ -75,7 +75,7 @@ public class Acomodador extends ETeatro {
         return Acomodadores;
     }
 
-    public ArrayList<Coste> añadirCosteReparacion() {
+    public ArrayList<Coste> añadirCosteReparacion() throws ParseException {
 
         char s='k';
 

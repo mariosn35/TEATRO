@@ -45,15 +45,15 @@ public class Beneficio {
     }
 
     public static Beneficio nuevoBeneficio() throws ParseException {
-        char s;
-        char z = 0;
+        char s = 'a';
+        char z = 'a';
         Scanner in;
 
-        Double d;
-        String c;
+        Double importe;
+        String reporte;
         in = new Scanner(System.in);
-        Beneficio b = new Beneficio();
-        Informe i = new Informe();
+        Beneficio beneficio = new Beneficio();
+        Informe informe = new Informe();
         Taquilla t = new Taquilla();
         Bono bo = new Bono();
         do {
@@ -75,20 +75,20 @@ public class Beneficio {
             System.out.println("invalid date!!");
         } else {
             System.out.println("valid date");
-            b.setFecha(fe);
+            beneficio.setFecha(fe);
         }
        
             System.out.println("Introduzca el importe en euros ");
-            d = in.nextDouble();
-            b.setImporte(d);
+            importe = in.nextDouble();
+            beneficio.setImporte(importe);
             System.out.println("Introduzca el Reporte ");
-            c = in.nextLine();
-            b.setReporte(c);
+            reporte = in.nextLine();
+            beneficio.setReporte(reporte);
             System.out.println("Quiere introducir el informe  ");
             z = in.next().charAt(0);
             if (z == 's' || z == 'S') {
-                i = Informe.nuevoinforme();
-                b.setInforme(i);
+                informe = Informe.nuevoinforme();
+                beneficio.setInforme(informe);
             } else {
                 System.out.println("No has asiganado un informe a esta este beneficio");
             }
@@ -96,7 +96,7 @@ public class Beneficio {
             z = in.next().charAt(0);
             if (z == 's' || z == 'S') {
                 t = Taquilla.nuevoTaquilla();
-                b.setTaquilla(t);
+                beneficio.setTaquilla(t);
             } else {
                 System.out.println("No has asiganado un taquillero a esta este beneficio");
             }
@@ -104,17 +104,17 @@ public class Beneficio {
              z = in.next().charAt(0);
             if (z == 's' || z == 'S') {
                 bo = Bono.nuevoBono();
-            b.setBono(bo);
+            beneficio.setBono(bo);
             } else {
                 System.out.println("No has asiganado un bono a esta este beneficio");
             }
 
-            System.out.println("¿Los datos son correctos?" + b);
+            System.out.println("¿Los datos son correctos?" + beneficio);
 
             System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
             s = in.next().charAt(0);
         } while (s != 's' && s != 'S');
-        return b;
+        return beneficio;
     }
 
     public long getId() {
@@ -175,8 +175,8 @@ public class Beneficio {
 
     public Beneficio getBeneficioById(long Id) {
         Beneficio bf = null;
-        /* for(int i=0; i< Lista.size (); i++){
-     s=(Beneficio) Lista[i];
+        /* for(int informe=0; informe< Lista.size (); informe++){
+     s=(Beneficio) Lista[informe];
      
         if( s.getId()== Id){
         }
@@ -188,8 +188,8 @@ public class Beneficio {
 
     public ArrayList<Beneficio> getAllBeneficios() {
         ArrayList<Beneficio> Beneficios = new ArrayList();
-        /*for (int i=0; i< Lista.size(); i++)
-           g= Grupo Lista[i];
+        /*for (int informe=0; informe< Lista.size(); informe++)
+           g= Grupo Lista[informe];
        Beneficios.add(f);
        
          */

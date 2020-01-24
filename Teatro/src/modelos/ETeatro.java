@@ -50,30 +50,30 @@ public class ETeatro extends Empleado {
         char d='d';
         Scanner in;
         char a='s';
-        ETeatro t;
-        Grupo g;
+        ETeatro eteatro;
+        Grupo grupo;
         in = new Scanner(System.in);
         do {
-            t = new ETeatro(Empleado.nuevoEmpleado());
+            eteatro = new ETeatro(Empleado.nuevoEmpleado());
             System.out.println("Mete tu categoria");
             a = in.next().charAt(0);
-            t.setCategoria(a);
+            eteatro.setCategoria(a);
             System.out.println("quieres asignar un grupo a esta este empleado de teatro");
             z = in.next().charAt(0);
             if (z == 's' || z == 'S') {
-                g = Grupo.nuevogrupo();
-                t.setGrupo(g);
+                grupo = Grupo.nuevogrupo();
+                eteatro.setGrupo(grupo);
             } else {
                 System.out.println("No has asiganado un grupo a esta este empleado de teatro");
             }
 
-            System.out.println("¿Los datos son correctos?" + t);
+            System.out.println("¿Los datos son correctos?" + eteatro);
 
             System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
             d = in.next().charAt(0);
         } while (d != 's' && d != 'S');
 
-        return t;
+        return eteatro;
 
     }
 

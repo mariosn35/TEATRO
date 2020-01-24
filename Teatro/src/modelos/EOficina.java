@@ -18,8 +18,8 @@ public class EOficina extends Empleado {
     private int antiguedad;
 
     /**
-     * Modela a los empleados de oficina cuantos años llevan trabajando en el
-     * teatro y puede tomar valores positivos y no puede ser negativo
+     * Modela antiguedad los empleados de oficina cuantos años llevan trabajando en el
+ teatro y puede tomar valores positivos y no puede ser negativo
      */
     public EOficina() {
         super();
@@ -47,24 +47,24 @@ public class EOficina extends Empleado {
     }
 
     public static EOficina nuevoEOficina() {
-        char d;
+        char d='s';
         Scanner in;
-        int a;
-        EOficina o ;
+        int antiguedad;
+        EOficina oficina ;
         in = new Scanner(System.in);
 
         do {
-            o = new EOficina(Empleado.nuevoEmpleado());
+            oficina = new EOficina(Empleado.nuevoEmpleado());
             
             System.out.println("Mete tus años de antiguedad");
-            a = in.nextInt();
-            o.setAntiguedad(a);
-            System.out.println("¿Los datos son correctos?" + (EOficina) o);
+            antiguedad = in.nextInt();
+            oficina.setAntiguedad(antiguedad);
+            System.out.println("¿Los datos son correctos?" + (EOficina) oficina);
             System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
             d = in.next().charAt(0);
         } while (d != 's' && d != 'S');
 
-        return o;
+        return oficina;
 
     }
 

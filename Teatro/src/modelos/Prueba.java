@@ -40,7 +40,9 @@ public class Prueba {
             System.out.println("Usuario registrado:"+a.isRegistrado());
              a.comprarbono(b); 
              System.out.println("Tu bono"+b);
-*/
+*/          
+            Secretariado s=new Secretariado();
+            s.calcularNomina();
             Acomodador a=new Acomodador();
             a = Acomodador.nuevoAcomodador();
             ArrayList<Coste> costesReparacion = a.añadirCosteReparacion();

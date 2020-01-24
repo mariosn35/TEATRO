@@ -39,22 +39,22 @@ public class Limpieza extends ETeatro {
 
 
     public static Limpieza nuevoLimpiador() {
-        char s;
-      char z;
+        char s='a';
+      char z='s';
         Scanner in;
          in = new Scanner(System.in);
          
-      Limpieza l;
+      Limpieza limpieza;
       do{
-    l = new Limpieza(ETeatro.nuevoETeatro());
+    limpieza = new Limpieza(ETeatro.nuevoETeatro());
     
      
-      System.out.println("¿Los datos son correctos?"+l);
+      System.out.println("¿Los datos son correctos?"+limpieza);
       
       System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
       s= in.next().charAt(0);
       }while  (s!='s'&& s!='S' ); 
-    return l;
+    return limpieza;
     
     
     }

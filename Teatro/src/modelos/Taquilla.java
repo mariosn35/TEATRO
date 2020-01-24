@@ -30,20 +30,20 @@ public class Taquilla extends ETeatro {
     }
 
     public static Taquilla nuevoTaquilla() {
-            char s;
-     Taquilla t;
+            char s='s';
+     Taquilla taquilla;
      Scanner in;
      in = new Scanner(System.in);
      do{
-      t = new Taquilla(ETeatro.nuevoETeatro());
+      taquilla = new Taquilla(ETeatro.nuevoETeatro());
      
-      System.out.println("¿Los datos son correctos?"+t);
+      System.out.println("¿Los datos son correctos?"+taquilla);
       
       System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
-      s= in.next().charAt(0); 
+       s= in.next().charAt(0); 
       
       } while  (s!='s'&& s!='S' );  
-    return t;
+    return taquilla;
     
     }
     public Taquilla getTaquillaById(long id) {

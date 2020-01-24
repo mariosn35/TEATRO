@@ -106,7 +106,18 @@ public class Coste {
                  //System.out.println("Introduzca la fecha de creacion");
                  //Date fe=Cajadeherramientas.readDate(in,"DD-MM-YYYY");
                  //c.setFecha(fe);
-                 System.out.println("Introduzca la fecha con formato dd-mm-yyyy");
+                 System.out.println("Ha sido reportado por un empleado de limpieza s");
+                 z = in.next().charAt(0);
+                 if (z == 's' || z=='S') {
+                     
+                     
+                     limpieza=Limpieza.nuevoLimpiador();
+                     coste.setLimpiador(limpieza);
+                 } else {System.out.println("Es un acomodador intruzca los datos");
+                 acomodador=Acomodador.nuevoAcomodador();
+                 coste.setAcomodador(acomodador);}
+                 
+               /*  System.out.println("Introduzca la fecha con formato dd-mm-yyyy");
                  
                  String fecha = in.nextLine();
                  SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
@@ -123,18 +134,8 @@ public class Coste {
                      System.out.println("valid date");
                      coste.setFecha(fe);
                  }
-                 
-                 System.out.println("Ha sido reportado por un empleado de limpieza s");
-                 z = in.next().charAt(0);
-                 if (z == 's' || z=='S') {
-                     
-                     
-                     limpieza=Limpieza.nuevoLimpiador();
-                     coste.setLimpiador(limpieza);
-                 } else {System.out.println("Es un acomodador intruzca los datos");
-                 acomodador=Acomodador.nuevoAcomodador();
-                 coste.setAcomodador(acomodador);}
-                 
+                 */
+               
                  
                  System.out.println("Introduzca el importe en euros");
                  importe=in.nextDouble();
@@ -147,8 +148,7 @@ public class Coste {
                  
                  System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
                  d= in.next().charAt(0);
-          
-                 
+         
       } while  (d!='s'&& d!='S' );           
 return coste;
     }

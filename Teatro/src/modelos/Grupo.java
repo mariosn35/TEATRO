@@ -45,27 +45,27 @@ public class Grupo {
     }
 
     public static Grupo nuevogrupo() {
-        char s;
+        char s='a';
         Scanner in;
-        int a;
-        String b;
+        int año;
+        String nombre;
 
-        int c;
+        int semana;
 
         in = new Scanner(System.in);
         Grupo g = new Grupo();
         do {
             System.out.println("Año de creacion del grupo");
-            a = in.nextInt();
-            g.setAnno(a);
+            año = in.nextInt();
+            g.setAnno(año);
             System.out.println("Nombre del grupo");
-            b=in.nextLine();
-            g.setNombre(b);
+            nombre=in.nextLine();
+            g.setNombre(nombre);
             do {
                 System.out.println("Semana de creacion del grupo que va de 1 al 52");
-                c = in.nextInt();
+                semana = in.nextInt();
 
-            } while (c < 1 || c > 52);
+            } while (semana < 1 || semana > 52);
             System.out.println("¿Los datos son correctos?" + g);
 
             System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");

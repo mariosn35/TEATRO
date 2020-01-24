@@ -98,39 +98,39 @@ public class Nomina {
         this.revisado = revisado;
     }
      public static Nomina nuevoNomina() throws ParseException {
-    char g;
+    char g='s';
     Nomina n = new Nomina();
-    int a;
-    int b;
-    char c;
-    boolean d;
-    char z;
+    int mes;
+    int año;
+    char c='s';
+    boolean accesible;
+    char z='s';
     Scanner in;
-    Secretariado s;
-    Empleado e;
-    Coste co;
+    Secretariado secretariado;
+    Empleado empleado;
+    Coste coste;
     in = new Scanner(System.in);
     do{
     System.out.println("Mete el mes de creacion");
-    a=in.nextInt();
-    n.setMes(a);
+    mes=in.nextInt();
+    n.setMes(mes);
     System.out.println("Mete el año de creacion");
-    b=in.nextInt();
-    n.setAnio(b);
+    año=in.nextInt();
+    n.setAnio(año);
     do{
     System.out.println("Di si esta revisado s para si n para no");
     c = in.next().charAt(0); 
     
     
     } while (c!='s'&& c!='S' && c!='n'&& c!='N' );
-    if  (c=='s' || c=='S') d=true; 
-    else d=false;
-    n.setRevisado(d);
+    if  (c=='s' || c=='S') accesible=true; 
+    else accesible=false;
+    n.setRevisado(accesible);
        System.out.println("quieres asignar un secretariado a esta nomina");
              z = in.next().charAt(0);
          if (z == 's' || z == 'S') {
-             s=Secretariado.nuevoSecretariado();
-    n.setSecretariado(s);
+             secretariado=Secretariado.nuevoSecretariado();
+    n.setSecretariado(secretariado);
             } else {
                 System.out.println("No has asiganado un secretariado a esta nomina");
             }
@@ -138,16 +138,16 @@ public class Nomina {
        System.out.println("quieres asignar un empleado a esta nomina");
              z = in.next().charAt(0);
          if (z == 's' || z == 'S') {
-             e=Empleado.nuevoEmpleado();
-    n.setEmpleado(e);
+             empleado=Empleado.nuevoEmpleado();
+    n.setEmpleado(empleado);
             } else {
                 System.out.println("No has asiganado un empleado a esta nomina");
             }
          System.out.println("quieres asignar un coste a esta nomina");
           z = in.next().charAt(0);
          if (z == 's' || z == 'S') {
-           co=Coste.nuevoCoste();
-    n.setCoste(co);
+           coste=Coste.nuevoCoste();
+    n.setCoste(coste);
             } else {
                 System.out.println("No has asiganado un coste a esta nomina");
             }

@@ -38,10 +38,10 @@ public class Informe  {
 
     
     public static Informe nuevoinforme() {
-        char d;
+        char d='a';
         Scanner in;
-        int a;
-        int b;
+        int mes;
+        int año;
 
         double c;
         Informe i = new Informe();
@@ -54,11 +54,11 @@ public class Informe  {
             do {
                 System.out.println("Mes de creacion del Informe");
 
-                a = in.nextInt();
+                mes = in.nextInt();
 
-            } while (a < 1 || a > 12);
+            } while (mes < 1 || mes > 12);
             System.out.println("Año de creacion del Informe");
-            b = in.nextInt();
+            año = in.nextInt();
 
             System.out.println("Introduce el balance en euros");
             c = in.nextDouble();

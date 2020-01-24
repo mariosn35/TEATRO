@@ -88,35 +88,35 @@ public class Usuario {
 
     public static Usuario nuevoUsuario() {
 
-        char s;
+        char s='s';
 
-        Usuario u = new Usuario();
+        Usuario usuario = new Usuario();
         Scanner in;
-        String a;
-        String b;
-        String c;
-        String d;
+        String nombre;
+        String telefono;
+        String nif;
+        String email;
         do {
             in = new Scanner(System.in);
             System.out.println("Introduzca Nombre");
-            a = in.nextLine();
-            u.setNombre(a);
+            nombre = in.nextLine();
+            usuario.setNombre(nombre);
             System.out.println("Introduzca su telefono");
-            b = in.nextLine();
-            u.setTelefono(b);
+            telefono = in.nextLine();
+            usuario.setTelefono(telefono);
             System.out.println("Introduzca su nif");
-            c = in.nextLine();
-            u.setNIF(c);
+            nif = in.nextLine();
+            usuario.setNIF(nif);
             System.out.println("Introduzca email");
-            d = in.nextLine();
-            u.setEmail(d);
-            System.out.println("¿Los datos son correctos?" + u);
+            email = in.nextLine();
+            usuario.setEmail(email);
+            System.out.println("¿Los datos son correctos?" + usuario);
 
             System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
             s = in.next().charAt(0);
         } while (s != 's' && s != 'S');
 
-        return u;
+        return usuario;
 
     }
 

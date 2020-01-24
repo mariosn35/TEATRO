@@ -22,9 +22,9 @@ public class Franquicia {
     private java.sql.Date fecha_creacion;
     //Modela la fecha en la que fueron creadas las franquicias 
     private String ubicacion;
-    //Modela la ubicacion en la que se va a representar
+    //Modela la ubicacion en la que se va fecha representar
     private boolean accesible;
-    //Modela si tiene o no acceso a minusvalidos
+    //Modela si tiene o no acceso fecha minusvalidos
     private Grupo grupo; //
     private Informe informe;
     private Direccion director;
@@ -40,32 +40,32 @@ public class Franquicia {
     }
 
     public static Franquicia nuevafranquicia() throws ParseException {
-        char s;
-        char z;
-        char x;
+        char s='a';
+        char z='a';
+        char x='a';
         Scanner in;
-        Date a;
-        String b;
-        Boolean c;
-        Grupo d ;
-        Informe e ;
-        Direccion g ;
+        Date fecha;
+        String ubicacion;
+        Boolean accesible;
+        Grupo grupo ;
+        Informe informe ;
+        Direccion direccion ;
         char respuesta;
         in = new Scanner(System.in);
-        Franquicia f = new Franquicia();
+        Franquicia franquicia = new Franquicia();
         do {
           //  System.out.println("Introduzca la fecha de creacion");
           //  Date fe = Cajadeherramientas.readDate(in, "DD-MM-YYYY");
-          //  f.setFecha_creacion(fe);
+          //  franquicia.setFecha_creacion(fe);
            //  java.util.Date utilDate = new java.util.Date(); //fecha actual
             // long lnMilisegundos = utilDate.getTime();
             // java.sql.Date fe = new java.sql.Date(lnMilisegundos);
-            // f.setFecha_creacion(fe);
+            // franquicia.setFecha_creacion(fe);
                  System.out.println("Introduzca la fecha con formato dd-mm-yyyy");
         
-        String fecha = in.nextLine();
+        String fechaa = in.nextLine();
         SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
-        String date = fecha;
+        String date = fechaa;
         Date testDate = df.parse(date);
          long lnMilisegundos = testDate.getTime();
             
@@ -76,12 +76,12 @@ public class Franquicia {
             System.out.println("invalid date!!");
         } else {
             System.out.println("valid date");
-            f.setFecha_creacion(fe);
+            franquicia.setFecha_creacion(fe);
         }
        
             System.out.println("Introduzca la ubicacion");
-            b = in.nextLine();
-            f.setUbicacion(b);
+            ubicacion = in.nextLine();
+            franquicia.setUbicacion(ubicacion);
 
             do {
                 System.out.println("¿Es accesible?");
@@ -90,16 +90,16 @@ public class Franquicia {
 
             } while (respuesta != 's' && respuesta != 'S' && respuesta != 'n' && respuesta != 'N');
             if (respuesta == 's' || respuesta == 'S') {
-                c = true;
+                accesible = true;
             } else {
-                c = false;
+                accesible = false;
             }
-            f.setAccesible(c);
+            franquicia.setAccesible(accesible);
             System.out.println("Quiere asignar un grupo a esta franquicia");
             z = in.next().charAt(0);
             if (z == 's' || z == 'S') {
-                d = Grupo.nuevogrupo();
-                f.setGrupo(d);
+                grupo = Grupo.nuevogrupo();
+                franquicia.setGrupo(grupo);
             } else {
                 System.out.println("No has asiganado un grupo a esta franquicia");
             }
@@ -108,35 +108,35 @@ public class Franquicia {
             z = in.next().charAt(0);
             if (z == 's' || z=='S') {
 
-                e = Informe.nuevoinforme();
-                f.setInforme(e);
+                informe = Informe.nuevoinforme();
+                franquicia.setInforme(informe);
             } else {
                 System.out.println("No has asiganado un informe a esta franquicia");
             }
             System.out.println("Quiere asignar un director a esta franquicia");
              z = in.next().charAt(0);
             if (z == 's' || z == 'S') {
-                g = Direccion.nuevoDireccion();
-            f.setDirector(g);}
+                direccion = Direccion.nuevoDireccion();
+            franquicia.setDirector(direccion);}
             else {
                 System.out.println("No has asiganado un director a esta franquicia");
             }
-            System.out.println("¿Los datos son correctos?" + f);
+            System.out.println("¿Los datos son correctos?" + franquicia);
 
             System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
             s = in.next().charAt(0);
         } while (s != 's' && s != 'S');
 
-        return f;
+        return franquicia;
 
     }
 
     public Franquicia getFranquiciaById(long Id) {
         Franquicia f = null;
         /* for(int i=0; i< Lista.size (); i++){
-     f=(Franquicia) Lista[i];
+     franquicia=(Franquicia) Lista[i];
      
-        if( f.getId()== Id){
+        if( franquicia.getId()== Id){
         }
         
      } 
@@ -147,8 +147,8 @@ public class Franquicia {
     public ArrayList<Franquicia> getAllFranquicias() {
         ArrayList<Franquicia> Franquicias = new ArrayList();
         /*for (int i=0; i< Lista.size(); i++)
-           f= Franquicia Lista[i];
-        Franquicias.add(f);
+           franquicia= Franquicia Lista[i];
+        Franquicias.add(franquicia);
        
          */
         return Franquicias;

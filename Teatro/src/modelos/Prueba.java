@@ -7,14 +7,15 @@ package modelos;
 
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
  * @author roter
  */
 public class Prueba {
-        public static void main(String[] args) throws ParseException {
-          Franquicia.nuevafranquicia();
+        public static void main(String[] args) throws ParseException, XxxException, XxxException.tipoinvalido, XxxException.Malmes, XxxException.Malannio {
+          //Franquicia.nuevafranquicia();
          //Usuario.nuevoUsuario();
           //  Acomodador.nuevoAcomodador();
            // Beneficio.nuevoBeneficio();
@@ -31,22 +32,43 @@ public class Prueba {
 //           Taquilla.nuevoTaquilla();
            //  Nomina n=Secretariado.calcularnomina();
              //System.out.println("Tu nomina"+n);
-            /* Bono b=Bono.nuevoBono();
-            Usuario a = new Usuario();
+        
+        
+       /*     Secretariado s=new Secretariado();
+            s.calcularNomina();
+            Acomodador a=new Acomodador();
+            a = Acomodador.nuevoAcomodador();
+            ArrayList<Coste> costesReparacion = a.añadirCosteReparacion();
+            */
+       int opcion;
+       Scanner in = new Scanner(System.in);
+        System.out.println("Pulse 1 para comprar bono");
+            System.out.println("Pulse 2 reportar costes");
+              System.out.println("Pulse 3 para calcular nomina");
+              System.out.println("Pulse 4 para salir");
+            opcion = in.nextInt();
+            do {
+            switch (opcion) {
+                case 1:
+                     Bono b=new Bono();
+            
            
-            a= Usuario.nuevoUsuario();
+            Usuario a= Usuario.nuevoUsuario();
                   
                    a.registrarusuario(a);
             System.out.println("Usuario registrado:"+a.isRegistrado());
              a.comprarbono(b); 
              System.out.println("Tu bono"+b);
-*/          
-            Secretariado s=new Secretariado();
-            s.calcularNomina();
-            Acomodador a=new Acomodador();
-            a = Acomodador.nuevoAcomodador();
-            ArrayList<Coste> costesReparacion = a.añadirCosteReparacion();
-            
+                case 2:
+                    
+                case 3:
+                    
+                case 4:
+                    break;
+
+            }
+            }while(opcion!=4) ;
+        
         }
     
     

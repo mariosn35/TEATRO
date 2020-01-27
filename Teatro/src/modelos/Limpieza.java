@@ -58,6 +58,59 @@ public class Limpieza extends ETeatro {
     
     
     }
+       public  Coste nuevoCoste() throws ParseException   {
+         char d='h';
+         char z='l';
+      Coste coste = new Coste();
+      Scanner in;
+      double importe;
+      String reporte;
+      in = new Scanner(System.in);
+      Acomodador acomodador =null;
+      Limpieza limpieza = null;
+      do{
+             
+                 //System.out.println("Introduzca la fecha de creacion");
+                 //Date fe=Cajadeherramientas.readDate(in,"DD-MM-YYYY");
+                 //c.setFecha(fe);
+              coste.setLimpiador(this);
+                 
+                 
+               /*  System.out.println("Introduzca la fecha con formato dd-mm-yyyy");
+                 
+                 String fecha = in.nextLine();
+                 SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+                 String date = fecha;
+                 Date testDate = df.parse(date);
+                 long lnMilisegundos = testDate.getTime();
+                 
+                 java.sql.Date fe = new java.sql.Date(lnMilisegundos);;
+                 System.out.println("Ahora hemos creado un objeto date con la fecha indicada, "+fe);
+                 
+                 if (!df.format(testDate).equals(date)){
+                     System.out.println("invalid date!!");
+                 } else {
+                     System.out.println("valid date");
+                     coste.setFecha(fe);
+                 }
+                 */
+               
+                 
+                 System.out.println("Introduzca el importe en euros");
+                 importe=in.nextDouble();
+                 coste.setImporte(importe);
+                 System.out.println("Introduzca el Reporte");
+                 reporte=in.nextLine();
+                 coste.setReporte(reporte);
+                 
+                 System.out.println("¿Los datos son correctos?"+coste);
+                 
+                 System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
+                 d= in.next().charAt(0);
+         
+      } while  (d!='s'&& d!='S' );           
+return coste;
+    }
     public Limpieza getLimpiezasById(long id) {
 
         Limpieza l = null;

@@ -111,7 +111,7 @@ public class Nomina {
     Coste coste;
     in = new Scanner(System.in);
     do{
-    System.out.println("Mete el mes de creacion");
+    System.out.println("Mete el mes de creacion de la nomina");
     mes=in.nextInt();
     n.setMes(mes);
     System.out.println("Mete el año de creacion");

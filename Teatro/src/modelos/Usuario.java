@@ -145,13 +145,23 @@ public class Usuario {
     }
 
     public void registrarusuario(Usuario a) {
+        char z='z';
+        Scanner in = new Scanner(System.in);
+        System.out.println("Quiere registrarse s para si n para no");
+         z = in.next().charAt(0);
+            if (z == 's' || z=='S') {
 
-        a.setRegistrado(true);
+                 a.setRegistrado(true);
+            } else if (z == 's' || z=='S') {
+                System.out.println("No se ha registrado");
+                
+            }    
+       
 
     }
-
-    public void comprarbono(Bono b) {
-        char z;
+    
+    public void comprarbono(Bono b) throws XxxException, XxxException.tipoinvalido, XxxException.Malmes, XxxException.Malannio {
+        
         int a;
         Scanner in = new Scanner(System.in);
         if (this.isRegistrado() == true) {
@@ -161,7 +171,7 @@ public class Usuario {
             a = in.nextInt();
             switch (a) {
                 case 1:
-                    b = Bono.nuevoBono();
+                    b = Bono.nuevoBonoUsuario();
                     b.setUsuario(this);
                 case 2:
                     break;

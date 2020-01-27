@@ -44,7 +44,7 @@ public class Beneficio {
         this.taquilla = b.getTaquilla();
     }
 
-    public static Beneficio nuevoBeneficio() throws ParseException {
+    public static Beneficio nuevoBeneficio() throws ParseException, XxxException, XxxException.tipoinvalido, XxxException.Malmes, XxxException.Malannio {
         char s = 'a';
         char z = 'a';
         Scanner in;

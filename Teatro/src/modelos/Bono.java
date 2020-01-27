@@ -2,6 +2,12 @@ package modelos;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import modelos.XxxException.Malannio;
+import modelos.XxxException.Malmes;
+import static modelos.XxxException.invalido;
+import static modelos.XxxException.mala;
+import static modelos.XxxException.malm;
+import modelos.XxxException.tipoinvalido;
 
 /**
  *
@@ -11,9 +17,9 @@ import java.util.Scanner;
 public class Bono {
 
     protected long id;/*Modela id. Valor positivo*/
-    char tipo;
-    int mes;
-    int año;
+    char tipo;/*c para completo s para parcial*/
+    int mes;/*del uno al doce*/
+    int año;/*del 0 al año actual*/
     
     private Usuario usuario;
 
@@ -74,7 +80,7 @@ public class Bono {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-      public static Bono nuevoBono() {
+     public static Bono nuevoBono()throws XxxException, XxxException.tipoinvalido, XxxException.Malmes, XxxException.Malannio {
           char s='s';
           char z='z';
       Bono bono = new Bono();
@@ -87,14 +93,33 @@ public class Bono {
        do{
       System.out.println("Introduzca el tipo de bono puede ser c o p");
        categoria = in.next().charAt(0);
-       bono.setTipo(categoria);
+          try{    invalido(categoria);}
+       catch(tipoinvalido err){
+        System.out.println(err);
+       }
+       finally{
+       bono.setTipo(categoria);}
+      
        System.out.println("Introduzca el mes en que es valido el bono");
        mes= in.nextInt();
-       bono.setMes(mes);
+       try{ malm(mes);}
+       catch(Malmes err){
+        System.out.println(err);
+       }
+       finally{
+           bono.setMes(mes);
+       }
+       
         System.out.println("Introduzca el año en que es valido el bono");
        annio= in.nextInt();
-       bono.setAño(annio);
-        System.out.println("Quiere asignar el usuario propietario del bono");
+        try{ mala(annio);}
+       catch(Malannio err){
+        System.out.println(err);
+       }
+       finally{
+            bono.setAño(annio);
+       }
+      System.out.println("Quiere asignar el usuario propietario del bono");
          z = in.next().charAt(0);
          if (z == 's' || z=='S') {
 
@@ -103,6 +128,7 @@ public class Bono {
       
             } else {System.out.println("No a asignado un usuario a este bono");}
        bono.setUsuario(usuario);
+        
         System.out.println("¿Los datos son correctos?"+bono);
       
       System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
@@ -110,8 +136,58 @@ public class Bono {
       } while  (s!='s'&& s!='S' );    
       
     return bono;
-    
-    }
+         }
+      
+           
+         public static Bono nuevoBonoUsuario()throws XxxException, XxxException.tipoinvalido, XxxException.Malmes, XxxException.Malannio {
+          char s='s';
+          char z='z';
+      Bono bono = new Bono();
+      char categoria;
+      int mes;
+      int annio;
+      Usuario usuario = new Usuario();
+      Scanner in;
+       in = new Scanner(System.in);
+       do{
+      System.out.println("Introduzca el tipo de bono puede ser c o p");
+       categoria = in.next().charAt(0);
+          try{    invalido(categoria);}
+       catch(tipoinvalido err){
+        System.out.println(err);
+       }
+       finally{
+       bono.setTipo(categoria);}
+      
+       System.out.println("Introduzca el mes en que es valido el bono");
+       mes= in.nextInt();
+       try{ malm(mes);}
+       catch(Malmes err){
+        System.out.println(err);
+       }
+       finally{
+           bono.setMes(mes);
+       }
+       
+        System.out.println("Introduzca el año en que es valido el bono");
+       annio= in.nextInt();
+        try{ mala(annio);}
+       catch(Malannio err){
+        System.out.println(err);
+       }
+       finally{
+            bono.setAño(annio);
+       }
+      
+        
+        System.out.println("¿Los datos son correctos?"+bono);
+      
+      System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
+      s= in.next().charAt(0);
+      } while  (s!='s'&& s!='S' );    
+      
+    return bono;
+         }
     public Bono getBonoById(long Id) {
         Bono b = null;
         /* for(int i=0; i< Lista.size (); i++){

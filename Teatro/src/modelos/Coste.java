@@ -18,8 +18,8 @@ public class Coste {
     private Date fecha;/*Modela fecha. Valor positivo*/
     private double importe;/*Modela importe en euros. Valor positivo*/
     private String reporte;/*Modela reporte*/
-    private Acomodador acomodador;
-    private Limpieza limpiador;
+    private Acomodador acomodador=null;
+    private Limpieza limpiador=null;
     public Coste() {
     }
 
@@ -106,16 +106,7 @@ public class Coste {
                  //System.out.println("Introduzca la fecha de creacion");
                  //Date fe=Cajadeherramientas.readDate(in,"DD-MM-YYYY");
                  //c.setFecha(fe);
-                 System.out.println("Ha sido reportado por un empleado de limpieza s");
-                 z = in.next().charAt(0);
-                 if (z == 's' || z=='S') {
-                     
-                     
-                     limpieza=Limpieza.nuevoLimpiador();
-                     coste.setLimpiador(limpieza);
-                 } else {System.out.println("Es un acomodador intruzca los datos");
-                 acomodador=Acomodador.nuevoAcomodador();
-                 coste.setAcomodador(acomodador);}
+             
                  
                /*  System.out.println("Introduzca la fecha con formato dd-mm-yyyy");
                  

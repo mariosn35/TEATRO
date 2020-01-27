@@ -27,7 +27,13 @@ public class Nomina {
 
         this.id = id;
         this.mes = mes;
+         if (mes >= 1 && mes <= 12) {
+            throw new NominaException("El mes sólo es valido del uno al doce");
+        }
         this.anio = anio;
+        if (anio >= 1980 && anio <= 2021) {
+            throw new NominaException("El año sólo puede ser un valor entre 1980 a 2021 ");
+        }
         this.revisado = revisado;
         this.empleado = empleado;
         this.coste = coste;
@@ -38,7 +44,13 @@ public class Nomina {
 
         this.id = n.getId();
         this.mes = n.getMes();
-        this.anio = n.getAnio();
+        if (mes >= 1 && mes <= 12) {
+            throw new NominaException("El mes sólo es valido del uno al doce");
+        }
+        this.anio = n.getAnio();   
+        if (anio < 1980 || anio > 2021) {
+            throw new NominaException("El año sólo puede ser un valor entre 1980 a 2021 ");
+        }
         this.revisado = n.getRevisado();
     }
 
@@ -78,16 +90,22 @@ public class Nomina {
         return mes;
     }
 
-    public void setMes(int mes) {
+    public void setMes(int mes) throws NominaException {
         this.mes = mes;
+        if (mes >= 1 && mes <= 12) {
+            throw new NominaException("El mes sólo es valido del uno al doce");
+        }
     }
 
     public int getAnio() {
         return anio;
     }
 
-    public void setAnio(int anio) {
+    public void setAnio(int anio) throws NominaException {
         this.anio = anio;
+        if (anio < 1980 || anio > 2021) {
+            throw new NominaException("El año sólo puede ser un valor entre 1980 a 2021 ");
+        }
     }
 
     public boolean getRevisado() {
@@ -99,7 +117,7 @@ public class Nomina {
     }
      public static Nomina nuevoNomina() throws ParseException, NominaException {
     char g='s';
-    Nomina n = new Nomina();
+    Nomina nomina = new Nomina();
     int mes;
     int año;
     char c='s';
@@ -113,10 +131,16 @@ public class Nomina {
     do{
     System.out.println("Mete el mes de creacion de la nomina");
     mes=in.nextInt();
-    n.setMes(mes);
+    nomina.setMes(mes);
+    if (mes >= 1 && mes <= 12) {
+    throw new NominaException("El mes sólo es valido del uno al doce");
+    }
     System.out.println("Mete el año de creacion");
     año=in.nextInt();
-    n.setAnio(año);
+    nomina.setAnio(año);        
+    if (año < 1980 || año > 2021) {
+            throw new NominaException("El año sólo puede ser un valor entre 1980 a 2021 ");
+        }
     do{
     System.out.println("Di si esta revisado s para si n para no");
     c = in.next().charAt(0); 
@@ -125,12 +149,12 @@ public class Nomina {
     } while (c!='s'&& c!='S' && c!='n'&& c!='N' );
     if  (c=='s' || c=='S') accesible=true; 
     else accesible=false;
-    n.setRevisado(accesible);
+    nomina.setRevisado(accesible);
        System.out.println("quieres asignar un secretariado a esta nomina");
              z = in.next().charAt(0);
          if (z == 's' || z == 'S') {
              secretariado=Secretariado.nuevoSecretariado();
-    n.setSecretariado(secretariado);
+    nomina.setSecretariado(secretariado);
             } else {
                 System.out.println("No has asiganado un secretariado a esta nomina");
             }
@@ -139,7 +163,7 @@ public class Nomina {
              z = in.next().charAt(0);
          if (z == 's' || z == 'S') {
              empleado=Empleado.nuevoEmpleado();
-    n.setEmpleado(empleado);
+    nomina.setEmpleado(empleado);
             } else {
                 System.out.println("No has asiganado un empleado a esta nomina");
             }
@@ -147,17 +171,17 @@ public class Nomina {
           z = in.next().charAt(0);
          if (z == 's' || z == 'S') {
            coste=Coste.nuevoCoste();
-    n.setCoste(coste);
+    nomina.setCoste(coste);
             } else {
                 System.out.println("No has asiganado un coste a esta nomina");
             }
 
-    System.out.println("¿Los datos son correctos?"+n);
+    System.out.println("¿Los datos son correctos?"+nomina);
       
       System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
       g= in.next().charAt(0);
     } while  (g!='s'&& g!='S' );  
-    return n;
+    return nomina;
     
     }
     public Nomina getNominaById(long id) {

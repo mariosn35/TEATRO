@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  */
 public class Prueba {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
         //Franquicia.nuevafranquicia();
         //Usuario.nuevoUsuario();
         //  Acomodador.nuevoAcomodador();
@@ -52,38 +52,42 @@ public class Prueba {
         do {
             switch (opcion) {
                 case 1:
-                    Bono b = new Bono();
+                    Bono bono = new Bono();
 
-                    Usuario a = Usuario.nuevoUsuario();
+                    Usuario aidan = Usuario.nuevoUsuario();
 
-                    a.registrarusuario(a);
-                    System.out.println("Usuario registrado:" + a.isRegistrado());
+                    aidan.registrarusuario(aidan);
+                    System.out.println("Usuario registrado:" + aidan.isRegistrado());
 
-                     
-                         boolean bonocorrecto=false;
-                         
-                         do{
+                    boolean bonocorrecto = true;
+
+                    do {
                         try {
-                             a.comprarbono(b);
+                            aidan.comprarbono(bono);
                         } catch (BonoException ex) {
-                            bonocorrecto=false;
-                           System.out.println("Los valores del bono son incorrectos");
-                           
+                            bonocorrecto = false;
+                            System.out.println("Los valores del bono son incorrectos");
+
                         }
                         
-                        
-                        
-                         } while(!bonocorrecto);
-                        
-                        
-                    
+                    } while (!bonocorrecto);
 
-                   
-                    System.out.println("Tu bono" + b);
+                    System.out.println("Tu bono" + bono);
                 case 2:
 
                 case 3:
-
+                    boolean nominacorrecta = true;
+                    Secretariado secretario = new Secretariado();
+                    do {
+                        try {
+                            secretario.calcularNomina();
+                        } catch (NominaException ex) {
+                            nominacorrecta = false;
+                            System.out.println("Los datos son incorrectos");
+                        }
+                    } while (!nominacorrecta);
+                    
+                    
                 case 4:
                     break;
 

@@ -77,7 +77,7 @@ public class Secretariado extends EOficina {
         return re;
     }
 
-    public ArrayList<Nomina> calcularNomina() throws ParseException {
+    public ArrayList<Nomina> calcularNomina() throws ParseException, NominaException {
         char s = 'k';
        // int horastrabajadas;
        // double salarioporhora;

@@ -19,6 +19,7 @@ public class Coste {
     private String reporte;/*Modela reporte*/
     private Acomodador acomodador=null;
     private Limpieza limpiador=null;
+   
     public Coste() {
     }
 
@@ -30,6 +31,7 @@ public class Coste {
         this.reporte = reporte;
         this.acomodador = acomodador;
         this.limpiador = limpiador;
+        
     }
 
     public Coste(Coste c) {

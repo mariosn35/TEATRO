@@ -160,7 +160,7 @@ public class Usuario {
 
     }
     
-    public void comprarbono(Bono b) throws XxxException, XxxException.tipoinvalido, XxxException.Malmes, XxxException.Malannio {
+    public void comprarbono(Bono b) throws BonoException {
         
         int a;
         Scanner in = new Scanner(System.in);

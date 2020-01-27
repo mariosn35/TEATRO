@@ -2,12 +2,7 @@ package modelos;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import modelos.XxxException.Malannio;
-import modelos.XxxException.Malmes;
-import static modelos.XxxException.invalido;
-import static modelos.XxxException.mala;
-import static modelos.XxxException.malm;
-import modelos.XxxException.tipoinvalido;
+import modelos.BonoException;
 
 /**
  *
@@ -17,36 +12,61 @@ import modelos.XxxException.tipoinvalido;
 public class Bono {
 
     protected long id;/*Modela id. Valor positivo*/
-    char tipo;/*c para completo s para parcial*/
+    char tipo;/*c para completo p para parcial*/
     int mes;/*del uno al doce*/
-    int año;/*del 0 al año actual*/
-    
+    int annio;/*del 0 al annio actual*/
+
     private Usuario usuario;
 
     public Bono() {
     }
 
-    public Bono(long id, char tipo, int mes, Usuario usuario) {
+    public Bono(long id, char tipo, int mes, int annio, Usuario usuario) throws BonoException {
+
         this.id = id;
+
         this.tipo = tipo;
+         if (tipo != 'C' && tipo != 'P') {
+            throw new BonoException("El tipo no es valido. C o P validos");
+        }
         this.mes = mes;
+         if (mes != 1 || mes != 12) {
+            throw new BonoException("El mes no es valido.De uno a doce ");
+        }
+        this.annio = annio;
+        if (annio != 1980 || annio != 2021) {
+            throw new BonoException("El año no es valido.De 1980 a 2021 ");
+        }
         this.usuario = usuario;
     }
 
-    public Bono(Bono b) {
+    public Bono(Bono b) throws BonoException {
 
         this.id = b.getId();
         this.mes = b.getMes();
+        if (mes != 1 || mes != 12) {
+            throw new BonoException("El mes no es valido.De uno a doce ");
+        }
         this.tipo = b.getTipo();
+        if (tipo != 'C' && tipo != 'P') {
+            throw new BonoException("El tipo no es valido. C o P validos");
+        }
+        this.annio = b.getAño();
+        if (annio != 1980 || annio != 2021) {
+            throw new BonoException("El año no es valido.De 1980 a 2021 ");
+        }
         this.usuario = b.getUsuario();
     }
 
     public int getAño() {
-        return año;
+        return annio;
     }
 
-    public void setAño(int año) {
-        this.año = año;
+    public void setAño(int año) throws BonoException {
+        this.annio = año;
+        if (annio != 1980 || annio != 2021) {
+            throw new BonoException("El año no es valido.De 1980 a 2021 ");
+        }
     }
 
     public long getId() {
@@ -61,16 +81,24 @@ public class Bono {
         return tipo;
     }
 
-    public void setTipo(char tipo) {
+    public void setTipo(char tipo) throws BonoException {
+
         this.tipo = tipo;
+        if (tipo != 'C' && tipo != 'P') {
+            throw new BonoException("El tipo no es valido. C o P validos");
+        }
     }
 
     public int getMes() {
         return mes;
     }
 
-    public void setMes(int mes) {
+    public void setMes(int mes) throws BonoException {
+
         this.mes = mes;
+       if (mes != 1 || mes != 12) {
+             throw new BonoException("El mes no es valido.De uno a doce ");
+        }
     }
 
     public Usuario getUsuario() {
@@ -80,114 +108,106 @@ public class Bono {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-     public static Bono nuevoBono()throws XxxException, XxxException.tipoinvalido, XxxException.Malmes, XxxException.Malannio {
-          char s='s';
-          char z='z';
-      Bono bono = new Bono();
-      char categoria;
-      int mes;
-      int annio;
-      Usuario usuario = new Usuario();
-      Scanner in;
-       in = new Scanner(System.in);
-       do{
-      System.out.println("Introduzca el tipo de bono puede ser c o p");
-       categoria = in.next().charAt(0);
-          try{    invalido(categoria);}
-       catch(tipoinvalido err){
-        System.out.println(err);
-       }
-       finally{
-       bono.setTipo(categoria);}
-      
-       System.out.println("Introduzca el mes en que es valido el bono");
-       mes= in.nextInt();
-       try{ malm(mes);}
-       catch(Malmes err){
-        System.out.println(err);
-       }
-       finally{
-           bono.setMes(mes);
-       }
+
+    public static Bono nuevoBono() throws BonoException {
+        char s = 's';
+        char z = 'z';
+        Bono bono = new Bono();
+        char categoria;
+        int mes;
+        int annio;
+        Usuario usuario = new Usuario();
+        Scanner in;
+        in = new Scanner(System.in);
+        do {
+            System.out.println("Introduzca el tipo de bono puede ser c o p");
+            categoria = in.next().charAt(0);
+            
+                bono.setTipo(categoria);
+                 if (categoria != 'C' && categoria != 'P') {
+            throw new BonoException("El tipo no es valido. C o P validos");
+        }
+
+            System.out.println("Introduzca el mes del 1 al 12");
+            mes = in.nextInt();
        
-        System.out.println("Introduzca el año en que es valido el bono");
-       annio= in.nextInt();
-        try{ mala(annio);}
-       catch(Malannio err){
-        System.out.println(err);
-       }
-       finally{
-            bono.setAño(annio);
-       }
-      System.out.println("Quiere asignar el usuario propietario del bono");
-         z = in.next().charAt(0);
-         if (z == 's' || z=='S') {
+                bono.setMes(mes);
+            if (mes != 1 || mes != 12) {
+             throw new BonoException("El mes no es valido.De uno a doce ");
+        }
 
+            System.out.println("Introduzca el año del 1980 a 2021");
+            annio = in.nextInt();
+            
+                bono.setAño(annio);
+              if (annio != 1980 || annio != 2021) {
+            throw new BonoException("El año no es valido.De 1980 a 2021");
+        }
+            System.out.println("Quiere asignar el usuario propietario del bono");
+            z = in.next().charAt(0);
+            if (z == 's' || z == 'S') {
 
-       usuario=Usuario.nuevoUsuario();
-      
-            } else {System.out.println("No a asignado un usuario a este bono");}
-       bono.setUsuario(usuario);
-        
-        System.out.println("¿Los datos son correctos?"+bono);
-      
-      System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
-      s= in.next().charAt(0);
-      } while  (s!='s'&& s!='S' );    
-      
-    return bono;
-         }
-      
+                usuario = Usuario.nuevoUsuario();
+
+            } else {
+                System.out.println("No a asignado un usuario a este bono");
+            }
+            bono.setUsuario(usuario);
+
+            System.out.println("¿Los datos son correctos?" + bono);
+
+            System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
+            s = in.next().charAt(0);
+        } while (s != 's' && s != 'S');
+
+        return bono;
+    }
+
+    public static Bono nuevoBonoUsuario() throws BonoException {
+        char s = 's';
+        char z = 'z';
+        Bono bono = new Bono();
+        char categoria;
+        int mes;
+        int annio;
+        Usuario usuario = new Usuario();
+        Scanner in;
+        in = new Scanner(System.in);
+        do {
            
-         public static Bono nuevoBonoUsuario()throws XxxException, XxxException.tipoinvalido, XxxException.Malmes, XxxException.Malannio {
-          char s='s';
-          char z='z';
-      Bono bono = new Bono();
-      char categoria;
-      int mes;
-      int annio;
-      Usuario usuario = new Usuario();
-      Scanner in;
-       in = new Scanner(System.in);
-       do{
-      System.out.println("Introduzca el tipo de bono puede ser c o p");
-       categoria = in.next().charAt(0);
-          try{    invalido(categoria);}
-       catch(tipoinvalido err){
-        System.out.println(err);
-       }
-       finally{
-       bono.setTipo(categoria);}
-      
-       System.out.println("Introduzca el mes en que es valido el bono");
-       mes= in.nextInt();
-       try{ malm(mes);}
-       catch(Malmes err){
-        System.out.println(err);
-       }
-       finally{
-           bono.setMes(mes);
-       }
+            System.out.println("Introduzca el tipo de bono puede ser c o p");
+            categoria = in.next().charAt(0);
+            
+                bono.setTipo(categoria);
+                 if (categoria != 'C' && categoria != 'P') {
+            throw new BonoException("El tipo no es valido. C o P validos");
+        }
+
+            System.out.println("Introduzca el mes en que es valido el bono");
+            mes = in.nextInt();
        
-        System.out.println("Introduzca el año en que es valido el bono");
-       annio= in.nextInt();
-        try{ mala(annio);}
-       catch(Malannio err){
-        System.out.println(err);
-       }
-       finally{
-            bono.setAño(annio);
-       }
-      
-        
-        System.out.println("¿Los datos son correctos?"+bono);
-      
-      System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
-      s= in.next().charAt(0);
-      } while  (s!='s'&& s!='S' );    
-      
-    return bono;
-         }
+                bono.setMes(mes);
+            if (mes != 1 || mes != 12) {
+             throw new BonoException("El mes no es valido.De uno a doce ");
+        }
+
+            System.out.println("Introduzca el año en que es valido el bono");
+            annio = in.nextInt();
+            
+                bono.setAño(annio);
+              if (annio != 1980 || annio != 2021) {
+            throw new BonoException("El año no es valido.De 1980 a 2021 ");
+        }
+
+            System.out.println("¿Los datos son correctos?" + bono);
+
+            System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
+            s = in.next().charAt(0);
+        } while (s != 's' && s != 'S');
+
+        return bono;
+    }
+
     public Bono getBonoById(long Id) {
         Bono b = null;
         /* for(int i=0; i< Lista.size (); i++){
@@ -213,7 +233,7 @@ public class Bono {
 
     @Override
     public String toString() {
-        return "Bono{" + "id=" + id + ", tipo=" + tipo + ", mes=" + mes + ", usuario=" + usuario + '}';
+        return "Bono{" + "id=" + id + ", tipo=" + tipo + ", mes=" + mes + ",año=" + annio + ", usuario=" + usuario + '}';
     }
 
     public String data() {

@@ -23,7 +23,7 @@ public class Nomina {
 
     }
 
-    public Nomina(long id, int mes, int anio, boolean revisado, Empleado empleado, Coste coste, Secretariado secretariado) {
+    public Nomina(long id, int mes, int anio, boolean revisado, Empleado empleado, Coste coste, Secretariado secretariado) throws NominaException {
 
         this.id = id;
         this.mes = mes;
@@ -34,7 +34,7 @@ public class Nomina {
         this.secretariado = secretariado;
     }
 
-    public Nomina(Nomina n) {
+    public Nomina(Nomina n) throws NominaException {
 
         this.id = n.getId();
         this.mes = n.getMes();
@@ -97,7 +97,7 @@ public class Nomina {
     public void setRevisado(boolean revisado) {
         this.revisado = revisado;
     }
-     public static Nomina nuevoNomina() throws ParseException {
+     public static Nomina nuevoNomina() throws ParseException, NominaException {
     char g='s';
     Nomina n = new Nomina();
     int mes;

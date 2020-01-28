@@ -101,7 +101,7 @@ public class Coste {
         char z = 'l';
         Coste coste = new Coste();
         Scanner in;
-        double importe=-1;
+        double importe = -1;
         String reporte;
         in = new Scanner(System.in);
         Acomodador acomodador = null;
@@ -133,18 +133,16 @@ public class Coste {
                 System.out.println("Introduzca el importe en euros");
                 importe = Double.valueOf(in.nextLine());
                 CosteException.validarImporte(importe);
-            }
-            catch(CosteException ex){
+                coste.setImporte(importe);
+            } catch (CosteException ex) {
                 System.out.println("se ha producido una CosteException:" + ex.getMessage());
+            } catch (java.lang.NumberFormatException ex) {
+                System.out.println("se ha producido una NumberFormatException:" + ex.getMessage());
             }
-            coste.setImporte(importe);
-            
-            
+
             System.out.println("Introduzca el Reporte");
             reporte = in.nextLine();
-            
-            
-            
+
             coste.setReporte(reporte);
 
             System.out.println("¿Los datos son correctos?" + coste);
@@ -152,12 +150,11 @@ public class Coste {
             System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
             d = in.next().charAt(0);
 
+        } while (d != 's' && d != 'S');
+        return coste;
     }
-    while (d != 's' && d != 'S');
-    return coste ;
-}
 
-public Coste getCosteById(long Id) {
+    public Coste getCosteById(long Id) {
         Coste c = null;
         /* for(int importe=0; importe< Lista.size (); importe++){
          s=(Coste) Lista[importe];
@@ -181,7 +178,7 @@ public Coste getCosteById(long Id) {
     }
 
     @Override
-        public String toString() {
+    public String toString() {
         return "Coste{" + "id=" + id + ", fecha=" + fecha + ", importe=" + importe + ", reporte=" + reporte + ", acomodador=" + acomodador + ", limpiador=" + limpiador + '}';
     }
 

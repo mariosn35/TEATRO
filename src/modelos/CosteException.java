@@ -16,5 +16,13 @@ public class CosteException extends Exception{
     super(msj);
     }
     
+    public static boolean validarImporte(double importe) throws CosteException{
+     if (importe > 3000 || importe <0 ) 
+            throw new CosteException("");
+        
+        
+    return true;
+    }
+    
     
 }

@@ -96,19 +96,19 @@ public class Coste {
         this.limpiador = limpiador;
     }
 
-    public static Coste nuevoCoste() throws ParseException, CosteException {
+    public static Coste nuevoCoste() throws CosteException {
         char d = 'h';
         char z = 'l';
         Coste coste = new Coste();
         Scanner in;
-        double importe;
+        double importe=-1;
         String reporte;
         in = new Scanner(System.in);
-        Acomodador acomodador = new Acomodador();
-        Limpieza limpieza = new Limpieza();
+        Acomodador acomodador = null;
+        Limpieza limpieza = null;
         do {
 
-                 //System.out.println("Introduzca la fecha de creacion");
+            //System.out.println("Introduzca la fecha de creacion");
             //Date fe=Cajadeherramientas.readDate(in,"DD-MM-YYYY");
             //c.setFecha(fe);
             /*  System.out.println("Introduzca la fecha con formato dd-mm-yyyy");
@@ -131,31 +131,33 @@ public class Coste {
              */
             try {
                 System.out.println("Introduzca el importe en euros");
-                importe = in.nextDouble();
-            if (importe >= 3000 || importe <1 ) {
-            throw new CosteException("");
-                }
-                coste.setImporte(importe);
-                System.out.println("Introduzca el Reporte");
-                reporte = in.nextLine();
-                coste.setReporte(reporte);
-
-                System.out.println("¿Los datos son correctos?" + coste);
-
-                System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
-                d = in.next().charAt(0);
-            } catch (InputMismatchException n) {
-                System.out.println("introduzca un numero ");
-                in.nextLine();
-            }catch (CosteException t) {
-                System.out.println("El coste debe ser superior a 0 e inferior a 3000 ");
-                in.nextLine();
+                importe = Double.valueOf(in.nextLine());
+                CosteException.validarImporte(importe);
             }
-        } while (d != 's' && d != 'S');
-        return coste;
-    }
+            catch(CosteException ex){
+                System.out.println("se ha producido una CosteException:" + ex.getMessage());
+            }
+            coste.setImporte(importe);
+            
+            
+            System.out.println("Introduzca el Reporte");
+            reporte = in.nextLine();
+            
+            
+            
+            coste.setReporte(reporte);
 
-    public Coste getCosteById(long Id) {
+            System.out.println("¿Los datos son correctos?" + coste);
+
+            System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
+            d = in.next().charAt(0);
+
+    }
+    while (d != 's' && d != 'S');
+    return coste ;
+}
+
+public Coste getCosteById(long Id) {
         Coste c = null;
         /* for(int importe=0; importe< Lista.size (); importe++){
          s=(Coste) Lista[importe];
@@ -179,7 +181,7 @@ public class Coste {
     }
 
     @Override
-    public String toString() {
+        public String toString() {
         return "Coste{" + "id=" + id + ", fecha=" + fecha + ", importe=" + importe + ", reporte=" + reporte + ", acomodador=" + acomodador + ", limpiador=" + limpiador + '}';
     }
 

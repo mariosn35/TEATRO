@@ -25,12 +25,13 @@ public class Bono {
 
         this.id = id;
 
-        this.tipo = tipo;
+        //this.tipo = tipo;
+        
          if (tipo != 'C' && tipo != 'P') {
             throw new BonoException("El tipo no es valido. C o P validos");
-        }
+        }this.tipo = tipo;
         this.mes = mes;
-         if (mes < 1 || mes >12) {
+         if (mes <  1 || mes >12) {
             throw new BonoException("El mes no es valido.De uno a doce ");
         }
         this.annio = annio;

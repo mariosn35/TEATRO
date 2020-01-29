@@ -115,7 +115,7 @@ public class Nomina {
     public void setRevisado(boolean revisado) {
         this.revisado = revisado;
     }
-     public static Nomina nuevoNomina() throws ParseException, NominaException {
+     public static Nomina nuevoNomina() throws ParseException, NominaException,CosteException {
     char g='s';
     Nomina nomina = new Nomina();
     int mes;
@@ -132,7 +132,7 @@ public class Nomina {
     System.out.println("Mete el mes de creacion de la nomina");
     mes=in.nextInt();
     nomina.setMes(mes);
-    if (mes >= 1 && mes <= 12) {
+    if (mes <= 1 || mes >= 12) {
     throw new NominaException("El mes sólo es valido del uno al doce");
     }
     System.out.println("Mete el año de creacion");

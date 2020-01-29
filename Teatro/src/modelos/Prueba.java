@@ -6,10 +6,7 @@
 package modelos;
 
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -17,7 +14,7 @@ import java.util.logging.Logger;
  */
 public class Prueba {
 
-    public static void main(String[] args) throws ParseException {
+    public static void main(String[] args) throws ParseException, CosteException {
         //Franquicia.nuevafranquicia();
         //Usuario.nuevoUsuario();
         //  Acomodador.nuevoAcomodador();
@@ -69,11 +66,14 @@ public class Prueba {
                             System.out.println("Los valores del bono son incorrectos");
 
                         }
-                        
+
                     } while (!bonocorrecto);
 
                     System.out.println("Tu bono" + bono);
+                    break;
                 case 2:
+                    Coste.nuevoCoste();
+                    break;
 
                 case 3:
                     boolean nominacorrecta = true;
@@ -86,10 +86,12 @@ public class Prueba {
                             System.out.println("Los datos son incorrectos");
                         }
                     } while (!nominacorrecta);
-                    
-                    
+                    break;
+
                 case 4:
                     break;
+                default:
+                    System.out.println("Valor incorrecto!");
 
             }
         } while (opcion != 4);

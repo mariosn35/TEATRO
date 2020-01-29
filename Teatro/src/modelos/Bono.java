@@ -188,7 +188,7 @@ public class Bono {
             mes = in.nextInt();
        
                 bono.setMes(mes);
-            if (mes != 1 || mes != 12) {
+            if (mes < 1 || mes > 12) {
              throw new BonoException("El mes no es valido.De uno a doce ");
         }
 
@@ -196,7 +196,7 @@ public class Bono {
             annio = in.nextInt();
             
                 bono.setAño(annio);
-              if (annio != 1980 || annio != 2021) {
+              if (annio < 1980 || annio > 2021) {
             throw new BonoException("El año no es valido.De 1980 a 2021 ");
         }
 

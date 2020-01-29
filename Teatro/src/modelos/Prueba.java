@@ -40,13 +40,15 @@ public class Prueba {
             ArrayList<Coste> costesReparacion = a.añadirCosteReparacion();
          */
         int opcion;
-        Scanner in = new Scanner(System.in);
+      Scanner in = new Scanner(System.in);
+        do {
+              
         System.out.println("Pulse 1 para comprar bono");
         System.out.println("Pulse 2 reportar costes");
         System.out.println("Pulse 3 para calcular nomina");
         System.out.println("Pulse 4 para salir");
         opcion = in.nextInt();
-        do {
+            
             switch (opcion) {
                 case 1:
                     Bono bono = new Bono();
@@ -92,7 +94,7 @@ public class Prueba {
                     break;
                 default:
                     System.out.println("Valor incorrecto!");
-
+                        
             }
         } while (opcion != 4);
 

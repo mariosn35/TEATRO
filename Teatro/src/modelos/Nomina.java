@@ -27,11 +27,11 @@ public class Nomina {
 
         this.id = id;
         this.mes = mes;
-         if (mes >= 1 && mes <= 12) {
+         if (mes < 1 || mes > 12) {
             throw new NominaException("El mes sólo es valido del uno al doce");
         }
         this.anio = anio;
-        if (anio >= 1980 && anio <= 2021) {
+        if (anio < 1980 || anio > 2021) {
             throw new NominaException("El año sólo puede ser un valor entre 1980 a 2021 ");
         }
         this.revisado = revisado;
@@ -44,7 +44,7 @@ public class Nomina {
 
         this.id = n.getId();
         this.mes = n.getMes();
-        if (mes >= 1 && mes <= 12) {
+        if (mes < 1 || mes > 12) {
             throw new NominaException("El mes sólo es valido del uno al doce");
         }
         this.anio = n.getAnio();   
@@ -92,7 +92,7 @@ public class Nomina {
 
     public void setMes(int mes) throws NominaException {
         this.mes = mes;
-        if (mes >= 1 && mes <= 12) {
+        if (mes < 1 || mes > 12) {
             throw new NominaException("El mes sólo es valido del uno al doce");
         }
     }
@@ -132,7 +132,7 @@ public class Nomina {
     System.out.println("Mete el mes de creacion de la nomina");
     mes=in.nextInt();
     nomina.setMes(mes);
-    if (mes <= 1 || mes >= 12) {
+    if (mes < 1 || mes > 12) {
     throw new NominaException("El mes sólo es valido del uno al doce");
     }
     System.out.println("Mete el año de creacion");

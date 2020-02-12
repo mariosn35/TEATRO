@@ -2,7 +2,12 @@ package modelos;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import modelos.BonoException;
+import static modelos.BonoException.validarAnnio;
+import static modelos.BonoException.validarCategoria;
+import static modelos.BonoException.validarMes;
 
 /**
  *
@@ -164,7 +169,7 @@ public class Bono {
         return bono;
     }
 
-    public static Bono nuevoBonoUsuario() throws BonoException {
+    public static Bono nuevoBonoUsuario() {
         char s = 's';
         char z = 'z';
         Bono bono = new Bono();
@@ -178,27 +183,38 @@ public class Bono {
            
             System.out.println("Introduzca el tipo de bono puede ser c o p");
             categoria = in.next().charAt(0);
-            
-                bono.setTipo(categoria);
-                 if (categoria != 'C' && categoria != 'P') {
-            throw new BonoException("El tipo no es valido. C o P validos");
-        }
+            try {
+                if (validarCategoria(categoria)){
+                    bono.setTipo(categoria);
+                }
+            } catch (BonoException ex) {
+               System.out.println("Los valores de la categoria son incorrectos");
+            }
 
             System.out.println("Introduzca el mes en que es valido el bono");
             mes = in.nextInt();
-       
-                bono.setMes(mes);
-            if (mes < 1 || mes > 12) {
-             throw new BonoException("El mes no es valido.De uno a doce ");
-        }
+       try {
+                if (validarMes(mes)){
+                    bono.setMes(mes);
+                }
+            } catch (BonoException ex) {
+               System.out.println("Los valores del mes son incorrectos");
+            }
+
+                
+            
 
             System.out.println("Introduzca el año en que es valido el bono");
             annio = in.nextInt();
             
-                bono.setAño(annio);
-              if (annio < 1980 || annio > 2021) {
-            throw new BonoException("El año no es valido.De 1980 a 2021 ");
-        }
+                
+                 try {
+                if (validarAnnio(annio)){
+                    bono.setAño(annio);
+                }
+            } catch (BonoException ex) {
+               System.out.println("Los valores del año son incorrectos");
+            }
 
             System.out.println("¿Los datos son correctos?" + bono);
 

@@ -55,21 +55,10 @@ public class Prueba {
 
                     Usuario aidan = Usuario.nuevoUsuario();
 
-                    aidan.registrarusuario(aidan);
+                    aidan.registrarusuario();
                     System.out.println("Usuario registrado:" + aidan.isRegistrado());
-
-                    boolean bonocorrecto = true;
-
-                    do {
-                        try {
-                            aidan.comprarbono(bono);
-                        } catch (BonoException ex) {
-                            bonocorrecto = false;
-                            System.out.println("Los valores del bono son incorrectos");
-
-                        }
-
-                    } while (!bonocorrecto);
+                    aidan.comprarbono(bono);
+                      
 
                     System.out.println("Tu bono" + bono);
                     break;

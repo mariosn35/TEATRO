@@ -144,14 +144,14 @@ public class Usuario {
         return Usuario;
     }
 
-    public void registrarusuario(Usuario a) {
+    public void registrarusuario() {
         char z='z';
         Scanner in = new Scanner(System.in);
         System.out.println("Quiere registrarse s para si n para no");
          z = in.next().charAt(0);
             if (z == 's' || z=='S') {
 
-                 a.setRegistrado(true);
+                 this.setRegistrado(true);
             } else if (z == 's' || z=='S') {
                 System.out.println("No se ha registrado");
                 
@@ -160,7 +160,7 @@ public class Usuario {
 
     }
     
-    public void comprarbono(Bono b) throws BonoException {
+    public void comprarbono(Bono b) {
         
         int a;
         Scanner in = new Scanner(System.in);

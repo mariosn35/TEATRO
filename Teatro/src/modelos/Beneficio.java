@@ -14,6 +14,9 @@ import java.util.Scanner;
 public class Beneficio {
 
     protected long id;/*Modela el identificador propio*/
+    private long idBono;
+    private long idTaquilla;
+    private long idInforme;
     private Date fecha;/*Modela la fecha de adquisicion del beneficio*/
     private double importe;/*Modela importe en euros.*/
     private String reporte;/*Modela reportes.*/
@@ -125,6 +128,30 @@ public class Beneficio {
         this.id = id;
     }
 
+    public long getIdBono() {
+        return idBono;
+    }
+
+    public void setIdBono(long idBono) {
+        this.idBono = idBono;
+    }
+
+    public long getIdTaquilla() {
+        return idTaquilla;
+    }
+
+    public void setIdTaquilla(long idTaquilla) {
+        this.idTaquilla = idTaquilla;
+    }
+
+    public long getIdInforme() {
+        return idInforme;
+    }
+
+    public void setIdInforme(long idInforme) {
+        this.idInforme = idInforme;
+    }
+    
     public Date getFecha() {
         return fecha;
     }

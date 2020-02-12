@@ -14,7 +14,28 @@ public class BonoException extends Exception {
     public  BonoException (String msj) {
             super(msj);
     }
-
+    public static boolean validarCategoria(char categoria) throws BonoException{
+        
+                     if (categoria != 'C' && categoria != 'P') {
+            throw new BonoException("El tipo no es valido. C o P validos");
+        }
+                     return true;
+   }
+    
+       public static boolean validarMes(int mes) throws BonoException{
+        
+              if (mes < 1 || mes > 12) {
+             throw new BonoException("El mes no es valido.De uno a doce ");
+        }
+                     return true;
+   }
+          public static boolean validarAnnio(int annio) throws BonoException{
+        
+             if (annio < 1980 || annio > 2021) {
+            throw new BonoException("El año no es valido.De 1980 a 2021 ");
+        }
+                     return true;
+   }
 //    public static int invalido(char a) throws tipoinvalido {
 //        if (a != 'c' && a != 'p') {
 //            throw new tipoinvalido();

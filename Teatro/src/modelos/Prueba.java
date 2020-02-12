@@ -14,7 +14,7 @@ import java.util.Scanner;
  */
 public class Prueba {
 
-    public static void main(String[] args) throws ParseException, CosteException {
+    public static void main(String[] args) throws ParseException, CosteException{
         //Franquicia.nuevafranquicia();
         //Usuario.nuevoUsuario();
         //  Acomodador.nuevoAcomodador();
@@ -57,8 +57,8 @@ public class Prueba {
 
                     aidan.registrarusuario();
                     System.out.println("Usuario registrado:" + aidan.isRegistrado());
-                    aidan.comprarbono(bono);
-                      
+                    bono = aidan.comprarbono();
+                    
 
                     System.out.println("Tu bono" + bono);
                     break;

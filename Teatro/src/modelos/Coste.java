@@ -99,6 +99,7 @@ public class Coste {
     public static Coste nuevoCoste() throws CosteException {
         char d = 'h';
         char z = 'l';
+        char resp = 'x';
         Coste coste = new Coste();
         Scanner in;
         double importe = -1;
@@ -106,12 +107,11 @@ public class Coste {
         in = new Scanner(System.in);
         Acomodador acomodador = null;
         Limpieza limpieza = null;
-        do {
 
-            //System.out.println("Introduzca la fecha de creacion");
-            //Date fe=Cajadeherramientas.readDate(in,"DD-MM-YYYY");
-            //c.setFecha(fe);
-            /*  System.out.println("Introduzca la fecha con formato dd-mm-yyyy");
+        //System.out.println("Introduzca la fecha de creacion");
+        //Date fe=Cajadeherramientas.readDate(in,"DD-MM-YYYY");
+        //c.setFecha(fe);
+        /*  System.out.println("Introduzca la fecha con formato dd-mm-yyyy");
                  
              String fecha = in.nextLine();
              SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
@@ -128,28 +128,32 @@ public class Coste {
              System.out.println("valid date");
              coste.setFecha(fe);
              }
-             */
+         */
+        do {
             try {
+                System.out.println("¿Quiere añadir un nuevo coste? Si es asi pulse S, de lo contrario pulse N");
+                resp = in.next().charAt(0);
+            /*  if (resp = 's' && resp = 'S'){ 
+                    continue;
+                }
+                else (resp = 'n' && resp = 'N') {
+                break;
+                }   */
                 System.out.println("Introduzca el importe en euros");
                 importe = Double.valueOf(in.nextLine());
                 CosteException.validarImporte(importe);
                 coste.setImporte(importe);
+                System.out.println("Introduzca el Reporte");
+                reporte = in.nextLine();
+                coste.setReporte(reporte);
+                System.out.println("¿Los datos son correctos?" + coste);
+                System.out.println("Si lo son pulse S para continuar de lo contrario pulse N");
+                d = in.next().charAt(0);
             } catch (CosteException ex) {
-                System.out.println("se ha producido una CosteException:" + ex.getMessage());
+                System.out.println("se ha producido una CosteException, introduzca un valor válido o consulta con un Director:" + ex.getMessage());
             } catch (java.lang.NumberFormatException ex) {
-                System.out.println("se ha producido una NumberFormatException:" + ex.getMessage());
+                System.out.println("se ha producido una NumberFormatException, introduzca un importe en euros:" + ex.getMessage());
             }
-
-            System.out.println("Introduzca el Reporte");
-            reporte = in.nextLine();
-
-            coste.setReporte(reporte);
-
-            System.out.println("¿Los datos son correctos?" + coste);
-
-            System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
-            d = in.next().charAt(0);
-
         } while (d != 's' && d != 'S');
         return coste;
     }

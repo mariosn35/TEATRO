@@ -1,6 +1,9 @@
 package modelos;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -215,16 +218,16 @@ public class Bono {
             } catch (BonoException ex) {
                System.out.println("Los valores del año son incorrectos");
             }
-
+            
             System.out.println("¿Los datos son correctos?" + bono);
-
+ 
             System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
             s = in.next().charAt(0);
         } while (s != 's' && s != 'S');
 
         return bono;
     }
-
+    
     public Bono getBonoById(long Id) {
         Bono b = null;
         /* for(int i=0; i< Lista.size (); i++){

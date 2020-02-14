@@ -160,8 +160,8 @@ public class Usuario {
 
     }
     
-    public void comprarbono(Bono b) {
-        
+    public Bono comprarbono() {
+        Bono b = new Bono();
         int a;
         Scanner in = new Scanner(System.in);
         if (this.isRegistrado() == true) {
@@ -172,6 +172,10 @@ public class Usuario {
             switch (a) {
                 case 1:
                     b = Bono.nuevoBonoUsuario();
+                    Beneficio beneficio = new Beneficio();
+                    beneficio.setBono(b);
+                    
+                    
                     b.setUsuario(this);
                 case 2:
                     break;
@@ -179,7 +183,7 @@ public class Usuario {
             }
 
         }
-
+        return b;
     }
 
     @Override

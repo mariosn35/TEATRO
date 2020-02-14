@@ -119,7 +119,71 @@ public class Beneficio {
         } while (s != 's' && s != 'S');
         return beneficio;
     }
+    public Beneficio nuevoBeneficioBono() throws ParseException {
+        char s = 'a';
+        char z = 'a';
+        Scanner in;
 
+        Double importe;
+        String reporte;
+        in = new Scanner(System.in);
+        Beneficio beneficio = new Beneficio();
+        Informe informe ;
+        Taquilla t ;
+        
+        do {
+            //System.out.println("Introduzca la fecha de creacion");
+            //Date fe = Cajadeherramientas.readDate(in, "DD-MM-YYYY");
+            //b.setFecha(fe);
+                     System.out.println("Introduzca la fecha con formato dd-mm-yyyy");
+        
+        String fecha = in.nextLine();
+        SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
+        String date = fecha;
+        Date testDate = df.parse(date);
+         long lnMilisegundos = testDate.getTime();
+            
+        java.sql.Date fe = new java.sql.Date(lnMilisegundos);;
+        System.out.println("Ahora hemos creado un objeto date con la fecha indicada, "+fe);
+ 
+        if (!df.format(testDate).equals(date)){
+            System.out.println("invalid date!!");
+        } else {
+            System.out.println("valid date");
+            beneficio.setFecha(fe);
+        }
+       
+            System.out.println("Introduzca el importe en euros ");
+            importe = in.nextDouble();
+            beneficio.setImporte(importe);
+            System.out.println("Introduzca el Reporte ");
+            reporte = in.nextLine();
+            beneficio.setReporte(reporte);
+            System.out.println("Quiere introducir el informe  ");
+            z = in.next().charAt(0);
+            if (z == 's' || z == 'S') {
+                informe = Informe.nuevoinforme();
+                beneficio.setInforme(informe);
+            } else {
+                System.out.println("No has asiganado un informe a esta este beneficio");
+            }
+            System.out.println("Quiere introducir el taquillero ");
+            z = in.next().charAt(0);
+            if (z == 's' || z == 'S') {
+                t = Taquilla.nuevoTaquilla();
+                beneficio.setTaquilla(t);
+            } else {
+                System.out.println("No has asiganado un taquillero a esta este beneficio");
+            }
+           
+
+            System.out.println("¿Los datos son correctos?" + beneficio);
+
+            System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
+            s = in.next().charAt(0);
+        } while (s != 's' && s != 'S');
+        return beneficio;
+    }
     public long getId() {
         return id;
     }

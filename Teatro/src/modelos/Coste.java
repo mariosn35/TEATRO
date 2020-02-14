@@ -1,9 +1,9 @@
 package modelos;
 
-import java.text.ParseException;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -29,23 +29,39 @@ public class Coste {
 
     public Coste(long id, Date fecha, double importe, String reporte, Acomodador acomodador, Limpieza limpiador) {
 
-        this.id = id;
-        this.fecha = fecha;
-        this.importe = importe;
-        this.reporte = reporte;
-        this.acomodador = acomodador;
-        this.limpiador = limpiador;
+        try {
+            this.id = id;
+            this.fecha = fecha;
+            if (CosteException.validarImporte(importe)) {
+                this.importe = importe;
+            }
+            if (CosteException.validarReporte(reporte)) {
+                this.reporte = reporte;
+            }
+            this.acomodador = acomodador;
+            this.limpiador = limpiador;
+        } catch (CosteException ex) {
+            System.out.println(ex.getMessage());
+        }
 
     }
 
     public Coste(Coste c) {
 
-        this.id = c.getId();
-        this.fecha = c.getFecha();
-        this.importe = c.getImporte();
-        this.reporte = c.getReporte();
-        this.acomodador = c.getAcomodador();
-        this.limpiador = c.getLimpiador();
+        try {
+            this.id = c.getId();
+            this.fecha = c.getFecha();
+            if (CosteException.validarImporte(c.getImporte())) {
+                this.importe = c.getImporte();
+            }
+            if (CosteException.validarReporte(c.getReporte())) {
+                this.reporte = c.getReporte();
+            }
+            this.acomodador = c.getAcomodador();
+            this.limpiador = c.getLimpiador();
+        } catch (CosteException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     public long getId() {
@@ -69,7 +85,13 @@ public class Coste {
     }
 
     public void setImporte(double importe) {
-        this.importe = importe;
+        try {
+            if (CosteException.validarImporte(importe)) {
+                this.importe = importe;
+            }
+        } catch (CosteException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     public String getReporte() {
@@ -77,7 +99,13 @@ public class Coste {
     }
 
     public void setReporte(String reporte) {
-        this.reporte = reporte;
+        try {
+            if (CosteException.validarReporte(reporte)) {
+                this.reporte = reporte;
+            }
+        } catch (CosteException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     public Acomodador getAcomodador() {
@@ -96,13 +124,12 @@ public class Coste {
         this.limpiador = limpiador;
     }
 
-    public static Coste nuevoCoste() throws CosteException {
-        char d = 'h';
-        char z = 'l';
-        char resp = 'x';
+    public static Coste nuevoCoste() {
+        char respuesta = '-';
+        char resp = '-';
         Coste coste = new Coste();
         Scanner in;
-        double importe = -1;
+        double importe;
         String reporte;
         in = new Scanner(System.in);
         Acomodador acomodador = null;
@@ -129,32 +156,50 @@ public class Coste {
              coste.setFecha(fe);
              }
          */
+        OUTER:
         do {
             try {
-                System.out.println("¿Quiere añadir un nuevo coste? Si es asi pulse S, de lo contrario pulse N");
+       
+                /*    System.out.println("¿Quiere añadir un nuevo coste? Si es asi pulse S, de lo contrario pulse N");
                 resp = in.next().charAt(0);
-            /*  if (resp = 's' && resp = 'S'){ 
+                if (resp = 's' && resp = 'S'){ 
                     continue;
                 }
                 else (resp = 'n' && resp = 'N') {
                 break;
                 }   */
+                in = new Scanner(System.in);
+                coste.setId(100);
+                coste.setFecha(Calendar.getInstance().getTime());
+
                 System.out.println("Introduzca el importe en euros");
-                importe = Double.valueOf(in.nextLine());
-                CosteException.validarImporte(importe);
+                String importeIntroducido = in.nextLine();
+                CosteException.validarImporte(importeIntroducido);
+                importe = Double.valueOf(importeIntroducido);
                 coste.setImporte(importe);
                 System.out.println("Introduzca el Reporte");
                 reporte = in.nextLine();
+                CosteException.validarReporte(reporte);
                 coste.setReporte(reporte);
+
                 System.out.println("¿Los datos son correctos?" + coste);
                 System.out.println("Si lo son pulse S para continuar de lo contrario pulse N");
-                d = in.next().charAt(0);
+                respuesta = in.next().charAt(0);
             } catch (CosteException ex) {
-                System.out.println("se ha producido una CosteException, introduzca un valor válido o consulta con un Director:" + ex.getMessage());
-            } catch (java.lang.NumberFormatException ex) {
-                System.out.println("se ha producido una NumberFormatException, introduzca un importe en euros:" + ex.getMessage());
+                System.out.println(ex.getMessage());
+                in = new Scanner(System.in);
+                do {
+                    System.out.println("¿Quiere añadir un nuevo coste? Si es asi pulse S, de lo contrario pulse N");
+                    resp = in.next().charAt(0);
+                    if(resp=='s' || resp=='S') continue;
+                    if(resp=='n' || resp=='N') break OUTER;
+                    else System.out.println("Respuesta no valida");
+                } while (resp != 's' && resp != 'S' && resp != 'n' && resp != 'N');
+                
             }
-        } while (d != 's' && d != 'S');
+            
+        } while (respuesta != 's' && respuesta != 'S');
+        
         return coste;
     }
 

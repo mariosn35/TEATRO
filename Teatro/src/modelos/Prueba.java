@@ -10,18 +10,18 @@ import java.util.Scanner;
 
 /**
  *(idGrupo,seman,anio,nombre)
-(idEteatro,idGrupo,atributosEpleado,categoria)
-(idFranquicia,idGrupo,idInforme,idDireccion,fechaCreacion,ubicacion,accesible)
-(idInforme,idSecretariado,mes,anio,balance)
+(idEteatro,idGrupo,atributosEpleado,categoria)Mario
+(idFranquicia,idGrupo,idInforme,idDireccion,fechaCreacion,ubicacion,accesible)Mario
+(idInforme,idSecretariado,mes,anio,balance)Mario
 (idSecretariado,atributosEOficina)
 (idDireccion,atributosEOficina)
-(idCoste,idInforme,idAcomodador,idLimpieza,idNomina,fecha,importe,reporte)
-(idBeneficio,idInforme,idTaquilla,idBono,fecha,reporte,importe)
+(idCoste,idInforme,idAcomodador,idLimpieza,idNomina,fecha,importe,reporte)Aidan
+(idBeneficio,idInforme,idTaquilla,idBono,fecha,reporte,importe)Aidan
 (idAcomodador,atributosdeETeatro)
 (idLimpieza,atributosdeETeatro)
-(idNomina,idSecretariado,idEmpleado,revisado,mes,anio)
+(idNomina,idSecretariado,idEmpleado,revisado,mes,anio)Andres
 (idTaquilla,atributosETeatro)
-(idBono,idUsuario,tipo,mes)
+(idBono,idUsuario,tipo,mes)Andres
 (idUsuario,nombre,telefono,nif,email)
 (idEmpleado,nombre,apellidos,nif,direccion,telefono)
 (idEOficina,atributosEmpleado,antiguedad)

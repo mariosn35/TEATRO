@@ -143,7 +143,7 @@ public class Beneficio {
         Date testDate = df.parse(date);
          long lnMilisegundos = testDate.getTime();
             
-        java.sql.Date fe = new java.sql.Date(lnMilisegundos);;
+        java.sql.Date fe = new java.sql.Date(lnMilisegundos);
         System.out.println("Ahora hemos creado un objeto date con la fecha indicada, "+fe);
  
         if (!df.format(testDate).equals(date)){

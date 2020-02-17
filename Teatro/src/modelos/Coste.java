@@ -1,6 +1,5 @@
 package modelos;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -14,7 +13,10 @@ import java.util.Scanner;
 public class Coste {
 
     protected long id;/*Modela el número de reportes. Valor positivo*/
-
+    private long idAcomodador;
+    private long idLimpieza;
+    private long idInforme;
+    private long idNomina;
     private Date fecha;/*Modela fecha. Valor positivo*/
 
     private double importe;/*Modela importe en euros. Valor positivo*/
@@ -27,10 +29,13 @@ public class Coste {
     public Coste() {
     }
 
-    public Coste(long id, Date fecha, double importe, String reporte, Acomodador acomodador, Limpieza limpiador) {
+    public Coste(long id, long idAcomodador, long idLimpieza, long idInforme, long idNomina, Date fecha, double importe, String reporte) {
 
         try {
             this.id = id;
+            this.idAcomodador = idAcomodador;
+            this.idLimpieza = idLimpieza;
+            this.idInforme = idInforme;
             this.fecha = fecha;
             if (CosteException.validarImporte(importe)) {
                 this.importe = importe;
@@ -43,13 +48,16 @@ public class Coste {
         } catch (CosteException ex) {
             System.out.println(ex.getMessage());
         }
-
     }
 
     public Coste(Coste c) {
 
         try {
             this.id = c.getId();
+
+            this.idAcomodador = c.getIdAcomodador();
+            this.idLimpieza = c.getIdLimpieza();
+            this.idInforme = c.getIdInforme();
             this.fecha = c.getFecha();
             if (CosteException.validarImporte(c.getImporte())) {
                 this.importe = c.getImporte();
@@ -70,6 +78,38 @@ public class Coste {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public long getIdAcomodador() {
+        return idAcomodador;
+    }
+
+    public void setIdAcomodador(long idAcomodador) {
+        this.idAcomodador = idAcomodador;
+    }
+
+    public long getIdLimpieza() {
+        return idLimpieza;
+    }
+
+    public void setIdLimpieza(long idLimpieza) {
+        this.idLimpieza = idLimpieza;
+    }
+
+    public long getIdInforme() {
+        return idInforme;
+    }
+
+    public void setIdInforme(long idInforme) {
+        this.idInforme = idInforme;
+    }
+
+    public long getIdNomina() {
+        return idNomina;
+    }
+
+    public void setIdNomina(long idNomina) {
+        this.idNomina = idNomina;
     }
 
     public Date getFecha() {
@@ -159,15 +199,6 @@ public class Coste {
         OUTER:
         do {
             try {
-       
-                /*    System.out.println("¿Quiere añadir un nuevo coste? Si es asi pulse S, de lo contrario pulse N");
-                resp = in.next().charAt(0);
-                if (resp = 's' && resp = 'S'){ 
-                    continue;
-                }
-                else (resp = 'n' && resp = 'N') {
-                break;
-                }   */
                 in = new Scanner(System.in);
                 coste.setId(100);
                 coste.setFecha(Calendar.getInstance().getTime());
@@ -191,15 +222,20 @@ public class Coste {
                 do {
                     System.out.println("¿Quiere añadir un nuevo coste? Si es asi pulse S, de lo contrario pulse N");
                     resp = in.next().charAt(0);
-                    if(resp=='s' || resp=='S') continue;
-                    if(resp=='n' || resp=='N') break OUTER;
-                    else System.out.println("Respuesta no valida");
+                    if (resp == 's' || resp == 'S') {
+                        continue;
+                    }
+                    if (resp == 'n' || resp == 'N') {
+                        break OUTER;
+                    } else {
+                        System.out.println("Respuesta no valida");
+                    }
                 } while (resp != 's' && resp != 'S' && resp != 'n' && resp != 'N');
-                
+
             }
-            
+
         } while (respuesta != 's' && respuesta != 'S');
-        
+
         return coste;
     }
 
@@ -228,10 +264,10 @@ public class Coste {
 
     @Override
     public String toString() {
-        return "Coste{" + "id=" + id + ", fecha=" + fecha + ", importe=" + importe + ", reporte=" + reporte + ", acomodador=" + acomodador + ", limpiador=" + limpiador + '}';
+        return "Coste{" + "id=" + id + ", idAcomodador=" + idAcomodador + ", idLimpieza=" + idLimpieza + ", idInforme=" + idInforme + ", idNomina=" + idNomina + ", fecha=" + fecha + ", importe=" + importe + ", reporte=" + reporte + ", acomodador=" + acomodador + ", limpiador=" + limpiador + '}';
     }
 
     public String data() {
-        return "" + getId() + "|" + getFecha() + "|" + getImporte() + "|" + getReporte() + "|" + getAcomodador() + "|" + getLimpiador();
+        return "" + getId() + "|" + getIdAcomodador() + "|" + getIdLimpieza() + "|" + getIdInforme() + "|" + getIdNomina() + "|" + getFecha() + "|" + getImporte() + "|" + getReporte() + "|" + getAcomodador() + "|" + getLimpiador();
     }
 }

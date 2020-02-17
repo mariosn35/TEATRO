@@ -15,6 +15,7 @@ import java.util.Scanner;
 public class ETeatro extends Empleado {
 
     private char categoria;
+    private long idGrupo;
     //Modela la categoria del empleado entre A,B,C o D
     private Grupo grupo;
 
@@ -26,21 +27,25 @@ public class ETeatro extends Empleado {
         super(e);
     }
 
-    public ETeatro(Empleado e, char c, Grupo g) {
+    public ETeatro(Empleado e, char c, Grupo g, long idGrupo) {
         super(e);
         this.categoria = c;
         this.grupo = g;
+        this.idGrupo = idGrupo;
 
     }
 
     public ETeatro(ETeatro a) {
         super(a);
         this.categoria = a.getCategoria();
+        this.grupo = a.getGrupo();
+        this.idGrupo = a.getIdGrupo();
 
     }
 
-    public ETeatro(long id, String nombre, String apellidos, String nif, String direccion, String telefono, int horastrabajadas, double salarioporhora, double salariomensual, char categoria, Grupo grupo) {
+    public ETeatro(long id, String nombre, String apellidos, String nif, String direccion, String telefono, int horastrabajadas, double salarioporhora, double salariomensual,long idGrupo ,char categoria, Grupo grupo) {
         super(id, nombre, apellidos, nif, direccion, telefono, horastrabajadas, salarioporhora, salariomensual);
+        this.idGrupo = idGrupo;
         this.categoria = categoria;
         this.grupo = grupo;
     }
@@ -93,6 +98,14 @@ public class ETeatro extends Empleado {
         this.grupo = grupo;
     }
 
+    public long getIdGrupo() {
+        return idGrupo;
+    }
+
+    public void setIdGrupo(long idGrupo) {
+        this.idGrupo = idGrupo;
+    }
+
     public ETeatro getETeatroById(long id) {
 
         ETeatro et = null;
@@ -119,10 +132,10 @@ public class ETeatro extends Empleado {
 
     @Override
     public String toString() {
-        return "ETeatro{" + "categoria=" + categoria + ", grupo=" + grupo + '}';
+        return "ETeatro{" + "categoria=" + categoria + ", idGrupo=" + idGrupo + ", grupo=" + grupo + '}';
     }
 
     public String data() {
-        return super.data() + "|" + getCategoria() + "|" + getGrupo();
+        return super.data() + "|" + getCategoria() + "|" + getGrupo() + "|" + getIdGrupo();
     }
 }

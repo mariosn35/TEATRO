@@ -28,8 +28,14 @@ public class Franquicia {
     private Grupo grupo; //
     private Informe informe;
     private Direccion director;
-
-    public Franquicia(java.sql.Date fecha_creacion, String ubicacion, boolean accesible, Grupo grupo, Informe informe, Direccion director) {
+    private long idGrupo;
+    private long idInforme;
+    private long idDireccion;
+            
+    public Franquicia(java.sql.Date fecha_creacion, String ubicacion, 
+                    boolean accesible, Grupo grupo, Informe informe, 
+                    Direccion director, long idGrupo, long idInforme,
+                    long idDireccion) {
 
         this.fecha_creacion = fecha_creacion;
         this.ubicacion = ubicacion;
@@ -37,6 +43,9 @@ public class Franquicia {
         this.grupo = grupo;
         this.informe = informe;
         this.director = director;
+        this.idGrupo = idGrupo;
+        this.idInforme = idInforme;
+        this.idDireccion = idDireccion;
     }
 
     public static Franquicia nuevafranquicia() throws ParseException {
@@ -164,6 +173,9 @@ public class Franquicia {
         this.informe = a.getInforme();
         this.ubicacion = a.getUbicacion();
         this.accesible = a.isAccesible();
+        this.idGrupo = a.getIdGrupo();
+        this.idInforme = a.getIdInforme();
+        this.idDireccion = a.getIdDireccion();
     }
 
     public Grupo getGrupo() {
@@ -218,12 +230,37 @@ public class Franquicia {
         this.accesible = accesible;
     }
 
+    public long getIdGrupo() {
+        return idGrupo;
+    }
+
+    public void setIdGrupo(long idGrupo) {
+        this.idGrupo = idGrupo;
+    }
+
+    public long getIdInforme() {
+        return idInforme;
+    }
+
+    public void setIdInforme(long idInforme) {
+        this.idInforme = idInforme;
+    }
+
+    public long getIdDireccion() {
+        return idDireccion;
+    }
+
+    public void setIdDireccion(long idDireccion) {
+        this.idDireccion = idDireccion;
+    }
+    
+
     @Override
     public String toString() {
-        return "Franquicia{" + "id=" + id + ", fecha_creacion=" + fecha_creacion + ", ubicacion=" + ubicacion + ", accesible=" + accesible + ", grupo=" + grupo + ", informe=" + informe + ", director=" + director + '}';
+        return "Franquicia{" + "id=" + id + ", fecha_creacion=" + fecha_creacion + ", ubicacion=" + ubicacion + ", accesible=" + accesible + ", grupo=" + grupo + ", informe=" + informe + ", director=" + director + ", idGrupo=" + idGrupo + ", idInforme=" + idInforme + ", idDireccion=" + idDireccion + '}';
     }
 
     public String data() {
-        return "" + getId() + "|" + isAccesible() + "|" + getFecha_creacion() + "|" + getUbicacion() + "|" + getGrupo() + "|" + getInforme() + "|" + getDirector();
+        return "" + getId() + "|" + isAccesible() + "|" + getFecha_creacion() + "|" + getUbicacion() + "|" + getGrupo() + "|" + getInforme() + "|" + getDirector() + "|" + getIdGrupo() + "|" + getIdInforme() + "|" + getIdDireccion();
     }
 }

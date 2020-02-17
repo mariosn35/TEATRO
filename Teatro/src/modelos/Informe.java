@@ -15,17 +15,20 @@ public class Informe  {
     private int anio;/*Modela el anio. Valor positivo*/
     private double balance;/*Modela balance. Valor positivo o valor negativo*/
     private Secretariado secretariado;
+    private long idSecretariado;
 
     public Informe() {
 
     }
 
-    public Informe(long id, int mes, int anio, double balance) {
+    public Informe(long id, int mes, int anio, double balance, Secretariado secretariado, long idSecretariado) {
 
         this.id = id;
         this.mes = mes;
         this.anio = anio;
         this.balance = balance;
+        this.secretariado = secretariado;
+        this.idSecretariado = idSecretariado;
     }
 
     public Informe(Informe i) {
@@ -34,6 +37,8 @@ public class Informe  {
         this.mes = i.getMes();
         this.anio = i.getAnio();
         this.balance = i.getBalance();
+        this.secretariado = i.getSecretariado();
+        this.idSecretariado = i.getIdSecretariado();
     }
 
     
@@ -151,13 +156,22 @@ public class Informe  {
         this.balance = balance;
     }
 
+    public long getIdSecretariado() {
+        return idSecretariado;
+    }
+
+    public void setIdSecretariado(long idSecretariado) {
+        this.idSecretariado = idSecretariado;
+    }
+    
+
     @Override
     public String toString() {
-        return "Informe{" + "id=" + id + ", mes=" + mes + ", anio=" + anio + ", balance=" + balance + ", secretariado=" + secretariado + '}';
+        return "Informe{" + "id=" + id + ", mes=" + mes + ", anio=" + anio + ", balance=" + balance + ", secretariado=" + secretariado + ", idSecretariado=" + idSecretariado + '}';
     }
 
   
     public String data() {
-        return "" + getId() + "|" + getMes() + "|" + getAnio() + "|" + getBalance() + "|" + getSecretariado();
+        return "" + getId() + "|" + getMes() + "|" + getAnio() + "|" + getBalance() + "|" + getSecretariado() + "|" + getIdSecretariado();
     }
 }

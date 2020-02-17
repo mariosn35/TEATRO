@@ -26,8 +26,8 @@ public class Acomodador extends ETeatro {
         super(e);
     }
 
-    public Acomodador(long id, String nombre, String apellidos, String nif, String direccion, String telefono, int horastrabajadas, double salarioporhora, double salariomensual, char categoria, Grupo grupo) {
-        super(id, nombre, apellidos, nif, direccion, telefono, horastrabajadas, salarioporhora, salariomensual, categoria, grupo);
+    public Acomodador(long id, String nombre, String apellidos, String nif, String direccion, String telefono, int horastrabajadas, double salarioporhora, double salariomensual, long idGrupo, char categoria, Grupo grupo) {
+        super(id, nombre, apellidos, nif, direccion, telefono, horastrabajadas, salarioporhora, salariomensual, idGrupo, categoria, grupo);
     }
 
     public Acomodador(Acomodador a) {

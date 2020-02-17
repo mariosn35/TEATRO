@@ -14,7 +14,10 @@ import java.util.Scanner;
 public class Coste {
 
     protected long id;/*Modela el número de reportes. Valor positivo*/
-
+    private long idAcomodador;
+    private long idLimpieza;
+    private long idInforme;
+    private long idNomina;
     private Date fecha;/*Modela fecha. Valor positivo*/
 
     private double importe;/*Modela importe en euros. Valor positivo*/
@@ -27,20 +30,26 @@ public class Coste {
     public Coste() {
     }
 
-    public Coste(long id, Date fecha, double importe, String reporte, Acomodador acomodador, Limpieza limpiador) {
-
+    public Coste(long id, long idAcomodador, long idLimpieza, long idInforme, long idNomina, Date fecha, double importe, String reporte) {
         this.id = id;
+        this.idAcomodador = idAcomodador;
+        this.idLimpieza = idLimpieza;
+        this.idInforme = idInforme;
+        this.idNomina = idNomina;
         this.fecha = fecha;
         this.importe = importe;
         this.reporte = reporte;
-        this.acomodador = acomodador;
-        this.limpiador = limpiador;
-
     }
+
+    
 
     public Coste(Coste c) {
 
         this.id = c.getId();
+        this.idAcomodador= c.getIdAcomodador();
+        this.idLimpieza=c.getIdLimpieza();
+        this.idInforme=c.getIdInforme();
+        this.idNomina=c.getIdNomina();
         this.fecha = c.getFecha();
         this.importe = c.getImporte();
         this.reporte = c.getReporte();
@@ -51,11 +60,43 @@ public class Coste {
     public long getId() {
         return id;
     }
-
+    
     public void setId(long id) {
         this.id = id;
     }
 
+    public long getIdAcomodador() {
+        return idAcomodador;
+    }
+
+    public void setIdAcomodador(long idAcomodador) {
+        this.idAcomodador = idAcomodador;
+    }
+
+    public long getIdLimpieza() {
+        return idLimpieza;
+    }
+
+    public void setIdLimpieza(long idLimpieza) {
+        this.idLimpieza = idLimpieza;
+    }
+
+    public long getIdInforme() {
+        return idInforme;
+    }
+
+    public void setIdInforme(long idInforme) {
+        this.idInforme = idInforme;
+    }
+
+    public long getIdNomina() {
+        return idNomina;
+    }
+
+    public void setIdNomina(long idNomina) {
+        this.idNomina = idNomina;
+    }
+    
     public Date getFecha() {
         return fecha;
     }
@@ -183,6 +224,6 @@ public class Coste {
     }
 
     public String data() {
-        return "" + getId() + "|" + getFecha() + "|" + getImporte() + "|" + getReporte() + "|" + getAcomodador() + "|" + getLimpiador();
+        return "" + getId() + "|"+ getIdAcomodador()+"|"+ getIdLimpieza()+"|"+ getIdInforme()+"|"+ getIdNomina()+"|"+ getFecha() + "|" + getImporte() + "|" + getReporte() + "|" + getAcomodador() + "|" + getLimpiador();
     }
 }

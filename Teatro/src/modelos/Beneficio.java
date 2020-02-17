@@ -27,8 +27,11 @@ public class Beneficio {
     public Beneficio() {
     }
 
-    public Beneficio(long id, Date fecha, double importe, String reporte, Informe informe, Bono bono, Taquilla taquilla) {
+    public Beneficio(long id,long idBono,long idTaquilla,long idInforme ,Date fecha, double importe, String reporte, Informe informe, Bono bono, Taquilla taquilla) {
         this.id = id;
+        this.idBono = idBono;
+        this.idTaquilla=idTaquilla;
+        this.idInforme=idInforme;
         this.fecha = fecha;
         this.importe = importe;
         this.reporte = reporte;
@@ -39,6 +42,9 @@ public class Beneficio {
 
     public Beneficio(Beneficio b) {
         this.id = b.getId();
+        this.idBono= b.getIdBono();
+        this.idTaquilla=b.getIdTaquilla();
+        this.idInforme=b.getIdInforme();
         this.fecha = b.getFecha();
         this.importe = b.getImporte();
         this.reporte = b.getReporte();
@@ -289,10 +295,14 @@ public class Beneficio {
 
     @Override
     public String toString() {
-        return "Beneficio{" + "id=" + id + ", fecha=" + fecha + ", importe=" + importe + ", reporte=" + reporte + ", informe=" + informe + ", bono=" + bono + ", taquilla=" + taquilla + '}';
+        return "Beneficio{" + "id=" + id + ", idBono=" + idBono + ", idTaquilla=" + idTaquilla + ", idInforme=" + idInforme + ", fecha=" + fecha + ", importe=" + importe + ", reporte=" + reporte + ", informe=" + informe + ", bono=" + bono + ", taquilla=" + taquilla + '}';
     }
 
+   
+
+    
+
     public String data() {
-        return "" + getId() + "|" + getFecha() + "|" + getImporte() + "|" + getReporte() + "|" + getInforme() + "|" + getBono() + "|" + getTaquilla();
+        return "" + getId() + "|" +getIdBono() +"|"+getIdTaquilla() +"|" +getIdInforme() +"|"+getFecha() + "|" + getImporte() + "|" + getReporte() + "|" + getInforme() + "|" + getBono() + "|" + getTaquilla();
     }
 }

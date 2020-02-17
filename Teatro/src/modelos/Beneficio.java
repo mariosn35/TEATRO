@@ -298,6 +298,8 @@ public class Beneficio {
         return "Beneficio{" + "id=" + id + ", idBono=" + idBono + ", idTaquilla=" + idTaquilla + ", idInforme=" + idInforme + ", fecha=" + fecha + ", importe=" + importe + ", reporte=" + reporte + ", informe=" + informe + ", bono=" + bono + ", taquilla=" + taquilla + '}';
     }
 
+   
+
     
 
     public String data() {

@@ -1,12 +1,7 @@
 package modelos;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import modelos.BonoException;
 import static modelos.BonoException.validarAnnio;
 import static modelos.BonoException.validarCategoria;
@@ -20,6 +15,7 @@ import static modelos.BonoException.validarMes;
 public class Bono {
 
     protected long id;/*Modela id. Valor positivo*/
+    private long idUsuario;
     char tipo;/*c para completo p para parcial*/
     int mes;/*del uno al doce*/
     int annio;/*del 0 al annio actual*/
@@ -29,12 +25,11 @@ public class Bono {
     public Bono() {
     }
 
-    public Bono(long id, char tipo, int mes, int annio, Usuario usuario) throws BonoException {
+    public Bono(long id, long idUsuario, char tipo, int mes, int annio, Usuario usuario) throws BonoException {
 
         this.id = id;
+        this.idUsuario = idUsuario;
 
-        //this.tipo = tipo;
-        
          if (tipo != 'C' && tipo != 'P') {
             throw new BonoException("El tipo no es valido. C o P validos");
         }this.tipo = tipo;
@@ -52,6 +47,7 @@ public class Bono {
     public Bono(Bono b) throws BonoException {
 
         this.id = b.getId();
+        this.id = b.getIdUsuario();
         this.mes = b.getMes();
         if (mes < 1 || mes >12) {
             throw new BonoException("El mes no es valido.De uno a doce ");
@@ -80,6 +76,22 @@ public class Bono {
 
     public long getId() {
         return id;
+    }
+
+    public long getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(long idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public int getAnnio() {
+        return annio;
+    }
+
+    public void setAnnio(int annio) {
+        this.annio = annio;
     }
 
     public void setId(long id) {
@@ -253,11 +265,11 @@ public class Bono {
 
     @Override
     public String toString() {
-        return "Bono{" + "id=" + id + ", tipo=" + tipo + ", mes=" + mes + ",año=" + annio + ", usuario=" + usuario + '}';
+        return "Bono{" + "id=" + id + ", idUsuario=" + idUsuario + ", tipo=" + tipo + ", mes=" + mes + ", annio=" + annio + ", usuario=" + usuario + '}';
     }
 
     public String data() {
-        return "" + getId() + "|" + getMes() + "|" + getTipo() + "|" + getUsuario();
+        return "" + getId() + "|" + getIdUsuario() + "|" + getMes() + "|" + getTipo() + "|" + getUsuario();
     }
 
 }

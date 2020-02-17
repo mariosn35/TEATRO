@@ -1,9 +1,8 @@
 package modelos;
 
-import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -31,36 +30,52 @@ public class Coste {
     }
 
     public Coste(long id, long idAcomodador, long idLimpieza, long idInforme, long idNomina, Date fecha, double importe, String reporte) {
-        this.id = id;
-        this.idAcomodador = idAcomodador;
-        this.idLimpieza = idLimpieza;
-        this.idInforme = idInforme;
-        this.idNomina = idNomina;
-        this.fecha = fecha;
-        this.importe = importe;
-        this.reporte = reporte;
-    }
 
-    
+        try {
+            this.id = id;
+            this.idAcomodador = idAcomodador;
+            this.idLimpieza = idLimpieza;
+            this.idInforme = idInforme;
+            this.fecha = fecha;
+            if (CosteException.validarImporte(importe)) {
+                this.importe = importe;
+            }
+            if (CosteException.validarReporte(reporte)) {
+                this.reporte = reporte;
+            }
+            this.acomodador = acomodador;
+            this.limpiador = limpiador;
+        } catch (CosteException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
 
     public Coste(Coste c) {
 
-        this.id = c.getId();
-        this.idAcomodador= c.getIdAcomodador();
-        this.idLimpieza=c.getIdLimpieza();
-        this.idInforme=c.getIdInforme();
-        this.idNomina=c.getIdNomina();
-        this.fecha = c.getFecha();
-        this.importe = c.getImporte();
-        this.reporte = c.getReporte();
-        this.acomodador = c.getAcomodador();
-        this.limpiador = c.getLimpiador();
+        try {
+            this.id = c.getId();
+
+            this.idAcomodador = c.getIdAcomodador();
+            this.idLimpieza = c.getIdLimpieza();
+            this.idInforme = c.getIdInforme();
+            this.fecha = c.getFecha();
+            if (CosteException.validarImporte(c.getImporte())) {
+                this.importe = c.getImporte();
+            }
+            if (CosteException.validarReporte(c.getReporte())) {
+                this.reporte = c.getReporte();
+            }
+            this.acomodador = c.getAcomodador();
+            this.limpiador = c.getLimpiador();
+        } catch (CosteException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     public long getId() {
         return id;
     }
-    
+
     public void setId(long id) {
         this.id = id;
     }
@@ -96,7 +111,7 @@ public class Coste {
     public void setIdNomina(long idNomina) {
         this.idNomina = idNomina;
     }
-    
+
     public Date getFecha() {
         return fecha;
     }
@@ -110,7 +125,13 @@ public class Coste {
     }
 
     public void setImporte(double importe) {
-        this.importe = importe;
+        try {
+            if (CosteException.validarImporte(importe)) {
+                this.importe = importe;
+            }
+        } catch (CosteException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     public String getReporte() {
@@ -118,7 +139,13 @@ public class Coste {
     }
 
     public void setReporte(String reporte) {
-        this.reporte = reporte;
+        try {
+            if (CosteException.validarReporte(reporte)) {
+                this.reporte = reporte;
+            }
+        } catch (CosteException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     public Acomodador getAcomodador() {
@@ -137,22 +164,21 @@ public class Coste {
         this.limpiador = limpiador;
     }
 
-    public static Coste nuevoCoste() throws CosteException {
-        char d = 'h';
-        char z = 'l';
+    public static Coste nuevoCoste() {
+        char respuesta = '-';
+        char resp = '-';
         Coste coste = new Coste();
         Scanner in;
-        double importe = -1;
+        double importe;
         String reporte;
         in = new Scanner(System.in);
         Acomodador acomodador = null;
         Limpieza limpieza = null;
-        do {
 
-            //System.out.println("Introduzca la fecha de creacion");
-            //Date fe=Cajadeherramientas.readDate(in,"DD-MM-YYYY");
-            //c.setFecha(fe);
-            /*  System.out.println("Introduzca la fecha con formato dd-mm-yyyy");
+        //System.out.println("Introduzca la fecha de creacion");
+        //Date fe=Cajadeherramientas.readDate(in,"DD-MM-YYYY");
+        //c.setFecha(fe);
+        /*  System.out.println("Introduzca la fecha con formato dd-mm-yyyy");
                  
              String fecha = in.nextLine();
              SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy");
@@ -169,29 +195,47 @@ public class Coste {
              System.out.println("valid date");
              coste.setFecha(fe);
              }
-             */
+         */
+        OUTER:
+        do {
             try {
+                in = new Scanner(System.in);
+                coste.setId(100);
+                coste.setFecha(Calendar.getInstance().getTime());
+
                 System.out.println("Introduzca el importe en euros");
-                importe = Double.valueOf(in.nextLine());
-                CosteException.validarImporte(importe);
+                String importeIntroducido = in.nextLine();
+                CosteException.validarImporte(importeIntroducido);
+                importe = Double.valueOf(importeIntroducido);
                 coste.setImporte(importe);
+                System.out.println("Introduzca el Reporte");
+                reporte = in.nextLine();
+                CosteException.validarReporte(reporte);
+                coste.setReporte(reporte);
+
+                System.out.println("¿Los datos son correctos?" + coste);
+                System.out.println("Si lo son pulse S para continuar de lo contrario pulse N");
+                respuesta = in.next().charAt(0);
             } catch (CosteException ex) {
-                System.out.println("se ha producido una CosteException:" + ex.getMessage());
-            } catch (java.lang.NumberFormatException ex) {
-                System.out.println("se ha producido una NumberFormatException:" + ex.getMessage());
+                System.out.println(ex.getMessage());
+                in = new Scanner(System.in);
+                do {
+                    System.out.println("¿Quiere añadir un nuevo coste? Si es asi pulse S, de lo contrario pulse N");
+                    resp = in.next().charAt(0);
+                    if (resp == 's' || resp == 'S') {
+                        continue;
+                    }
+                    if (resp == 'n' || resp == 'N') {
+                        break OUTER;
+                    } else {
+                        System.out.println("Respuesta no valida");
+                    }
+                } while (resp != 's' && resp != 'S' && resp != 'n' && resp != 'N');
+
             }
 
-            System.out.println("Introduzca el Reporte");
-            reporte = in.nextLine();
+        } while (respuesta != 's' && respuesta != 'S');
 
-            coste.setReporte(reporte);
-
-            System.out.println("¿Los datos son correctos?" + coste);
-
-            System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
-            d = in.next().charAt(0);
-
-        } while (d != 's' && d != 'S');
         return coste;
     }
 
@@ -220,10 +264,10 @@ public class Coste {
 
     @Override
     public String toString() {
-        return "Coste{" + "id=" + id + ", fecha=" + fecha + ", importe=" + importe + ", reporte=" + reporte + ", acomodador=" + acomodador + ", limpiador=" + limpiador + '}';
+        return "Coste{" + "id=" + id + ", idAcomodador=" + idAcomodador + ", idLimpieza=" + idLimpieza + ", idInforme=" + idInforme + ", idNomina=" + idNomina + ", fecha=" + fecha + ", importe=" + importe + ", reporte=" + reporte + ", acomodador=" + acomodador + ", limpiador=" + limpiador + '}';
     }
 
     public String data() {
-        return "" + getId() + "|"+ getIdAcomodador()+"|"+ getIdLimpieza()+"|"+ getIdInforme()+"|"+ getIdNomina()+"|"+ getFecha() + "|" + getImporte() + "|" + getReporte() + "|" + getAcomodador() + "|" + getLimpiador();
+        return "" + getId() + "|" + getIdAcomodador() + "|" + getIdLimpieza() + "|" + getIdInforme() + "|" + getIdNomina() + "|" + getFecha() + "|" + getImporte() + "|" + getReporte() + "|" + getAcomodador() + "|" + getLimpiador();
     }
 }

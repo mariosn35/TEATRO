@@ -12,6 +12,8 @@ import java.util.Scanner;
 public class Nomina {
 
     protected long id;/*Modela id. Valor positivo*/
+    private long idSecretario;
+    private long idEmpleado;
     private int mes;/*Modela mes. Valor positivo*/
     private int anio;/*Modela año. Valor positivo*/
     private boolean revisado;/*Modela si está revisada o no*/
@@ -23,9 +25,10 @@ public class Nomina {
 
     }
 
-    public Nomina(long id, int mes, int anio, boolean revisado, Empleado empleado, Coste coste, Secretariado secretariado) throws NominaException {
-
+    public Nomina(long id, long idSecretario, long idEmpleado, int mes, int anio, boolean revisado, Empleado empleado, Coste coste, Secretariado secretariado) throws NominaException {
         this.id = id;
+        this.idSecretario = idSecretario;
+        this.idEmpleado = idEmpleado;
         this.mes = mes;
          if (mes < 1 || mes > 12) {
             throw new NominaException("El mes sólo es valido del uno al doce");
@@ -43,6 +46,8 @@ public class Nomina {
     public Nomina(Nomina n) throws NominaException {
 
         this.id = n.getId();
+        this.idEmpleado = n.getIdEmpleado();
+        this.idSecretario = n.getIdSecretario();
         this.mes = n.getMes();
         if (mes < 1 || mes > 12) {
             throw new NominaException("El mes sólo es valido del uno al doce");
@@ -99,6 +104,22 @@ public class Nomina {
 
     public int getAnio() {
         return anio;
+    }
+
+    public long getIdSecretario() {
+        return idSecretario;
+    }
+
+    public void setIdSecretario(long idSecretario) {
+        this.idSecretario = idSecretario;
+    }
+
+    public long getIdEmpleado() {
+        return idEmpleado;
+    }
+
+    public void setIdEmpleado(long idEmpleado) {
+        this.idEmpleado = idEmpleado;
     }
 
     public void setAnio(int anio) throws NominaException {
@@ -210,10 +231,10 @@ public class Nomina {
 
     @Override
     public String toString() {
-        return "Nomina{" + "id=" + id + ", mes=" + mes + ", anio=" + anio + ", revisado=" + revisado + '}' + ", empleado=" + empleado + "coste=" + coste + ", secretariado=" + secretariado;
+        return "Nomina{" + "id=" + id + ", idSecretario=" + idSecretario + ", idEmpleado=" + idEmpleado + ", mes=" + mes + ", anio=" + anio + ", revisado=" + revisado + ", empleado=" + empleado + ", coste=" + coste + ", secretariado=" + secretariado + '}';
     }
 
     public String data() {
-        return "" + getId() + "|" + getMes() + "|" + getAnio() + "|" + getRevisado() + "|" + getEmpleado() + "|" + getCoste() + "|" + getSecretariado();
+        return "" + getId() + "|" + getIdSecretario() + "|" + getIdEmpleado() + "|" + getMes() + "|" + getAnio() + "|" + getRevisado() + "|" + getEmpleado() + "|" + getCoste() + "|" + getSecretariado();
     }
 }

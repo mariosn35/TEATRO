@@ -9,7 +9,22 @@ import java.text.ParseException;
 import java.util.Scanner;
 
 /**
- *
+ *(idGrupo,seman,anio,nombre)
+(idEteatro,idGrupo,atributosEpleado,categoria)
+(idFranquicia,idGrupo,idInforme,idDireccion,fechaCreacion,ubicacion,accesible)
+(idInforme,idSecretariado,mes,anio,balance)
+(idSecretariado,atributosEOficina)
+(idDireccion,atributosEOficina)
+(idCoste,idInforme,idAcomodador,idLimpieza,idNomina,fecha,importe,reporte)
+(idBeneficio,idInforme,idTaquilla,idBono,fecha,reporte,importe)
+(idAcomodador,atributosdeETeatro)
+(idLimpieza,atributosdeETeatro)
+(idNomina,idSecretariado,idEmpleado,revisado,mes,anio)
+(idTaquilla,atributosETeatro)
+(idBono,idUsuario,tipo,mes)
+(idUsuario,nombre,telefono,nif,email)
+(idEmpleado,nombre,apellidos,nif,direccion,telefono)
+(idEOficina,atributosEmpleado,antiguedad)
  * @author roter
  */
 public class Prueba {

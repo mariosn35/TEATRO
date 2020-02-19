@@ -17,11 +17,11 @@ public class Serialization {
       /**
        *  Serializing the object
        */
-      SerializationUtil.serialize(empleado, "D:\\Users\\DAW114\\Desktop\\serialization.txt");
+      SerializationUtil.serialize(empleado, "serialization.txt");
       /**
        * Deserializing the object
        */
-      Empleado newEmpleado = (Empleado) SerializationUtil.deserialize("D:\\Users\\DAW114\\Desktop\\serialization.txt");
+      Empleado newEmpleado = (Empleado) SerializationUtil.deserialize(".txt");
       System.out.println(newEmpleado.toString());
     } catch (IOException | ClassNotFoundException e) {
       e.printStackTrace();

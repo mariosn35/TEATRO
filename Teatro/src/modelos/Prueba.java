@@ -95,6 +95,10 @@ public class Prueba {
                     break;
 
                 case 4:
+                    Coste c= new Coste();
+                    c.nuevoCoste();
+                    String texto= "D:\\texto.txt";
+                    c.LeerFichero(texto);
                     break;
                 default:
                     System.out.println("Valor incorrecto!");

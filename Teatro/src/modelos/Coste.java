@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
+import java.io.*;
 
 /**
  *
@@ -12,20 +13,46 @@ import java.util.Scanner;
  */
 public class Coste {
 
-    protected long id;/*Modela el número de reportes. Valor positivo*/
+
+    protected long id;//Modela el número de reportes. Valor positivo
     private long idAcomodador;
     private long idLimpieza;
     private long idInforme;
     private long idNomina;
-    private Date fecha;/*Modela fecha. Valor positivo*/
-
-    private double importe;/*Modela importe en euros. Valor positivo*/
-
-    private String reporte;/*Modela reporte*/
-
+    private Date fecha;//Modela fecha. Valor positivo*
+    private double importe; //Modela importe en euros. Valor positivo
+    private String reporte;//Modela reporte
     private Acomodador acomodador = null;
     private Limpieza limpiador = null;
 
+    
+    public static void LeerFichero (String archivo){
+    FileReader fr = null;
+    BufferedReader br = null;
+     try {
+        
+         fr = new FileReader (archivo);
+         br = new BufferedReader(fr);
+
+         String linea;
+         while((linea=br.readLine())!=null)
+             
+            System.out.println(linea);
+         
+      }
+      catch(IOException e1){
+         e1.printStackTrace();
+      }finally{
+         try{                    
+            if( null != fr ){   
+               fr.close();     
+            }                  
+         }catch (IOException e2){ 
+            e2.printStackTrace();
+         }
+      }
+}
+    
     public Coste() {
     }
 

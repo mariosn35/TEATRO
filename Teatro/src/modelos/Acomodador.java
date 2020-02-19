@@ -201,6 +201,35 @@ public class Acomodador extends ETeatro implements Serializable {
     
    
     }
+      public void exportarABinario(String ruta) throws IOException{
+     //Copiado de vindios.
+     //Copiado de vindios.
+      FileOutputStream flujoLectura;
+      ObjectOutputStream Oos;
+       try{
+           
+            //Abro stream, crea el fichero si no existe
+            flujoLectura=new FileOutputStream(ruta, true);
+            //Escribimos en el fichero un String y un caracter 97 (a)
+            Oos = new ObjectOutputStream(flujoLectura);
+            Oos.writeObject(this);
+           
+            Oos.flush();
+                //Abro el stream, el fichero debe existir
+            
+            //Leemos el fichero y lo mostramos por pantalla
+            
+          
+        }catch(IOException e){
+            System.out.println("Error E/S: "+e);
+        }
+    
+
+    
+//String[]Cadenas=String split ("\\|")
+    
+   
+    }
     
     
     @Override

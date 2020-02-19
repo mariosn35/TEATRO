@@ -11,7 +11,7 @@ import java.io.*;
  * @author Mario
  * @version 1.1
  */
-public class Coste {
+public class Coste implements Serializable {
 
 
     protected long id;//Modela el número de reportes. Valor positivo

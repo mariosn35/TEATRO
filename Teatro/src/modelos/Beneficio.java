@@ -3,6 +3,7 @@ package modelos;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.text.ParseException;
@@ -14,7 +15,7 @@ import java.util.Scanner;
  * @author Mario
  * @version 1.1
  */
-public class Beneficio {
+public class Beneficio implements Serializable  {
 
     protected long id;/*Modela el identificador propio*/
     private long idBono;

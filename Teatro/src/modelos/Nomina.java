@@ -3,6 +3,7 @@ package modelos;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Serializable;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -12,7 +13,7 @@ import java.util.Scanner;
  * @author Mario
  * @version 1.1
  */
-public class Nomina {
+public class Nomina implements Serializable {
 
     protected long id;/*Modela id. Valor positivo*/
     private long idSecretario;

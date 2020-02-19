@@ -3,6 +3,7 @@ package modelos;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Serializable;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -17,7 +18,7 @@ import java.util.Scanner;
  * @author roter
  * @version 1.0
  */
-public class Limpieza extends ETeatro {
+public class Limpieza extends ETeatro implements Serializable {
 
     
     

@@ -1,5 +1,8 @@
 package modelos;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.text.ParseException;
@@ -292,7 +295,35 @@ public class Beneficio {
          */
         return Beneficios;
     }
+    
+     public void exportarAFichero(String ruta) throws IOException{
+     
+     FileWriter flujoLectura;
+     BufferedWriter flujoBuffer = null;
+       try{
+           
+            //Abro stream, crea el fichero si no existe
+            flujoLectura=new FileWriter(ruta);
+            //Escribimos en el fichero un String y un caracter 97 (a)
+            flujoBuffer=new BufferedWriter(flujoLectura);
+            flujoBuffer.write(this.data());
+           
+            flujoBuffer.flush();
+                //Abro el stream, el fichero debe existir
+            
+            //Leemos el fichero y lo mostramos por pantalla
+            
+          
+        }catch(IOException e){
+            System.out.println("Error E/S: "+e);
+        }
+    
 
+    
+//String[]Cadenas=String split ("\\|")
+    
+   
+    }
     @Override
     public String toString() {
         return "Beneficio{" + "id=" + id + ", idBono=" + idBono + ", idTaquilla=" + idTaquilla + ", idInforme=" + idInforme + ", fecha=" + fecha + ", importe=" + importe + ", reporte=" + reporte + ", informe=" + informe + ", bono=" + bono + ", taquilla=" + taquilla + '}';

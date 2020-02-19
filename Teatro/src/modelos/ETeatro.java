@@ -8,6 +8,7 @@ package modelos;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -15,7 +16,7 @@ import java.util.Scanner;
  *
  * @author Andres version 1.0
  */
-public class ETeatro extends Empleado {
+public class ETeatro extends Empleado implements Serializable {
 
     private char categoria;
     private long idGrupo;

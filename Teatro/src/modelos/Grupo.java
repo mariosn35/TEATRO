@@ -3,6 +3,7 @@ package modelos;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -17,7 +18,7 @@ import java.util.Scanner;
  * @author roter
  * @version 1.0
  */
-public class Grupo {
+public class Grupo implements Serializable {
 
     protected long id;
     private int anno;//**Indica el año de creacion del grupo. Tiene que ser el año actual 

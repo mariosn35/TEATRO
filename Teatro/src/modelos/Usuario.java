@@ -3,6 +3,7 @@ package modelos;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -11,7 +12,7 @@ import java.util.Scanner;
  * @author Mario
  * @version 1.0
  */
-public class Usuario {
+public class Usuario implements Serializable {
 
     protected long identificador;/*Modela id. Valor positivo*/
     private String nombre;/*Modela nombre. Contiene solo caracteres alfabéticos*/

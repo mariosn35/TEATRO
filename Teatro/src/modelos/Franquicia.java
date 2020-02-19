@@ -8,6 +8,7 @@ package modelos;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -18,7 +19,7 @@ import java.util.ArrayList;
  *
  * @author Andres version 1.0
  */
-public class Franquicia {
+public class Franquicia implements Serializable {
 
     protected long id;
     //Modela el numero identificador propio de cada franquicia

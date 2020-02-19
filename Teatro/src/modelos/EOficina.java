@@ -3,6 +3,7 @@ package modelos;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -16,7 +17,7 @@ import java.util.Scanner;
  * @author roter
  * @version 1.0
  */
-public class EOficina extends Empleado {
+public class EOficina extends Empleado implements Serializable {
 
     private int antiguedad;
 

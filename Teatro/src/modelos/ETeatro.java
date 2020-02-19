@@ -136,6 +136,6 @@ public class ETeatro extends Empleado {
     }
 
     public String data() {
-        return super.data() + "|" + getCategoria() + "|" + getGrupo() + "|" + getIdGrupo();
+        return super.data() + "|" + getCategoria() + "|"  + getIdGrupo();
     }
 }

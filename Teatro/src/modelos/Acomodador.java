@@ -5,6 +5,11 @@
  */
 package modelos;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -163,7 +168,18 @@ public class Acomodador extends ETeatro {
          */
         return c;
     }
+    public Acomodador exportarAFichero(File texto){
+       Acomodador acomodador;
+        acomodador = this;
+      
 
+    
+    //String[]Cadenas=String split ("\\|")
+    
+    return acomodador;
+    }
+    
+    
     @Override
     public String toString() {
         return super.toString() + "Acomodador{" + '}';

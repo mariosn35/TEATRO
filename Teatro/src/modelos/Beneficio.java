@@ -303,6 +303,6 @@ public class Beneficio {
     
 
     public String data() {
-        return "" + getId() + "|" +getIdBono() +"|"+getIdTaquilla() +"|" +getIdInforme() +"|"+getFecha() + "|" + getImporte() + "|" + getReporte() + "|" + getInforme() + "|" + getBono() + "|" + getTaquilla();
+        return "" + getId() + "|" +getIdBono() +"|"+getIdTaquilla() +"|" +getIdInforme() +"|"+getFecha() + "|" + getImporte() + "|" + getReporte();
     }
 }

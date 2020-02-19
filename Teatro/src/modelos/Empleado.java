@@ -6,11 +6,14 @@
 package modelos;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.Serializable;
 /**
  *
  * @author Andres version 1.0
  */
-public class Empleado {
+public class Empleado implements Serializable {
+    
+    private static final long serialVersionUID = 123325L;
 
     protected long id;
     //Modela el identificador propio de cada empleado
@@ -33,16 +36,16 @@ public class Empleado {
         super();
     }
 
-    public Empleado(Empleado a) {
-        this.apellidos = a.getApellidos();
-        this.direccion = a.getDireccion();
-        this.id = a.getId();
-        this.nombre = a.getNombre();
-        this.nif = a.getNif();
-        this.telefono = a.getTelefono();
-        this.horastrabajadas = a.getHorastrabajadas();
-        this.salarioporhora = a.getSalarioporhora();
-        this.salariomensual = a.getSalariomensual();
+    public Empleado(Empleado empleado) {
+        this.apellidos = empleado.getApellidos();
+        this.direccion = empleado.getDireccion();
+        this.id = empleado.getId();
+        this.nombre = empleado.getNombre();
+        this.nif = empleado.getNif();
+        this.telefono = empleado.getTelefono();
+        this.horastrabajadas = empleado.getHorastrabajadas();
+        this.salarioporhora = empleado.getSalarioporhora();
+        this.salariomensual = empleado.getSalariomensual();
     }
 
     public Empleado(long id, String nombre, String apellidos, String nif, String direccion, String telefono, int horastrabajadas, double salarioporhora, double salariomensual) {
@@ -70,43 +73,43 @@ public class Empleado {
         double salariomensual;
         
     in = new Scanner(System.in);
-    Empleado e = new Empleado();
+    Empleado empleado = new Empleado();
     do{
     System.out.println("Introduce tu nombre");
     nombre=in.nextLine();
-    e.setNombre(nombre);
+    empleado.setNombre(nombre);
     System.out.println("Introduce tus apellidos");
     apellidos=in.nextLine();
-    e.setApellidos(apellidos);
+    empleado.setApellidos(apellidos);
     System.out.println("Introduce tu nif");
     nif=in.nextLine();
-    e.setNif(nif);
+    empleado.setNif(nif);
     System.out.println("Introduce tu direccion");
     direccion=in.nextLine();
-    e.setDireccion(direccion);
+    empleado.setDireccion(direccion);
     System.out.println("Introduce tu telefono");
     telefono=in.nextLine();
-    e.setTelefono(telefono);
+    empleado.setTelefono(telefono);
         System.out.println("Introduce las horas trabajadas");
     horastrabajadas=in.nextInt();
-    e.setHorastrabajadas(horastrabajadas);
+    empleado.setHorastrabajadas(horastrabajadas);
         System.out.println("Introduce el salario por hora");
     salarioporhora=in.nextDouble();
-    e.setSalarioporhora(salarioporhora);
+    empleado.setSalarioporhora(salarioporhora);
         System.out.println("Introduce el salario mínimo mensual");
     salariomensual=in.nextDouble();
-    e.setSalariomensual(salariomensual);
-      System.out.println("¿Los datos son correctos?"+e);
+    empleado.setSalariomensual(salariomensual);
+      System.out.println("¿Los datos son correctos?"+empleado);
       
       System.out.println("Si lo son pulse s para continuar de lo contrario pulse n");
       s= in.next().charAt(0);
       } while  (s!='s'&& s!='S' );           
 
-    return e;
+    return empleado;
     
        }
            public Empleado getEmpleadoById (long Id) {
-    Empleado e = null;
+    Empleado empleado = null;
     /* for(int i=0; i< Lista.size (); i++){
      e=(Empleado) Lista[i];
      
@@ -115,7 +118,7 @@ public class Empleado {
         
      } 
      */
-    return e;
+    return empleado;
     }
     
     public ArrayList<Empleado> getAllEmpleados() {

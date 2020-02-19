@@ -6,13 +6,14 @@ import modelos.BonoException;
 import static modelos.BonoException.validarAnnio;
 import static modelos.BonoException.validarCategoria;
 import static modelos.BonoException.validarMes;
+import java.io.Serializable;
 
 /**
  *
  * @author Mario
  * @version 1.1
  */
-public class Bono {
+public class Bono implements Serializable {
 
     protected long id;/*Modela id. Valor positivo*/
     private long idUsuario;

@@ -12,16 +12,7 @@ import java.io.IOException;
 public class Serialization {
     public static void main(String[] args) {
     Empleado empleado = new Empleado();
-    empleado.nuevoEmpleado();
-//    empleado.setId(1);
-//    empleado.setNombre("Mario");
-//    empleado.setApellidos("Mario");
-//    empleado.setNif("Mario");
-//    empleado.setDireccion("Mario");
-//    empleado.setTelefono("Mario");
-//    empleado.setHorastrabajadas(3);
-//    empleado.setSalarioporhora(2.00);
-//    empleado.setSalariomensual(2.00);
+    empleado = Empleado.nuevoEmpleado();
     try {
       /**
        *  Serializing the object

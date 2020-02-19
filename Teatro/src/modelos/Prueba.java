@@ -103,7 +103,7 @@ public class Prueba {
                 case 4:
                     Coste c= new Coste();
                     c.nuevoCoste();
-                    String texto= "D:\\texto.txt";
+
                     c.LeerFichero(texto);
                     break;
                 default:

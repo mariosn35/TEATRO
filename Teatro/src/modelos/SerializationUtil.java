@@ -16,7 +16,7 @@ import java.io.ObjectOutputStream;
  *
  * @author DAW114
  */
-public class WriteObject {
+public class SerializationUtil {
 
     public static Object deserialize(String fileName) throws IOException,
       ClassNotFoundException {

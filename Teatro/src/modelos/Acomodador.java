@@ -5,11 +5,7 @@
  */
 package modelos;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.*; 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -20,7 +16,7 @@ import java.util.Scanner;
  *
  * @author Andres version 1.0
  */
-public class Acomodador extends ETeatro {
+public class Acomodador extends ETeatro implements Serializable {
 
     //Modela los costes producidos por cada acomodador
     public Acomodador() {
@@ -168,15 +164,42 @@ public class Acomodador extends ETeatro {
          */
         return c;
     }
-    public Acomodador exportarAFichero(File texto){
-       Acomodador acomodador;
-        acomodador = this;
-      
+     //public void exportarAbinario(String ruta) throws IOException{
+     
+     //FileOutputStream fus = new FileOutputStream(ruta);
+     //fus.write(this.data());
+     
+     
+     
+     
+     //}
+    public void exportarAFichero(String ruta) throws IOException{
+     
+     FileWriter flujoLectura;
+     BufferedWriter flujoBuffer = null;
+       try{
+           
+            //Abro stream, crea el fichero si no existe
+            flujoLectura=new FileWriter(ruta);
+            //Escribimos en el fichero un String y un caracter 97 (a)
+            flujoBuffer=new BufferedWriter(flujoLectura);
+            flujoBuffer.write(this.data());
+           
+            flujoBuffer.flush();
+                //Abro el stream, el fichero debe existir
+            
+            //Leemos el fichero y lo mostramos por pantalla
+            
+          
+        }catch(IOException e){
+            System.out.println("Error E/S: "+e);
+        }
+    
 
     
-    //String[]Cadenas=String split ("\\|")
+//String[]Cadenas=String split ("\\|")
     
-    return acomodador;
+   
     }
     
     

@@ -5,6 +5,8 @@
  */
 package modelos;
 
+import java.io.File;
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.Scanner;
 
@@ -29,7 +31,7 @@ import java.util.Scanner;
  */
 public class Prueba {
 
-    public static void main(String[] args) throws ParseException, CosteException{
+    public static void main(String[] args) throws ParseException, CosteException, IOException{
         //Franquicia.nuevafranquicia();
         //Usuario.nuevoUsuario();
         //  Acomodador.nuevoAcomodador();
@@ -54,6 +56,10 @@ public class Prueba {
             a = Acomodador.nuevoAcomodador();
             ArrayList<Coste> costesReparacion = a.añadirCosteReparacion();
          */
+        String texto = "texto.txt";
+        Acomodador acomo=new Acomodador();
+        acomo =Acomodador.nuevoAcomodador();
+        acomo.exportarAFichero(texto);
         int opcion;
       Scanner in = new Scanner(System.in);
         do {
@@ -103,5 +109,5 @@ public class Prueba {
         } while (opcion != 4);
 
     }
-
+    
 }

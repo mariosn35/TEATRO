@@ -8,6 +8,7 @@ package modelos;
 import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -58,8 +59,8 @@ public class Prueba {
          */
         String texto = "texto.txt";
         Acomodador acomo=new Acomodador();
-        acomo =Acomodador.nuevoAcomodador();
-        acomo.exportarAFichero(texto);
+        //acomo =Acomodador.nuevoAcomodador();
+        //acomo.exportarAFichero(texto);
         int opcion;
       Scanner in = new Scanner(System.in);
         do {
@@ -101,10 +102,15 @@ public class Prueba {
                     break;
 
                 case 4:
-                    Coste c= new Coste();
-                    c.nuevoCoste();
-
-                    c.LeerFichero(texto);
+                    Coste c = new Coste();
+//                    c = Coste.nuevoCoste();
+//                    if(c!=null)
+//                        System.out.println("Creado coste correctamente");
+//                        
+                    texto = "D://texto.txt";
+                    c.exportarAFichero(texto);
+                    String texto2 = "D://texto2.txt";
+                    ArrayList<Coste> costes = Coste.LeerFichero(texto2);
                     break;
                 default:
                     System.out.println("Valor incorrecto!");

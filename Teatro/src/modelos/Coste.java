@@ -13,7 +13,6 @@ import java.io.*;
  */
 public class Coste implements Serializable {
 
-
     protected long id;//Modela el número de reportes. Valor positivo
     private long idAcomodador;
     private long idLimpieza;
@@ -25,34 +24,38 @@ public class Coste implements Serializable {
     private Acomodador acomodador = null;
     private Limpieza limpiador = null;
 
-    
-    public static void LeerFichero (String archivo){
-    FileReader fr = null;
-    BufferedReader br = null;
-     try {
-        
-         fr = new FileReader (archivo);
-         br = new BufferedReader(fr);
+    public static ArrayList<Coste> LeerFichero(String archivo) {
+        FileReader entrada = null;
+        BufferedReader br = null;
+        ArrayList<Coste> ret = new ArrayList<Coste>();
 
-         String linea;
-         while((linea=br.readLine())!=null)
-             
-            System.out.println(linea);
-         
-      }
-      catch(IOException e1){
-         e1.printStackTrace();
-      }finally{
-         try{                    
-            if( null != fr ){   
-               fr.close();     
-            }                  
-         }catch (IOException e2){ 
-            e2.printStackTrace();
-         }
-      }
-}
-    
+        try {
+            entrada = new FileReader(archivo);
+            br = new BufferedReader(entrada);
+
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                String[] partes = linea.split("\\|");
+                int idCoste = Integer.valueOf(partes[0]);
+
+                //Coste c = new Coste(idCoste,); 
+                //ret.add(c);
+            }
+
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        } finally {
+            try {
+                if (entrada != null) {
+                    entrada.close();
+                }
+            } catch (IOException e2) {
+                e2.printStackTrace();
+            }
+        }
+        return ret;
+    }
+
     public Coste() {
     }
 
@@ -194,7 +197,7 @@ public class Coste implements Serializable {
     public static Coste nuevoCoste() {
         char respuesta = '-';
         char resp = '-';
-        Coste coste = new Coste();
+        Coste coste = null;
         Scanner in;
         double importe;
         String reporte;
@@ -227,6 +230,7 @@ public class Coste implements Serializable {
         do {
             try {
                 in = new Scanner(System.in);
+                coste = new Coste();
                 coste.setId(100);
                 coste.setFecha(Calendar.getInstance().getTime());
 
@@ -288,40 +292,39 @@ public class Coste implements Serializable {
          */
         return Costes;
     }
-     public void exportarAFichero(String ruta) throws IOException{
-     
-     FileWriter flujoLectura;
-     BufferedWriter flujoBuffer = null;
-       try{
-           
-            //Abro stream, crea el fichero si no existe
-            flujoLectura=new FileWriter(ruta);
-            //Escribimos en el fichero un String y un caracter 97 (a)
-            flujoBuffer=new BufferedWriter(flujoLectura);
-            flujoBuffer.write(this.data());
-           
-            flujoBuffer.flush();
-                //Abro el stream, el fichero debe existir
-            
-            //Leemos el fichero y lo mostramos por pantalla
-            
-          
-        }catch(IOException e){
-            System.out.println("Error E/S: "+e);
-        }
-    
 
-    
-//String[]Cadenas=String split ("\\|")
-    
-   
+    /**
+     * *
+     * Función que exporta un coste a un fichero de texto
+     *
+     * @param ruta String con la ruta del fichero
+     * @return true si se exportó con éxito; false en caso contrario
+     * @exception IOException si hubo problema al exportar
+     */
+    public boolean exportarAFichero(String ruta) throws IOException {
+        FileWriter flujoLectura;
+        BufferedWriter flujoBuffer = null;
+        try {
+
+            //Abro stream, crea el fichero si no existe
+            flujoLectura = new FileWriter(ruta);
+            flujoBuffer = new BufferedWriter(flujoLectura);
+            flujoBuffer.write(this.data());
+            flujoBuffer.flush();
+
+        } catch (IOException e) {
+            System.out.println("Error E/S: " + e);
+            return false;
+        }
+        return true;
     }
+
     @Override
     public String toString() {
         return "Coste{" + "id=" + id + ", idAcomodador=" + idAcomodador + ", idLimpieza=" + idLimpieza + ", idInforme=" + idInforme + ", idNomina=" + idNomina + ", fecha=" + fecha + ", importe=" + importe + ", reporte=" + reporte + ", acomodador=" + acomodador + ", limpiador=" + limpiador + '}';
     }
 
     public String data() {
-        return "" + getId() + "|" + getIdAcomodador() + "|" + getIdLimpieza() + "|" + getIdInforme() + "|" + getIdNomina() + "|" + getFecha() + "|" + getImporte() + "|" + getReporte() + "|" + getAcomodador() + "|" + getLimpiador();
+        return "" + getId() + "|" + getIdAcomodador() + "|" + getIdLimpieza() + "|" + getIdInforme() + "|" + getIdNomina() + "|" + getFecha() + "|" + getImporte() + "|" + getReporte();
     }
 }

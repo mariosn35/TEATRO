@@ -30,7 +30,19 @@ public class Nomina implements Serializable {
     public Nomina() {
 
     }
-
+/***
+ * 
+ * @param id
+ * @param idSecretario
+ * @param idEmpleado
+ * @param mes
+ * @param anio
+ * @param revisado
+ * @param empleado
+ * @param coste
+ * @param secretariado
+ * @throws NominaException 
+ */
     public Nomina(long id, long idSecretario, long idEmpleado, int mes, int anio, boolean revisado, Empleado empleado, Coste coste, Secretariado secretariado) throws NominaException {
         this.id = id;
         this.idSecretario = idSecretario;
@@ -48,7 +60,11 @@ public class Nomina implements Serializable {
         this.coste = coste;
         this.secretariado = secretariado;
     }
-
+/***
+ * 
+ * @param n
+ * @throws NominaException 
+ */
     public Nomina(Nomina n) throws NominaException {
 
         this.id = n.getId();
@@ -142,6 +158,13 @@ public class Nomina implements Serializable {
     public void setRevisado(boolean revisado) {
         this.revisado = revisado;
     }
+    /***
+     * crea un objeto de tipo nomina y le pide al usuario que le meta datos
+     * @return un objeto de tipo nomina
+     * @throws ParseException
+     * @throws NominaException
+     * @throws CosteException 
+     */
     public static Nomina nuevoNomina() throws ParseException, NominaException,CosteException {
     char g='s';
     Nomina nomina = new Nomina();

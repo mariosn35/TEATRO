@@ -35,7 +35,18 @@ public class Franquicia implements Serializable {
     private long idGrupo;
     private long idInforme;
     private long idDireccion;
-            
+    /**
+     * Constructor por argumentos
+     * @param fecha_creacion
+     * @param ubicacion
+     * @param accesible
+     * @param grupo
+     * @param informe
+     * @param director
+     * @param idGrupo
+     * @param idInforme
+     * @param idDireccion 
+     */
     public Franquicia(java.sql.Date fecha_creacion, String ubicacion, 
                     boolean accesible, Grupo grupo, Informe informe, 
                     Direccion director, long idGrupo, long idInforme,
@@ -51,7 +62,11 @@ public class Franquicia implements Serializable {
         this.idInforme = idInforme;
         this.idDireccion = idDireccion;
     }
-
+    /**
+     * Este metodo crea una nueva Franquicia 
+     * @return
+     * @throws ParseException 
+     */
     public static Franquicia nuevafranquicia() throws ParseException {
         char s='a';
         char z='a';
@@ -257,6 +272,13 @@ public class Franquicia implements Serializable {
     public void setIdDireccion(long idDireccion) {
         this.idDireccion = idDireccion;
     }
+    /**
+     * *
+     * Función que exporta una franquicia a un fichero de texto
+     *
+     * @param ruta String con la ruta del fichero
+     * @exception IOException si hubo problema al exportar
+     */
      public void exportarAFichero(String ruta) throws IOException{
      
      FileWriter flujoLectura;

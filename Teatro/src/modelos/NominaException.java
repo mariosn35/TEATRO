@@ -9,6 +9,7 @@ package modelos;
  *
  * @author DAW114
  */
+
 public class NominaException extends Exception {
     
     public NominaException(String msj){

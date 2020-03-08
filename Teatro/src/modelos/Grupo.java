@@ -33,21 +33,32 @@ public class Grupo implements Serializable {
 
     public Grupo() {
     }
-
+    /**
+     * Constructor por argumentos
+     * @param semana
+     * @param anno
+     * @param nombre 
+     */
     public Grupo(int semana, int anno, String nombre) {
 
         this.semana = semana;
         this.anno = anno;
         this.nombre = nombre;
     }
-
+    /**
+     * Constructor de copia
+     * @param g 
+     */
     public Grupo(Grupo g) {
         this.semana = g.getSemana();
         this.anno = g.getAnno();
         this.nombre = g.getNombre();
 
     }
-
+    /**
+     * Este metodo crea un nuevo grupo con los datos añadidos por teclado.
+     * @return Devuelve el grupo creado.
+     */
     public static Grupo nuevogrupo() {
         char s='a';
         Scanner in;
@@ -134,6 +145,11 @@ public class Grupo implements Serializable {
     public void setSemana(int semana) {
         this.semana = semana;
     }
+    /**
+     * Esta funcion exporta a un fichero de texto el grupo creado.
+     * @param ruta Es la direccion del archivo de texto.
+     * @throws IOException Puede lanzar IOException
+     */
      public void exportarAFichero(String ruta) throws IOException{
      
      FileWriter flujoLectura;

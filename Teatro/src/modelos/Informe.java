@@ -24,7 +24,15 @@ public class Informe implements Serializable {
     public Informe() {
 
     }
-
+    /**
+     * Constructor por argumentos
+     * @param id
+     * @param mes
+     * @param anio
+     * @param balance
+     * @param secretariado
+     * @param idSecretariado 
+     */
     public Informe(long id, int mes, int anio, double balance, Secretariado secretariado, long idSecretariado) {
 
         this.id = id;
@@ -34,7 +42,10 @@ public class Informe implements Serializable {
         this.secretariado = secretariado;
         this.idSecretariado = idSecretariado;
     }
-
+    /**
+     * Constructor de copia
+     * @param i 
+     */
     public Informe(Informe i) {
 
         this.id = i.getId();
@@ -45,7 +56,10 @@ public class Informe implements Serializable {
         this.idSecretariado = i.getIdSecretariado();
     }
 
-    
+    /**
+     * Este metodo crea un nuevo informe con los datos añadidos por teclado.
+     * @return Devuelve el informe creado.
+     */
     public static Informe nuevoinforme() {
         char d='a';
         Scanner in;
@@ -167,7 +181,11 @@ public class Informe implements Serializable {
     public void setIdSecretariado(long idSecretariado) {
         this.idSecretariado = idSecretariado;
     }
-    
+    /**
+     * Exporta a un fichero de texto el informe.
+     * @param ruta Es la direccion de la ruta del archivo de texto.
+     * @throws IOException Puede lanzar IOException
+     */
      public void exportarAFichero(String ruta) throws IOException{
      
      FileWriter flujoLectura;

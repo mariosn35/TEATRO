@@ -28,7 +28,19 @@ public class Nomina implements Serializable {
     public Nomina() {
 
     }
-
+    /**
+     * Constructor por argumentos
+     * @param id
+     * @param idSecretario
+     * @param idEmpleado
+     * @param mes
+     * @param anio
+     * @param revisado
+     * @param empleado
+     * @param coste
+     * @param secretariado
+     * @throws NominaException 
+     */
     public Nomina(long id, long idSecretario, long idEmpleado, int mes, int anio, boolean revisado, Empleado empleado, Coste coste, Secretariado secretariado) throws NominaException {
         this.id = id;
         this.idSecretario = idSecretario;
@@ -46,7 +58,11 @@ public class Nomina implements Serializable {
         this.coste = coste;
         this.secretariado = secretariado;
     }
-
+    /**
+     * Constructor de copia 
+     * @param n
+     * @throws NominaException Puede lanzar NominaException
+     */
     public Nomina(Nomina n) throws NominaException {
 
         this.id = n.getId();
@@ -140,7 +156,14 @@ public class Nomina implements Serializable {
     public void setRevisado(boolean revisado) {
         this.revisado = revisado;
     }
-     public static Nomina nuevoNomina() throws ParseException, NominaException,CosteException {
+    /***
+     * Este metodo crea una nueva nomina con los datos introducidos por teclado.
+     * @return Devuelve la nomina creada
+     * @throws ParseException Puede lanzar ParseException
+     * @throws NominaException Puede lanzar NominaException
+     * @throws CosteException  Puede lanzar CosteException
+     */
+    public static Nomina nuevoNomina() throws ParseException, NominaException,CosteException {
     char g='s';
     Nomina nomina = new Nomina();
     int mes;
@@ -232,6 +255,15 @@ public class Nomina implements Serializable {
          */
         return Nominas;
     }
+    
+    /**
+     * *
+     * Función que exporta una nomina a un fichero de texto
+     *
+     * @param ruta String con la ruta del fichero
+     * @exception IOException si hubo problema al exportar
+     */
+    
      public void exportarAFichero(String ruta) throws IOException{
      
      FileWriter flujoLectura;

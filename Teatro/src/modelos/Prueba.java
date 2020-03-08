@@ -32,6 +32,13 @@ import java.util.Scanner;
  */
 public class Prueba {
 
+    /***
+     * Este metodo main abre un menu con cuatro opciones. Pulsando 1 creamos un nuevo bono, pulsando 2 un nuevo coste, pulsando 3 llamamos
+     * al metodo "calcularNomina" y pulsando 4, aunque ponga salir, deberia ser una prueba para el metodo LeerFichero de la clase coste.
+     * @throws ParseException Puede lanzar ParseException
+     * @throws CosteException Puede lanzar CosteException
+     * @throws IOException Puede lanzar IOException
+     */
     public static void main(String[] args) throws ParseException, CosteException, IOException{
         //Franquicia.nuevafranquicia();
         //Usuario.nuevoUsuario();
@@ -68,7 +75,7 @@ public class Prueba {
         System.out.println("Pulse 1 para comprar bono");
         System.out.println("Pulse 2 reportar costes");
         System.out.println("Pulse 3 para calcular nomina");
-        System.out.println("Pulse 4 para salir");
+        System.out.println("Pulse 4 para leer el fichero de texto de la clase coste");
         opcion = in.nextInt();
             
             switch (opcion) {

@@ -15,15 +15,27 @@ import java.util.Scanner;
 public class Usuario implements Serializable {
 
     protected long identificador;/*Modela id. Valor positivo*/
+
     private String nombre;/*Modela nombre. Contiene solo caracteres alfabéticos*/
+
     private String telefono;/*Modela id. Valor positivo*/
+
     private String NIF;/*Modela id. Valor positivo*/
+
     private String email;/*Modela id. Valor positivo. Contiene números, letras y caracteres especiales.*/
+
     private boolean registrado;
 
     public Usuario() {
     }
-
+    /**
+     * Constructor de argumentos.
+     * @param nombre
+     * @param telefono
+     * @param NIF
+     * @param email
+     * @param registrado Un boolean te dice si esta registrado o no.
+     */
     public Usuario(String nombre, String telefono, String NIF, String email, boolean registrado) {
 
         this.nombre = nombre;
@@ -32,7 +44,10 @@ public class Usuario implements Serializable {
         this.email = email;
         this.registrado = registrado;
     }
-
+    /**
+     * Constructor de copia.
+     * @param u 
+     */
     public Usuario(Usuario u) {
 
         this.nombre = u.getNombre();
@@ -90,9 +105,16 @@ public class Usuario implements Serializable {
         this.registrado = registrado;
     }
 
+    /**
+     * *
+     * Este metodo crea un nuevo usuario predeterminado con los datos que se
+     * vayan introduciendo por teclado en los campos requeridos.
+     *
+     * @return Devuelve un nuevo usuario ya creado con los datos introducidos.
+     */
     public static Usuario nuevoUsuario() {
 
-        char s='s';
+        char s = 's';
 
         Usuario usuario = new Usuario();
         Scanner in;
@@ -128,12 +150,12 @@ public class Usuario implements Serializable {
 
         Usuario u = null;
         /* for(int i=0; i< Lista.size (); i++){
-     n=(Usuario) Lista[i];
+         n=(Usuario) Lista[i];
      
-        if( f.getId()== Id){
-        }
+         if( f.getId()== Id){
+         }
         
-     } 
+         } 
          */
         return u;
     }
@@ -141,29 +163,39 @@ public class Usuario implements Serializable {
     public ArrayList<Usuario> getAllUsuarios() {
         ArrayList<Usuario> Usuario = new ArrayList();
         /*for (int i=0; i< Lista.size(); i++)
-           g= Grupo Lista[i];
-       Usuario.add(f);
+         g= Grupo Lista[i];
+         Usuario.add(f);
        
          */
         return Usuario;
     }
 
+    /**
+     * *
+     * Este metodo registra en el sistema el usuario que se este usando en caso
+     * de que el usuario indique que quiere registrarse.
+     */
     public void registrarusuario() {
-        char z='z';
+        char z = 'z';
         Scanner in = new Scanner(System.in);
         System.out.println("Quiere registrarse s para si n para no");
-         z = in.next().charAt(0);
-            if (z == 's' || z=='S') {
+        z = in.next().charAt(0);
+        if (z == 's' || z == 'S') {
 
-                 this.setRegistrado(true);
-            } else if (z == 's' || z=='S') {
-                System.out.println("No se ha registrado");
-                
-            }    
-       
+            this.setRegistrado(true);
+        } else if (z == 's' || z == 'S') {
+            System.out.println("No se ha registrado");
+
+        }
 
     }
-    
+
+    /**
+     * *
+     * Este metodo 
+     *
+     * @return
+     */
     public Bono comprarbono() {
         Bono b = new Bono();
         int a;
@@ -178,8 +210,7 @@ public class Usuario implements Serializable {
                     b = Bono.nuevoBonoUsuario();
                     Beneficio beneficio = new Beneficio();
                     beneficio.setBono(b);
-                    
-                    
+
                     b.setUsuario(this);
                 case 2:
                     break;
@@ -189,34 +220,37 @@ public class Usuario implements Serializable {
         }
         return b;
     }
-     public void exportarAFichero(String ruta) throws IOException{
-     
-     FileWriter flujoLectura;
-     BufferedWriter flujoBuffer = null;
-       try{
-           
+
+    /**
+     * *
+     * Esta función exporta un usuario a un fichero de texto
+     *
+     * @param ruta String con la ruta del fichero
+     * @exception IOException en caso de que hubiera problema al exportar
+     */
+    public void exportarAFichero(String ruta) throws IOException {
+
+        FileWriter flujoLectura;
+        BufferedWriter flujoBuffer = null;
+        try {
+
             //Abro stream, crea el fichero si no existe
-            flujoLectura=new FileWriter(ruta);
+            flujoLectura = new FileWriter(ruta);
             //Escribimos en el fichero un String y un caracter 97 (a)
-            flujoBuffer=new BufferedWriter(flujoLectura);
+            flujoBuffer = new BufferedWriter(flujoLectura);
             flujoBuffer.write(this.data());
-           
+
             flujoBuffer.flush();
                 //Abro el stream, el fichero debe existir
-            
-            //Leemos el fichero y lo mostramos por pantalla
-            
-          
-        }catch(IOException e){
-            System.out.println("Error E/S: "+e);
-        }
-    
 
-    
+            //Leemos el fichero y lo mostramos por pantalla
+        } catch (IOException e) {
+            System.out.println("Error E/S: " + e);
+        }
+
 //String[]Cadenas=String split ("\\|")
-    
-   
     }
+
     @Override
     public String toString() {
         return "Usuario{" + "identificador=" + identificador + ", nombre=" + nombre + ", telefono=" + telefono + ", NIF=" + NIF + ", email=" + email + '}';

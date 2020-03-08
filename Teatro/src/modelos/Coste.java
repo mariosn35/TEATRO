@@ -22,7 +22,7 @@ public class Coste implements Serializable {
     private double importe; //Modela importe en euros. Valor positivo
     private String reporte;//Modela reporte
     private Acomodador acomodador = null;
-    private Limpieza limpiador = null;
+    private Limpiador limpiador = null;
 
     public static ArrayList<Coste> LeerFichero(String archivo) {
         FileReader entrada = null;
@@ -36,14 +36,21 @@ public class Coste implements Serializable {
             String linea;
             while ((linea = br.readLine()) != null) {
                 String[] partes = linea.split("\\|");
-                int idCoste = Integer.valueOf(partes[0]);
-
-                //Coste c = new Coste(idCoste,); 
-                //ret.add(c);
+                long idCoste = Integer.valueOf(partes[0]);
+                long idAcomodador = Integer.valueOf(partes[1]);
+                long idLimpieza = Integer.valueOf(partes[2]);
+                long idInforme = Integer.valueOf(partes[3]);
+                Date fecha = date.valueOf(partes[4]);
+                long idNomina = Integer.valueOf(partes[5]);
+                double importe = Integer.valueOf(partes[6]);
+                String reporte = String.valueOf(partes[7]);
+                
+                
+                Coste c = new Coste(idCoste, idAcomodador, idLimpieza, idInforme, idNomina, fecha, importe, reporte); 
+                ret.add(c);
             }
 
         } catch (IOException e1) {
-            e1.printStackTrace();
         } finally {
             try {
                 if (entrada != null) {
@@ -186,11 +193,11 @@ public class Coste implements Serializable {
         this.acomodador = acomodador;
     }
 
-    public Limpieza getLimpiador() {
+    public Limpiador getLimpiador() {
         return limpiador;
     }
 
-    public void setLimpiador(Limpieza limpiador) {
+    public void setLimpiador(Limpiador limpiador) {
         this.limpiador = limpiador;
     }
 
@@ -203,7 +210,7 @@ public class Coste implements Serializable {
         String reporte;
         in = new Scanner(System.in);
         Acomodador acomodador = null;
-        Limpieza limpieza = null;
+        Limpiador limpieza = null;
 
         //System.out.println("Introduzca la fecha de creacion");
         //Date fe=Cajadeherramientas.readDate(in,"DD-MM-YYYY");

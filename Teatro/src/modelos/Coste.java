@@ -36,7 +36,7 @@ public class Coste implements Serializable {
         try {
             entrada = new FileReader(archivo);
             br = new BufferedReader(entrada);
-
+        
             String linea;
             while ((linea = br.readLine()) != null) {
                 String[] partes = linea.split("\\|");
@@ -44,7 +44,8 @@ public class Coste implements Serializable {
                 long idAcomodador = Integer.valueOf(partes[1]);
                 long idLimpieza = Integer.valueOf(partes[2]);
                 long idInforme = Integer.valueOf(partes[3]);
-                Date fecha = date.valueOf(partes[4]);
+              //  Date fecha = Date.valueOf(partes[4]);
+              Date fecha = null;
                 long idNomina = Integer.valueOf(partes[5]);
                 double importe = Integer.valueOf(partes[6]);
                 String reporte = String.valueOf(partes[7]);

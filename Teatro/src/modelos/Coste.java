@@ -23,7 +23,11 @@ public class Coste implements Serializable {
     private String reporte;//Modela reporte
     private Acomodador acomodador = null;
     private Limpieza limpiador = null;
-
+/***
+ * despedaza las lineas de texto del archivo de texto y luego las pasa como parametros y crea un objeto
+ * @param archivo
+ * @return devuelve un array de costes
+ */
     public static ArrayList<Coste> LeerFichero(String archivo) {
         FileReader entrada = null;
         BufferedReader br = null;
@@ -36,10 +40,10 @@ public class Coste implements Serializable {
             String linea;
             while ((linea = br.readLine()) != null) {
                 String[] partes = linea.split("\\|");
-                int idCoste = Integer.valueOf(partes[0]);
-
-                //Coste c = new Coste(idCoste,); 
-                //ret.add(c);
+                long idCoste = Integer.valueOf(partes[0]);
+                 long idAcomodador = I
+                Coste c = new Coste(idcoste , long idAcomodador, long idLimpieza, long idInforme, long idNomina, Date fecha, double importe, String reporte); 
+                ret.add(c);
             }
 
         } catch (IOException e1) {
@@ -58,7 +62,17 @@ public class Coste implements Serializable {
 
     public Coste() {
     }
-
+/***
+ * 
+ * @param id
+ * @param idAcomodador
+ * @param idLimpieza
+ * @param idInforme
+ * @param idNomina
+ * @param fecha
+ * @param importe
+ * @param reporte 
+ */
     public Coste(long id, long idAcomodador, long idLimpieza, long idInforme, long idNomina, Date fecha, double importe, String reporte) {
 
         try {
@@ -79,7 +93,10 @@ public class Coste implements Serializable {
             System.out.println(ex.getMessage());
         }
     }
-
+/***
+ * 
+ * @param c 
+ */
     public Coste(Coste c) {
 
         try {
@@ -193,7 +210,10 @@ public class Coste implements Serializable {
     public void setLimpiador(Limpieza limpiador) {
         this.limpiador = limpiador;
     }
-
+/***
+ * crea un objeto de tipo coste y le pide al usuario que le meta los datos
+ * @return un objeto de tipo coste
+ */
     public static Coste nuevoCoste() {
         char respuesta = '-';
         char resp = '-';

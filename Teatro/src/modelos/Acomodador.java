@@ -22,19 +22,43 @@ public class Acomodador extends ETeatro implements Serializable {
     public Acomodador() {
         super();
     }
-
+/***
+ * 
+ * @param e 
+ */
+ 
     public Acomodador(ETeatro e) {
         super(e);
     }
-
+/***
+ * 
+ * @param id
+ * @param nombre
+ * @param apellidos
+ * @param nif
+ * @param direccion
+ * @param telefono
+ * @param horastrabajadas
+ * @param salarioporhora
+ * @param salariomensual
+ * @param idGrupo
+ * @param categoria
+ * @param grupo 
+ */
     public Acomodador(long id, String nombre, String apellidos, String nif, String direccion, String telefono, int horastrabajadas, double salarioporhora, double salariomensual, long idGrupo, char categoria, Grupo grupo) {
         super(id, nombre, apellidos, nif, direccion, telefono, horastrabajadas, salarioporhora, salariomensual, idGrupo, categoria, grupo);
     }
-
+/***
+ * 
+ * @param a 
+ */
     public Acomodador(Acomodador a) {
         super(a);
     }
-
+/***
+ * Crea un objeto de tipo acomodador y le al usuario que le asigne valores
+ * @return 
+ */
     public static Acomodador nuevoAcomodador() {
         char z = 's';
         char s = 's';
@@ -77,7 +101,11 @@ public class Acomodador extends ETeatro implements Serializable {
          */
         return Acomodadores;
     }
-
+/***
+ * Crea un objeto de tipo coste y le al usuario que le asigne valores
+ * @return 
+ * @throws ParseException 
+ */
     public Coste nuevoCoste() throws ParseException {
         char d = 'h';
         char z = 'l';
@@ -128,7 +156,11 @@ public class Acomodador extends ETeatro implements Serializable {
         } while (d != 's' && d != 'S');
         return coste;
     }
-
+/***
+ * crea un arraylist en el que va añadiendo nuveos costes
+ * 
+ * @return devuelve un array de costes
+ */
     public ArrayList<Coste> añadirCosteReparacion() {
         ArrayList<Coste> costesReparacion = new ArrayList<Coste>();
         try {
@@ -164,43 +196,37 @@ public class Acomodador extends ETeatro implements Serializable {
          */
         return c;
     }
-     //public void exportarAbinario(String ruta) throws IOException{
-     
-     //FileOutputStream fus = new FileOutputStream(ruta);
-     //fus.write(this.data());
-     
-     
-     
-     
-     //}
-    public void exportarAFichero(String ruta) throws IOException{
-     
-     FileWriter flujoLectura;
-     BufferedWriter flujoBuffer = null;
-       try{
-           
-            //Abro stream, crea el fichero si no existe
-            flujoLectura=new FileWriter(ruta);
-            //Escribimos en el fichero un String y un caracter 97 (a)
-            flujoBuffer=new BufferedWriter(flujoLectura);
-            flujoBuffer.write(this.data());
-           
-            flujoBuffer.flush();
-                //Abro el stream, el fichero debe existir
-            
-            //Leemos el fichero y lo mostramos por pantalla
-            
-          
-        }catch(IOException e){
-            System.out.println("Error E/S: "+e);
-        }
-    
+  /**
+     * *
+     * Función que exporta un coste a un fichero de texto
+     *
+     * @param ruta String con la ruta del fichero
+     * @return true si se exportó con éxito; false en caso contrario
+     * @exception IOException si hubo problema al exportar
+     */
+    public boolean exportarAFichero(String ruta) throws IOException {
+        FileWriter flujoLectura;
+        BufferedWriter flujoBuffer = null;
+        try {
 
-    
-//String[]Cadenas=String split ("\\|")
-    
-   
+            //Abro stream, crea el fichero si no existe
+            flujoLectura = new FileWriter(ruta);
+            flujoBuffer = new BufferedWriter(flujoLectura);
+            flujoBuffer.write(this.data());
+            flujoBuffer.flush();
+
+        } catch (IOException e) {
+            System.out.println("Error E/S: " + e);
+            return false;
+        }
+        return true;
     }
+
+    /***
+     * Exporta al fichero en forma de string binario un objeto mediante el metodo data
+     * @param ruta String con la ruta del fichero
+     * @throws IOException 
+     */
       public void exportarABinario(String ruta) throws IOException{
      //Copiado de vindios.
      //Copiado de vindios.

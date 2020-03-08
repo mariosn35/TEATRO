@@ -115,7 +115,7 @@ public class Acomodador extends ETeatro implements Serializable {
         String reporte;
         in = new Scanner(System.in);
         Acomodador acomodador = null;
-        Limpieza limpieza = null;
+        Limpiador limpieza = null;
         do {
 
             //System.out.println("Introduzca la fecha de creacion");

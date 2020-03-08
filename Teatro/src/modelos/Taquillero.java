@@ -18,30 +18,50 @@ import java.util.Scanner;
  *
  * @author Andres version 1.0
  */
-public class Taquilla extends ETeatro implements Serializable {
+public class Taquillero extends ETeatro implements Serializable {
 
-    public Taquilla() {
+    public Taquillero() {
         super();
     }
-
-    public Taquilla(long id, String nombre, String apellidos, String nif, String direccion, String telefono, int horastrabajadas, double salarioporhora, double salariomensual, long idGrupo, char categoria, Grupo grupo) {
+    /**
+     * Constructor por argumentos
+     * @param id
+     * @param nombre
+     * @param apellidos
+     * @param nif
+     * @param direccion
+     * @param telefono
+     * @param horastrabajadas
+     * @param salarioporhora
+     * @param salariomensual
+     * @param idGrupo
+     * @param categoria
+     * @param grupo 
+     */
+    public Taquillero(long id, String nombre, String apellidos, String nif, String direccion, String telefono, int horastrabajadas, double salarioporhora, double salariomensual, long idGrupo, char categoria, Grupo grupo) {
         super(id, nombre, apellidos, nif, direccion, telefono, horastrabajadas, salarioporhora, salariomensual,idGrupo ,categoria, grupo);
     }
-
-    public Taquilla(Taquilla t) {
+    /**
+     * Constructor de copia
+     * @param t 
+     */
+    public Taquillero(Taquillero t) {
         super(t);
     }
-        public Taquilla(ETeatro e) {
+        public Taquillero(ETeatro e) {
         super(e);
     }
-
-    public static Taquilla nuevoTaquilla() {
+    /***
+     * Este metodo crea un nuevo Empleado Taquillero
+     * @return Devuelve los datos del nuevo taquillero.
+     */
+    public static Taquillero nuevoTaquilla() {
             char s='s';
-     Taquilla taquilla;
+     Taquillero taquilla;
      Scanner in;
      in = new Scanner(System.in);
      do{
-      taquilla = new Taquilla(ETeatro.nuevoETeatro());
+      taquilla = new Taquillero(ETeatro.nuevoETeatro());
      
       System.out.println("¿Los datos son correctos?"+taquilla);
       
@@ -52,11 +72,11 @@ public class Taquilla extends ETeatro implements Serializable {
     return taquilla;
     
     }
-    public Taquilla getTaquillaById(long id) {
+    public Taquillero getTaquillaById(long id) {
 
-        Taquilla t = null;
+        Taquillero t = null;
         /* for(int i=0; i< Lista.size (); i++){
-     n=(Taquilla) Lista[i];
+     n=(Taquillero) Lista[i];
      
         if( f.getId()== Id){
         }
@@ -66,16 +86,16 @@ public class Taquilla extends ETeatro implements Serializable {
         return t;
     }
 
-    public ArrayList<Taquilla> getAllTaquillas() {
-        ArrayList<Taquilla> Taquillas = new ArrayList();
+    public ArrayList<Taquillero> getAllTaquillas() {
+        ArrayList<Taquillero> Taquillas = new ArrayList();
         /*for (int i=0; i< Lista.size(); i++)
            g= Grupo Lista[i];
-       Taquilla.add(f);
+       Taquillero.add(f);
        
          */
         return Taquillas;
     }
- /**
+  /**
      * *
      * Función que exporta un coste a un fichero de texto
      *
@@ -100,11 +120,6 @@ public class Taquilla extends ETeatro implements Serializable {
         }
         return true;
     }
-          /***
-     * Exporta al fichero en forma de string binario un objeto mediante el metodo data
-     * @param ruta String con la ruta del fichero
-     * @throws IOException 
-     */
       public void exportarABinario(String ruta) throws IOException{
      //Copiado de vindios.
      //Copiado de vindios.

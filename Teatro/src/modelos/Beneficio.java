@@ -28,12 +28,16 @@ public class Beneficio implements Serializable  {
     private String reporte;/*Modela reportes.*/
     private Informe informe;
     private Bono bono;
-    private Taquilla taquilla;
+
+    private Taquillero taquilla;
 /***
  * 
  */
+ 
+
     public Beneficio() {
     }
+
 /***
  * 
  * @param id
@@ -47,7 +51,9 @@ public class Beneficio implements Serializable  {
  * @param bono
  * @param taquilla 
  */
-    public Beneficio(long id,long idBono,long idTaquilla,long idInforme ,Date fecha, double importe, String reporte, Informe informe, Bono bono, Taquilla taquilla) {
+
+
+    public Beneficio(long id,long idBono,long idTaquilla,long idInforme ,Date fecha, double importe, String reporte, Informe informe, Bono bono, Taquillero taquilla) {
         this.id = id;
         this.idBono = idBono;
         this.idTaquilla=idTaquilla;
@@ -91,7 +97,7 @@ public class Beneficio implements Serializable  {
         in = new Scanner(System.in);
         Beneficio beneficio = new Beneficio();
         Informe informe = new Informe();
-        Taquilla t = new Taquilla();
+        Taquillero t = new Taquillero();
         Bono bo = new Bono();
         do {
             //System.out.println("Introduzca la fecha de creacion");
@@ -132,7 +138,7 @@ public class Beneficio implements Serializable  {
             System.out.println("Quiere introducir el taquillero ");
             z = in.next().charAt(0);
             if (z == 's' || z == 'S') {
-                t = Taquilla.nuevoTaquilla();
+                t = Taquillero.nuevoTaquilla();
                 beneficio.setTaquilla(t);
             } else {
                 System.out.println("No has asiganado un taquillero a esta este beneficio");
@@ -168,7 +174,7 @@ public class Beneficio implements Serializable  {
         in = new Scanner(System.in);
         Beneficio beneficio = new Beneficio();
         Informe informe ;
-        Taquilla t ;
+        Taquillero t ;
         
         do {
             //System.out.println("Introduzca la fecha de creacion");
@@ -209,7 +215,7 @@ public class Beneficio implements Serializable  {
             System.out.println("Quiere introducir el taquillero ");
             z = in.next().charAt(0);
             if (z == 's' || z == 'S') {
-                t = Taquilla.nuevoTaquilla();
+                t = Taquillero.nuevoTaquilla();
                 beneficio.setTaquilla(t);
             } else {
                 System.out.println("No has asiganado un taquillero a esta este beneficio");
@@ -295,11 +301,11 @@ public class Beneficio implements Serializable  {
         this.bono = bono;
     }
 
-    public Taquilla getTaquilla() {
+    public Taquillero getTaquilla() {
         return taquilla;
     }
 
-    public void setTaquilla(Taquilla taquilla) {
+    public void setTaquilla(Taquillero taquilla) {
         this.taquilla = taquilla;
     }
 

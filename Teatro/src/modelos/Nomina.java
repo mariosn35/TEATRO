@@ -142,7 +142,7 @@ public class Nomina implements Serializable {
     public void setRevisado(boolean revisado) {
         this.revisado = revisado;
     }
-     public static Nomina nuevoNomina() throws ParseException, NominaException,CosteException {
+    public static Nomina nuevoNomina() throws ParseException, NominaException,CosteException {
     char g='s';
     Nomina nomina = new Nomina();
     int mes;
@@ -234,7 +234,7 @@ public class Nomina implements Serializable {
          */
         return Nominas;
     }
-  /**
+   /**
      * *
      * Función que exporta un coste a un fichero de texto
      *

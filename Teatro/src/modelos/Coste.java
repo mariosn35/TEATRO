@@ -22,7 +22,7 @@ public class Coste implements Serializable {
     private double importe; //Modela importe en euros. Valor positivo
     private String reporte;//Modela reporte
     private Acomodador acomodador = null;
-    private Limpieza limpiador = null;
+    private Limpiador limpiador = null;
 /***
  * despedaza las lineas de texto del archivo de texto y luego las pasa como parametros y crea un objeto
  * @param archivo
@@ -41,8 +41,16 @@ public class Coste implements Serializable {
             while ((linea = br.readLine()) != null) {
                 String[] partes = linea.split("\\|");
                 long idCoste = Integer.valueOf(partes[0]);
-                 long idAcomodador = I
-                Coste c = new Coste(idcoste , long idAcomodador, long idLimpieza, long idInforme, long idNomina, Date fecha, double importe, String reporte); 
+                long idAcomodador = Integer.valueOf(partes[1]);
+                long idLimpieza = Integer.valueOf(partes[2]);
+                long idInforme = Integer.valueOf(partes[3]);
+                Date fecha = date.valueOf(partes[4]);
+                long idNomina = Integer.valueOf(partes[5]);
+                double importe = Integer.valueOf(partes[6]);
+                String reporte = String.valueOf(partes[7]);
+
+
+                Coste c = new Coste(idCoste, idAcomodador, idLimpieza, idInforme, idNomina, fecha, importe, reporte); 
                 ret.add(c);
             }
 
@@ -203,11 +211,11 @@ public class Coste implements Serializable {
         this.acomodador = acomodador;
     }
 
-    public Limpieza getLimpiador() {
+    public Limpiador getLimpiador() {
         return limpiador;
     }
 
-    public void setLimpiador(Limpieza limpiador) {
+    public void setLimpiador(Limpiador limpiador) {
         this.limpiador = limpiador;
     }
 /***
@@ -223,7 +231,7 @@ public class Coste implements Serializable {
         String reporte;
         in = new Scanner(System.in);
         Acomodador acomodador = null;
-        Limpieza limpieza = null;
+        Limpiador limpieza = null;
 
         //System.out.println("Introduzca la fecha de creacion");
         //Date fe=Cajadeherramientas.readDate(in,"DD-MM-YYYY");
@@ -339,6 +347,42 @@ public class Coste implements Serializable {
         return true;
     }
 
+    /***
+     * Exporta al fichero en forma de string binario un objeto mediante el metodo data
+     * @param ruta String con la ruta del fichero
+     * @throws IOException 
+     */
+      public void exportarABinario(String ruta) throws IOException{
+     //Copiado de vindios.
+     //Copiado de vindios.
+      FileOutputStream flujoLectura;
+      ObjectOutputStream Oos;
+       try{
+           
+            //Abro stream, crea el fichero si no existe
+            flujoLectura=new FileOutputStream(ruta, true);
+            //Escribimos en el fichero un String y un caracter 97 (a)
+            Oos = new ObjectOutputStream(flujoLectura);
+            Oos.writeObject(this);
+           
+            Oos.flush();
+                //Abro el stream, el fichero debe existir
+            
+            //Leemos el fichero y lo mostramos por pantalla
+            
+          
+        }catch(IOException e){
+            System.out.println("Error E/S: "+e);
+        }
+    
+
+    
+//String[]Cadenas=String split ("\\|")
+    
+   
+    }
+    
+    
     @Override
     public String toString() {
         return "Coste{" + "id=" + id + ", idAcomodador=" + idAcomodador + ", idLimpieza=" + idLimpieza + ", idInforme=" + idInforme + ", idNomina=" + idNomina + ", fecha=" + fecha + ", importe=" + importe + ", reporte=" + reporte + ", acomodador=" + acomodador + ", limpiador=" + limpiador + '}';

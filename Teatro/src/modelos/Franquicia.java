@@ -37,6 +37,7 @@ public class Franquicia implements Serializable {
     private long idGrupo;
     private long idInforme;
     private long idDireccion;
+
             /***
              * 
              * @param fecha_creacion

@@ -194,7 +194,7 @@ public class Informe implements Serializable {
         }
         return true;
     }
-           /***
+    /***
      * Exporta al fichero en forma de string binario un objeto mediante el metodo data
      * @param ruta String con la ruta del fichero
      * @throws IOException 

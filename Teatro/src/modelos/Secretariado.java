@@ -26,19 +26,40 @@ public class Secretariado extends EOficina implements Serializable {
         super();
 
     }
-
+    /**
+     * Construcor por argumentos
+     * @param id
+     * @param nombre
+     * @param apellidos
+     * @param nif
+     * @param direccion
+     * @param telefono
+     * @param antiguedad
+     * @param horastrabajadas
+     * @param salarioporhora
+     * @param salariomensual 
+     */
     public Secretariado(long id, String nombre, String apellidos, String nif, String direccion, String telefono, int antiguedad, int horastrabajadas, double salarioporhora, double salariomensual) {
         super(id, nombre, apellidos, nif, direccion, telefono, antiguedad, horastrabajadas, salarioporhora, salariomensual);
     }
-
+    /**
+     * Constructor de copia
+     * @param s 
+     */
     public Secretariado(Secretariado s) {
         super(s);
     }
-
+    /**
+     * Constructor de copia 
+     * @param e 
+     */
     public Secretariado(EOficina e) {
         super(e);
     }
-
+    /***
+     * Este metodo crea un nuevo Empleado Secretario con los datos que se introducen por teclado.
+     * @return Devuelve el nuevo Secretario con los datos que se han introducido.
+     */
     public static Secretariado nuevoSecretariado() {
         Secretariado secretariado;
         char d='d';

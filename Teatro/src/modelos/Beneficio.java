@@ -1,8 +1,10 @@
 package modelos;
 
 import java.io.BufferedWriter;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
@@ -26,12 +28,32 @@ public class Beneficio implements Serializable  {
     private String reporte;/*Modela reportes.*/
     private Informe informe;
     private Bono bono;
-    private Taquilla taquilla;
+
+    private Taquillero taquilla;
+/***
+ * 
+ */
+ 
 
     public Beneficio() {
     }
 
-    public Beneficio(long id,long idBono,long idTaquilla,long idInforme ,Date fecha, double importe, String reporte, Informe informe, Bono bono, Taquilla taquilla) {
+/***
+ * 
+ * @param id
+ * @param idBono
+ * @param idTaquilla
+ * @param idInforme
+ * @param fecha
+ * @param importe
+ * @param reporte
+ * @param informe
+ * @param bono
+ * @param taquilla 
+ */
+
+
+    public Beneficio(long id,long idBono,long idTaquilla,long idInforme ,Date fecha, double importe, String reporte, Informe informe, Bono bono, Taquillero taquilla) {
         this.id = id;
         this.idBono = idBono;
         this.idTaquilla=idTaquilla;
@@ -43,7 +65,10 @@ public class Beneficio implements Serializable  {
         this.bono = bono;
         this.taquilla = taquilla;
     }
-
+/***
+ * 
+ * @param b 
+ */
     public Beneficio(Beneficio b) {
         this.id = b.getId();
         this.idBono= b.getIdBono();
@@ -56,7 +81,12 @@ public class Beneficio implements Serializable  {
         this.bono = b.getBono();
         this.taquilla = b.getTaquilla();
     }
-
+/***
+ * Crea un objeto de tipo de beneficio y le al usuario que le asigne valores
+ * @return devuelve un beneficio
+ * @throws ParseException
+ * @throws BonoException 
+ */
     public static Beneficio nuevoBeneficio() throws ParseException, BonoException {
         char s = 'a';
         char z = 'a';
@@ -67,7 +97,7 @@ public class Beneficio implements Serializable  {
         in = new Scanner(System.in);
         Beneficio beneficio = new Beneficio();
         Informe informe = new Informe();
-        Taquilla t = new Taquilla();
+        Taquillero t = new Taquillero();
         Bono bo = new Bono();
         do {
             //System.out.println("Introduzca la fecha de creacion");
@@ -108,7 +138,7 @@ public class Beneficio implements Serializable  {
             System.out.println("Quiere introducir el taquillero ");
             z = in.next().charAt(0);
             if (z == 's' || z == 'S') {
-                t = Taquilla.nuevoTaquilla();
+                t = Taquillero.nuevoTaquilla();
                 beneficio.setTaquilla(t);
             } else {
                 System.out.println("No has asiganado un taquillero a esta este beneficio");
@@ -129,6 +159,11 @@ public class Beneficio implements Serializable  {
         } while (s != 's' && s != 'S');
         return beneficio;
     }
+    /***
+     * Crea un beneficio
+     * @return devuelve un objeto de beneficio
+     * @throws ParseException 
+     */
     public Beneficio nuevoBeneficioBono() throws ParseException {
         char s = 'a';
         char z = 'a';
@@ -139,7 +174,7 @@ public class Beneficio implements Serializable  {
         in = new Scanner(System.in);
         Beneficio beneficio = new Beneficio();
         Informe informe ;
-        Taquilla t ;
+        Taquillero t ;
         
         do {
             //System.out.println("Introduzca la fecha de creacion");
@@ -180,7 +215,7 @@ public class Beneficio implements Serializable  {
             System.out.println("Quiere introducir el taquillero ");
             z = in.next().charAt(0);
             if (z == 's' || z == 'S') {
-                t = Taquilla.nuevoTaquilla();
+                t = Taquillero.nuevoTaquilla();
                 beneficio.setTaquilla(t);
             } else {
                 System.out.println("No has asiganado un taquillero a esta este beneficio");
@@ -266,11 +301,11 @@ public class Beneficio implements Serializable  {
         this.bono = bono;
     }
 
-    public Taquilla getTaquilla() {
+    public Taquillero getTaquilla() {
         return taquilla;
     }
 
-    public void setTaquilla(Taquilla taquilla) {
+    public void setTaquilla(Taquillero taquilla) {
         this.taquilla = taquilla;
     }
 
@@ -296,20 +331,51 @@ public class Beneficio implements Serializable  {
          */
         return Beneficios;
     }
-    
-     public void exportarAFichero(String ruta) throws IOException{
-     
-     FileWriter flujoLectura;
-     BufferedWriter flujoBuffer = null;
+  /**
+     * *
+     * Función que exporta un coste a un fichero de texto
+     *
+     * @param ruta String con la ruta del fichero
+     * @return true si se exportó con éxito; false en caso contrario
+     * @exception IOException si hubo problema al exportar
+     */
+    public boolean exportarAFichero(String ruta) throws IOException {
+        FileWriter flujoLectura;
+        BufferedWriter flujoBuffer = null;
+        try {
+
+            //Abro stream, crea el fichero si no existe
+            flujoLectura = new FileWriter(ruta);
+            flujoBuffer = new BufferedWriter(flujoLectura);
+            flujoBuffer.write(this.data());
+            flujoBuffer.flush();
+
+        } catch (IOException e) {
+            System.out.println("Error E/S: " + e);
+            return false;
+        }
+        return true;
+    }
+
+      /***
+     * Exporta al fichero en forma de string binario un objeto mediante el metodo data
+     * @param ruta String con la ruta del fichero
+     * @throws IOException 
+     */
+      public void exportarABinario(String ruta) throws IOException{
+     //Copiado de vindios.
+     //Copiado de vindios.
+      FileOutputStream flujoLectura;
+      ObjectOutputStream Oos;
        try{
            
             //Abro stream, crea el fichero si no existe
-            flujoLectura=new FileWriter(ruta);
+            flujoLectura=new FileOutputStream(ruta, true);
             //Escribimos en el fichero un String y un caracter 97 (a)
-            flujoBuffer=new BufferedWriter(flujoLectura);
-            flujoBuffer.write(this.data());
+            Oos = new ObjectOutputStream(flujoLectura);
+            Oos.writeObject(this);
            
-            flujoBuffer.flush();
+            Oos.flush();
                 //Abro el stream, el fichero debe existir
             
             //Leemos el fichero y lo mostramos por pantalla

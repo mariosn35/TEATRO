@@ -1,8 +1,10 @@
 package modelos;
 
 import java.io.BufferedWriter;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -28,7 +30,19 @@ public class Nomina implements Serializable {
     public Nomina() {
 
     }
-
+/***
+ * 
+ * @param id
+ * @param idSecretario
+ * @param idEmpleado
+ * @param mes
+ * @param anio
+ * @param revisado
+ * @param empleado
+ * @param coste
+ * @param secretariado
+ * @throws NominaException 
+ */
     public Nomina(long id, long idSecretario, long idEmpleado, int mes, int anio, boolean revisado, Empleado empleado, Coste coste, Secretariado secretariado) throws NominaException {
         this.id = id;
         this.idSecretario = idSecretario;
@@ -46,7 +60,11 @@ public class Nomina implements Serializable {
         this.coste = coste;
         this.secretariado = secretariado;
     }
-
+/***
+ * 
+ * @param n
+ * @throws NominaException 
+ */
     public Nomina(Nomina n) throws NominaException {
 
         this.id = n.getId();
@@ -140,7 +158,14 @@ public class Nomina implements Serializable {
     public void setRevisado(boolean revisado) {
         this.revisado = revisado;
     }
-     public static Nomina nuevoNomina() throws ParseException, NominaException,CosteException {
+    /***
+     * crea un objeto de tipo nomina y le pide al usuario que le meta datos
+     * @return un objeto de tipo nomina
+     * @throws ParseException
+     * @throws NominaException
+     * @throws CosteException 
+     */
+    public static Nomina nuevoNomina() throws ParseException, NominaException,CosteException {
     char g='s';
     Nomina nomina = new Nomina();
     int mes;
@@ -232,19 +257,50 @@ public class Nomina implements Serializable {
          */
         return Nominas;
     }
-     public void exportarAFichero(String ruta) throws IOException{
-     
-     FileWriter flujoLectura;
-     BufferedWriter flujoBuffer = null;
+   /**
+     * *
+     * Función que exporta un coste a un fichero de texto
+     *
+     * @param ruta String con la ruta del fichero
+     * @return true si se exportó con éxito; false en caso contrario
+     * @exception IOException si hubo problema al exportar
+     */
+    public boolean exportarAFichero(String ruta) throws IOException {
+        FileWriter flujoLectura;
+        BufferedWriter flujoBuffer = null;
+        try {
+
+            //Abro stream, crea el fichero si no existe
+            flujoLectura = new FileWriter(ruta);
+            flujoBuffer = new BufferedWriter(flujoLectura);
+            flujoBuffer.write(this.data());
+            flujoBuffer.flush();
+
+        } catch (IOException e) {
+            System.out.println("Error E/S: " + e);
+            return false;
+        }
+        return true;
+    }
+          /***
+     * Exporta al fichero en forma de string binario un objeto mediante el metodo data
+     * @param ruta String con la ruta del fichero
+     * @throws IOException 
+     */
+      public void exportarABinario(String ruta) throws IOException{
+     //Copiado de vindios.
+     //Copiado de vindios.
+      FileOutputStream flujoLectura;
+      ObjectOutputStream Oos;
        try{
            
             //Abro stream, crea el fichero si no existe
-            flujoLectura=new FileWriter(ruta);
+            flujoLectura=new FileOutputStream(ruta, true);
             //Escribimos en el fichero un String y un caracter 97 (a)
-            flujoBuffer=new BufferedWriter(flujoLectura);
-            flujoBuffer.write(this.data());
+            Oos = new ObjectOutputStream(flujoLectura);
+            Oos.writeObject(this);
            
-            flujoBuffer.flush();
+            Oos.flush();
                 //Abro el stream, el fichero debe existir
             
             //Leemos el fichero y lo mostramos por pantalla
@@ -260,6 +316,7 @@ public class Nomina implements Serializable {
     
    
     }
+    
     @Override
     public String toString() {
         return "Nomina{" + "id=" + id + ", idSecretario=" + idSecretario + ", idEmpleado=" + idEmpleado + ", mes=" + mes + ", anio=" + anio + ", revisado=" + revisado + ", empleado=" + empleado + ", coste=" + coste + ", secretariado=" + secretariado + '}';

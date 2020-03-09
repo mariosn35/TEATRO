@@ -1,8 +1,10 @@
 package modelos;
 
 import java.io.BufferedWriter;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 import modelos.BonoException;
@@ -25,10 +27,21 @@ public class Bono implements Serializable {
     int annio;/*del 0 al annio actual*/
 
     private Usuario usuario;
-
+    /***
+     * 
+     */
     public Bono() {
     }
-
+/***
+ * 
+ * @param id
+ * @param idUsuario
+ * @param tipo
+ * @param mes
+ * @param annio
+ * @param usuario
+ * @throws BonoException 
+ */
     public Bono(long id, long idUsuario, char tipo, int mes, int annio, Usuario usuario) throws BonoException {
 
         this.id = id;
@@ -47,7 +60,11 @@ public class Bono implements Serializable {
         }
         this.usuario = usuario;
     }
-
+/***
+ * 
+ * @param b
+ * @throws BonoException 
+ */
     public Bono(Bono b) throws BonoException {
 
         this.id = b.getId();
@@ -133,7 +150,11 @@ public class Bono implements Serializable {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-
+/***
+ * Crea un objeto de tipo bono y le pide al usuario que asigne valores
+ * @return devuelve un objeto tipo bono
+ * @throws BonoException 
+ */
     public static Bono nuevoBono() throws BonoException {
         char s = 's';
         char z = 'z';
@@ -187,7 +208,10 @@ public class Bono implements Serializable {
 
         return bono;
     }
-
+/***
+ * crea un objeto de tipo bono y le pide al usuario que asigne valores
+ * @return un objeto de tipo bono
+ */
     public static Bono nuevoBonoUsuario() {
         char s = 's';
         char z = 'z';
@@ -266,19 +290,51 @@ public class Bono implements Serializable {
          */
         return Bonos;
     }
-     public void exportarAFichero(String ruta) throws IOException{
-     
-     FileWriter flujoLectura;
-     BufferedWriter flujoBuffer = null;
+  /**
+     * *
+     * Función que exporta un coste a un fichero de texto
+     *
+     * @param ruta String con la ruta del fichero
+     * @return true si se exportó con éxito; false en caso contrario
+     * @exception IOException si hubo problema al exportar
+     */
+    public boolean exportarAFichero(String ruta) throws IOException {
+        FileWriter flujoLectura;
+        BufferedWriter flujoBuffer = null;
+        try {
+
+            //Abro stream, crea el fichero si no existe
+            flujoLectura = new FileWriter(ruta);
+            flujoBuffer = new BufferedWriter(flujoLectura);
+            flujoBuffer.write(this.data());
+            flujoBuffer.flush();
+
+        } catch (IOException e) {
+            System.out.println("Error E/S: " + e);
+            return false;
+        }
+        return true;
+    }
+
+       /***
+     * Exporta al fichero en forma de string binario un objeto mediante el metodo data
+     * @param ruta String con la ruta del fichero
+     * @throws IOException 
+     */
+      public void exportarABinario(String ruta) throws IOException{
+     //Copiado de vindios.
+     //Copiado de vindios.
+      FileOutputStream flujoLectura;
+      ObjectOutputStream Oos;
        try{
            
             //Abro stream, crea el fichero si no existe
-            flujoLectura=new FileWriter(ruta);
+            flujoLectura=new FileOutputStream(ruta, true);
             //Escribimos en el fichero un String y un caracter 97 (a)
-            flujoBuffer=new BufferedWriter(flujoLectura);
-            flujoBuffer.write(this.data());
+            Oos = new ObjectOutputStream(flujoLectura);
+            Oos.writeObject(this);
            
-            flujoBuffer.flush();
+            Oos.flush();
                 //Abro el stream, el fichero debe existir
             
             //Leemos el fichero y lo mostramos por pantalla

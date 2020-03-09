@@ -13,7 +13,6 @@ import java.io.*;
  */
 public class Coste implements Serializable {
 
-
     protected long id;//Modela el número de reportes. Valor positivo
     private long idAcomodador;
     private long idLimpieza;
@@ -23,39 +22,66 @@ public class Coste implements Serializable {
     private double importe; //Modela importe en euros. Valor positivo
     private String reporte;//Modela reporte
     private Acomodador acomodador = null;
-    private Limpieza limpiador = null;
+    private Limpiador limpiador = null;
+/***
+ * despedaza las lineas de texto del archivo de texto y luego las pasa como parametros y crea un objeto
+ * @param archivo
+ * @return devuelve un array de costes
+ */
+    public static ArrayList<Coste> LeerFichero(String archivo) {
+        FileReader entrada = null;
+        BufferedReader br = null;
+        ArrayList<Coste> ret = new ArrayList<Coste>();
 
-    
-    public static void LeerFichero (String archivo){
-    FileReader fr = null;
-    BufferedReader br = null;
-     try {
+        try {
+            entrada = new FileReader(archivo);
+            br = new BufferedReader(entrada);
         
-         fr = new FileReader (archivo);
-         br = new BufferedReader(fr);
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                String[] partes = linea.split("\\|");
+                long idCoste = Integer.valueOf(partes[0]);
+                long idAcomodador = Integer.valueOf(partes[1]);
+                long idLimpieza = Integer.valueOf(partes[2]);
+                long idInforme = Integer.valueOf(partes[3]);
+              //  Date fecha = Date.valueOf(partes[4]);
+              Date fecha = null;
+                long idNomina = Integer.valueOf(partes[5]);
+                double importe = Integer.valueOf(partes[6]);
+                String reporte = String.valueOf(partes[7]);
 
-         String linea;
-         while((linea=br.readLine())!=null)
-             
-            System.out.println(linea);
-         
-      }
-      catch(IOException e1){
-         e1.printStackTrace();
-      }finally{
-         try{                    
-            if( null != fr ){   
-               fr.close();     
-            }                  
-         }catch (IOException e2){ 
-            e2.printStackTrace();
-         }
-      }
-}
-    
-    public Coste() {
+
+                Coste c = new Coste(idCoste, idAcomodador, idLimpieza, idInforme, idNomina, fecha, importe, reporte); 
+                ret.add(c);
+            }
+
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        } finally {
+            try {
+                if (entrada != null) {
+                    entrada.close();
+                }
+            } catch (IOException e2) {
+                e2.printStackTrace();
+            }
+        }
+        return ret;
     }
 
+    public Coste() {
+    }
+/***
+ * 
+ * @param id
+ * @param idAcomodador
+ * @param idLimpieza
+ * @param idInforme
+ * @param idNomina
+ * @param fecha
+ * @param importe
+ * @param reporte 
+ */
     public Coste(long id, long idAcomodador, long idLimpieza, long idInforme, long idNomina, Date fecha, double importe, String reporte) {
 
         try {
@@ -76,7 +102,10 @@ public class Coste implements Serializable {
             System.out.println(ex.getMessage());
         }
     }
-
+/***
+ * 
+ * @param c 
+ */
     public Coste(Coste c) {
 
         try {
@@ -183,24 +212,27 @@ public class Coste implements Serializable {
         this.acomodador = acomodador;
     }
 
-    public Limpieza getLimpiador() {
+    public Limpiador getLimpiador() {
         return limpiador;
     }
 
-    public void setLimpiador(Limpieza limpiador) {
+    public void setLimpiador(Limpiador limpiador) {
         this.limpiador = limpiador;
     }
-
+/***
+ * crea un objeto de tipo coste y le pide al usuario que le meta los datos
+ * @return un objeto de tipo coste
+ */
     public static Coste nuevoCoste() {
         char respuesta = '-';
         char resp = '-';
-        Coste coste = new Coste();
+        Coste coste = null;
         Scanner in;
         double importe;
         String reporte;
         in = new Scanner(System.in);
         Acomodador acomodador = null;
-        Limpieza limpieza = null;
+        Limpiador limpieza = null;
 
         //System.out.println("Introduzca la fecha de creacion");
         //Date fe=Cajadeherramientas.readDate(in,"DD-MM-YYYY");
@@ -227,6 +259,7 @@ public class Coste implements Serializable {
         do {
             try {
                 in = new Scanner(System.in);
+                coste = new Coste();
                 coste.setId(100);
                 coste.setFecha(Calendar.getInstance().getTime());
 
@@ -288,19 +321,52 @@ public class Coste implements Serializable {
          */
         return Costes;
     }
-     public void exportarAFichero(String ruta) throws IOException{
-     
-     FileWriter flujoLectura;
-     BufferedWriter flujoBuffer = null;
+
+    /**
+     * *
+     * Función que exporta un coste a un fichero de texto
+     *
+     * @param ruta String con la ruta del fichero
+     * @return true si se exportó con éxito; false en caso contrario
+     * @exception IOException si hubo problema al exportar
+     */
+    public boolean exportarAFichero(String ruta) throws IOException {
+        FileWriter flujoLectura;
+        BufferedWriter flujoBuffer = null;
+        try {
+
+            //Abro stream, crea el fichero si no existe
+            flujoLectura = new FileWriter(ruta);
+            flujoBuffer = new BufferedWriter(flujoLectura);
+            flujoBuffer.write(this.data());
+            flujoBuffer.flush();
+
+        } catch (IOException e) {
+            System.out.println("Error E/S: " + e);
+            return false;
+        }
+        return true;
+    }
+
+    /***
+     * Exporta al fichero en forma de string binario un objeto mediante el metodo data
+     * @param ruta String con la ruta del fichero
+     * @throws IOException 
+     */
+      public void exportarABinario(String ruta) throws IOException{
+     //Copiado de vindios.
+     //Copiado de vindios.
+      FileOutputStream flujoLectura;
+      ObjectOutputStream Oos;
        try{
            
             //Abro stream, crea el fichero si no existe
-            flujoLectura=new FileWriter(ruta);
+            flujoLectura=new FileOutputStream(ruta, true);
             //Escribimos en el fichero un String y un caracter 97 (a)
-            flujoBuffer=new BufferedWriter(flujoLectura);
-            flujoBuffer.write(this.data());
+            Oos = new ObjectOutputStream(flujoLectura);
+            Oos.writeObject(this);
            
-            flujoBuffer.flush();
+            Oos.flush();
                 //Abro el stream, el fichero debe existir
             
             //Leemos el fichero y lo mostramos por pantalla
@@ -316,12 +382,14 @@ public class Coste implements Serializable {
     
    
     }
+    
+    
     @Override
     public String toString() {
         return "Coste{" + "id=" + id + ", idAcomodador=" + idAcomodador + ", idLimpieza=" + idLimpieza + ", idInforme=" + idInforme + ", idNomina=" + idNomina + ", fecha=" + fecha + ", importe=" + importe + ", reporte=" + reporte + ", acomodador=" + acomodador + ", limpiador=" + limpiador + '}';
     }
 
     public String data() {
-        return "" + getId() + "|" + getIdAcomodador() + "|" + getIdLimpieza() + "|" + getIdInforme() + "|" + getIdNomina() + "|" + getFecha() + "|" + getImporte() + "|" + getReporte() ;
+        return "" + getId() + "|" + getIdAcomodador() + "|" + getIdLimpieza() + "|" + getIdInforme() + "|" + getIdNomina() + "|" + getFecha() + "|" + getImporte() + "|" + getReporte();
     }
 }

@@ -322,6 +322,6 @@ public class Coste implements Serializable {
     }
 
     public String data() {
-        return "" + getId() + "|" + getIdAcomodador() + "|" + getIdLimpieza() + "|" + getIdInforme() + "|" + getIdNomina() + "|" + getFecha() + "|" + getImporte() + "|" + getReporte() + "|" + getAcomodador() + "|" + getLimpiador();
+        return "" + getId() + "|" + getIdAcomodador() + "|" + getIdLimpieza() + "|" + getIdInforme() + "|" + getIdNomina() + "|" + getFecha() + "|" + getImporte() + "|" + getReporte() ;
     }
 }

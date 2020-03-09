@@ -59,6 +59,7 @@ public class Prueba {
         String texto = "texto.txt";
         Acomodador acomo=new Acomodador();
         acomo =Acomodador.nuevoAcomodador();
+        if (acomo!=null);
         acomo.exportarAFichero(texto);
         int opcion;
       Scanner in = new Scanner(System.in);

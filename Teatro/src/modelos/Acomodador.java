@@ -14,15 +14,26 @@ import java.util.Scanner;
 
 /**
  *
- * @author Andres version 1.0
+ * @author Andres version 2.0
  */
 public class Acomodador extends ETeatro implements Serializable {
 
     //Modela los costes producidos por cada acomodador
+      /*
+    Llama al al constructor por defecto de ETEATRO
+    
+    
+    
+    */
     public Acomodador() {
         super();
     }
-
+      /*
+    @
+    
+    
+    
+    */
     public Acomodador(ETeatro e) {
         super(e);
     }
@@ -34,8 +45,14 @@ public class Acomodador extends ETeatro implements Serializable {
     public Acomodador(Acomodador a) {
         super(a);
     }
-
+    /*
+    @
+    
+    
+    
+    */
     public static Acomodador nuevoAcomodador() {
+        
         char z = 's';
         char s = 's';
         Scanner in;

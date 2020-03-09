@@ -10,9 +10,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.Serializable;
+import java.io.*;
 /**
  *
- * @author Andres version 1.0
+ * @author Andres 
+ * version 1.0
  */
 public class Empleado implements Serializable {
     
@@ -31,14 +33,21 @@ public class Empleado implements Serializable {
     private String telefono;
     //Modela el telefono de contacto del empleado
     private int horastrabajadas;
+    //Son las horas trabajadas totales
     private double salarioporhora;
+    //Es la cantidad en euros que vale una horatrabajada
     private double salariomensual;
-    
-
+    //Es el total que recibe el empleado
+    /*
+    *Constructor por defecto.
+    */
     public Empleado() {
-        super();
+        
     }
-
+    /*
+    *Constructor de copia.
+    *
+    */
     public Empleado(Empleado empleado) {
         this.apellidos = empleado.getApellidos();
         this.direccion = empleado.getDireccion();
@@ -50,7 +59,31 @@ public class Empleado implements Serializable {
         this.salarioporhora = empleado.getSalarioporhora();
         this.salariomensual = empleado.getSalariomensual();
     }
-
+    /**
+    *Contructor por argumentos.
+    *@param nombre del empleado de tipo String.
+    *@param apellidos del empleado de tipo String.
+    *@param nif del empleado. 
+    *@param direccion del empleado.
+    *@param telefono del empleado.
+    *@param horastrabajadas por el empleado.
+    *@param salarioporhora valor en euros de una hora.
+    *@param salariomensual total en euros que gana el empleado.
+    */
+    
+    /***
+     * 
+     * @param id
+     * @param nombre
+     * @param apellidos
+     * @param nif
+     * @param direccion
+     * @param telefono
+     * @param horastrabajadas
+     * @param salarioporhora
+     * @param salariomensual 
+     */
+    
     public Empleado(long id, String nombre, String apellidos, String nif, String direccion, String telefono, int horastrabajadas, double salarioporhora, double salariomensual) {
         this.id = id;
         this.nombre = nombre;
@@ -63,6 +96,12 @@ public class Empleado implements Serializable {
         this.salariomensual = salariomensual;
 
     }
+    /*
+    *Crea un nuevo empleado pidiendo completar sus atributos.
+    *@return devuelve el objeto de tipo Empleado con los datos metidos.
+    *nombre,apellidos,nif,direccion,telefono son strings.
+    *horastrabajadas es un entero y salarioporhora y salariomensual son double.
+    */
        public static Empleado nuevoEmpleado() {
         char s='s';
         Scanner in;
